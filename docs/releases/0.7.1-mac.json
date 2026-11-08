@@ -1,0 +1,21 @@
+{
+  "version": "0.7.1",
+  "build": "17",
+  "notarySubmissionID": "78a5f9ae-0a16-42da-8746-9b42bbf3b6c1",
+  "notaryStatus": "Accepted",
+  "architectures": [
+    "arm64",
+    "x86_64"
+  ],
+  "developerIDSignature": true,
+  "secureTimestamp": true,
+  "hardenedRuntime": true,
+  "debuggerEntitlement": false,
+  "sandboxAndNetworkEntitlementsPreserved": true,
+  "stapleValidated": true,
+  "gatekeeper": "Notarized Developer ID",
+  "privateDefaultsAbsent": true,
+  "filename": "Cadence-Mac-0.7.1-17.zip",
+  "sha256": "841ba26667d289f4e7982c126f4e017e2c189f525410a21c61c1dc716c0b3035",
+  "publicDownloadVerified": true
+}

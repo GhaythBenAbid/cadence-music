@@ -4,6 +4,8 @@ Versions below describe implementation milestones. Public binary availability is
 
 ## 0.7.1 (17) — 8 November 2026
 
+- Publish a Developer ID signed, Apple-notarized universal Mac download with a stapled ticket, checksum, MIT license and notices.
+
 - Fix clean package builds by giving the `@main` probe a non-special filename.
 - Add MIT licensing, contributor setup, architecture, privacy/security and release documentation, community templates and source-build CI.
 - Make Server URL an always-visible login input before credentials; remove tailnet-specific assumptions from ordinary playback/download guidance.

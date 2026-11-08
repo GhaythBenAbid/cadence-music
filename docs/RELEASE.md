@@ -49,9 +49,34 @@ xcodebuild -project Cadence.xcodeproj -scheme CadenceMac \
   DEVELOPMENT_TEAM=YOUR_TEAM_ID ARCHS='arm64 x86_64' ONLY_ACTIVE_ARCH=NO archive
 ```
 
-An Apple Development signature is for development; it is not general public distribution. For a public download, use your own Developer ID signing, hardened runtime and Apple notarization/stapling workflow. That complete public Mac distribution pipeline has not been implemented or certified here. Do not advise users to disable Gatekeeper globally.
+An Apple Development signature is for development; it is not general public distribution. For a public download, use your own Developer ID signing, hardened runtime and Apple notarization/stapling workflow. The 0.7.1 Mac release completed this workflow; its [verification record](releases/0.7.1-mac.json) records the accepted submission, final checksum and Gatekeeper result. Do not advise users to disable Gatekeeper globally.
 
 Before attaching a binary, verify its signature, architectures, version and privacy: no private server defaults, signed URLs, live fixtures or embedded configuration. Package with `ditto -c -k --keepParent`, calculate `shasum -a 256`, and publish a checksum alongside sanitized release notes.
+
+### Sign, notarize and staple
+
+Sign a separate distribution copy using your own Developer ID Application identity, `--options runtime`, a secure timestamp and the source entitlements. Confirm `com.apple.security.get-task-allow` is absent; development-signed builds can inject it even in Release. Preserve the sandbox and network entitlements. An isolated build keychain can hold only the release signing identity, without changing the login keychain's settings.
+
+```sh
+codesign --force --options runtime --timestamp \
+  --sign 'Developer ID Application: YOUR NAME (YOUR_TEAM_ID)' \
+  --entitlements Apps/macOS/Cadence.entitlements .build/Distribution/Cadence.app
+codesign --verify --deep --strict .build/Distribution/Cadence.app
+ditto -c -k --keepParent .build/Distribution/Cadence.app .build/notary-input.zip
+xcrun notarytool submit .build/notary-input.zip \
+  --key /absolute/private/path/AuthKey_YOUR_KEY_ID.p8 \
+  --key-id YOUR_KEY_ID --issuer YOUR_ISSUER_ID --wait
+```
+
+Record the returned submission ID. If processing remains In Progress or the wait times out, query/wait on that ID; do not re-upload the same build blindly. Only after **Accepted**:
+
+```sh
+xcrun stapler staple .build/Distribution/Cadence.app
+xcrun stapler validate .build/Distribution/Cadence.app
+spctl --assess --type execute --verbose=4 .build/Distribution/Cadence.app
+```
+
+Require Gatekeeper acceptance from Notarized Developer ID. Repackage the stapled app alongside `LICENSE`, `THIRD_PARTY_NOTICES.md` and short install instructions; calculate the final ZIP checksum. After release upload, download it anonymously and repeat checksum/signature/ticket/Gatekeeper checks on the extracted copy. Never distribute signing keys, private configuration or live fixtures.
 
 ## Public-source and binary releases
 

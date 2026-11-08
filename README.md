@@ -17,7 +17,9 @@ The source is MIT licensed. There is no subscription or paid API built into Cade
 
 *Early demo/simulator screenshots; navigation has evolved. Watch imagery does not establish physical-device acceptance.*
 
-**Source release: 0.7.1 (17).** Server URL starts blank on iPhone and Mac. Public prebuilt apps are not available yet; the Mac notarization and physical Watch acceptance requirements are described below.
+**Mac 0.7.1 (17):** [Download the signed and Apple-notarized ZIP](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.1/Cadence-Mac-0.7.1-17.zip) · [SHA-256 checksum](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.1/Cadence-Mac-0.7.1-17.zip.sha256). Supports Apple Silicon and Intel on macOS 14+. Unzip, drag Cadence.app into Applications, and open it. Enter your own Server URL/account or choose Explore demo. The archive includes the MIT license and asset notices.
+
+Server URL starts blank on iPhone and Mac. iPhone/Watch public distribution is not available yet; use source builds or an existing private beta invitation. Physical Watch acceptance remains pending as described below.
 
 [Report a bug](https://github.com/bahachammakhi/cadence-music/issues/new/choose) · [Report a vulnerability privately](https://github.com/bahachammakhi/cadence-music/security/advisories/new)
 
@@ -66,7 +68,7 @@ For your own library, enter your **HTTPS Aurral URL, username and password** at 
 | Handoff | One Mac and paired iPhone; receiving/controlling iPhone must be foreground; no remote wake |
 | Watch | Offline design implemented; physical background/Bluetooth/phone-off run acceptance remains pending |
 | Recommendations | Aurral Discover plus local library ranking; no cloud-synced listening profile |
-| Distribution | Development/private beta; no public TestFlight link or notarized public Mac installer |
+| Distribution | Public signed/notarized Mac ZIP; iPhone/Watch source builds or private beta; no public TestFlight link |
 
 Free, instant, reliable access to every mainstream recording is not something this client can supply. Its license covers the code and original bundled assets, not rights to recordings or external services.
 

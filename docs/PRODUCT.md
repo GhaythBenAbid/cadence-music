@@ -23,7 +23,7 @@ The app asks Aurral to prepare missing audio and surfaces its state. It does not
 1. Complete physical iPhone/Watch acceptance: background downloads/transfers, Bluetooth and wrist-down playback, phone-off offline runs, storage pressure and account erasure.
 2. Add tested compatibility with Aurral's newer native API contract before recommending newer server releases.
 3. Improve recovery diagnostics and accessibility through real-device feedback.
-4. Prepare public distribution: clean publication history/assets, portable signing, Mac notarization and clear public beta availability.
+4. Expand public distribution beyond the signed/notarized Mac download: clear iPhone/Watch beta availability and continued physical-device acceptance.
 
 Lyrics, advanced equalizer/crossfade, social features, collaborative/cloud-synced listening profiles, remote wake and a public music service are not delivered features. Roadmap items are proposals, not release promises.
 
