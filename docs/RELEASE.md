@@ -49,7 +49,7 @@ xcodebuild -project Cadence.xcodeproj -scheme CadenceMac \
   DEVELOPMENT_TEAM=YOUR_TEAM_ID ARCHS='arm64 x86_64' ONLY_ACTIVE_ARCH=NO archive
 ```
 
-An Apple Development signature is for development; it is not general public distribution. For a public download, use your own Developer ID signing, hardened runtime and Apple notarization/stapling workflow. The 0.7.1 Mac release completed this workflow; its [verification record](releases/0.7.1-mac.json) records the accepted submission, final checksum and Gatekeeper result. Do not advise users to disable Gatekeeper globally.
+An Apple Development signature is for development; it is not general public distribution. For a public download, use your own Developer ID signing, hardened runtime and Apple notarization/stapling workflow. The 0.7.1 and 0.7.2 Mac releases completed this workflow; the latest [verification record](releases/0.7.2-mac.json) records the accepted submission, final checksum and Gatekeeper result. Do not advise users to disable Gatekeeper globally.
 
 Before attaching a binary, verify its signature, architectures, version and privacy: no private server defaults, signed URLs, live fixtures or embedded configuration. Package with `ditto -c -k --keepParent`, calculate `shasum -a 256`, and publish a checksum alongside sanitized release notes.
 
@@ -77,6 +77,8 @@ spctl --assess --type execute --verbose=4 .build/Distribution/Cadence.app
 ```
 
 Require Gatekeeper acceptance from Notarized Developer ID. Repackage the stapled app alongside `LICENSE`, `THIRD_PARTY_NOTICES.md` and short install instructions; calculate the final ZIP checksum. After release upload, download it anonymously and repeat checksum/signature/ticket/Gatekeeper checks on the extracted copy. Never distribute signing keys, private configuration or live fixtures.
+
+If replacing a development-signed installation with a Developer ID build, macOS can require approval before the new signature can read an existing Keychain item. Keep the old working install available until the user has completed that system approval. Do not change Keychain ACLs, remove credentials or automate protected security dialogs to force migration.
 
 ## Public-source and binary releases
 

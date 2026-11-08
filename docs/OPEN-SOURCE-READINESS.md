@@ -14,7 +14,7 @@ The public Cadence repository starts from a reviewed source snapshot with one ne
 
 The source can be built locally in demo mode without a music server. Source CI covers the package, release helpers, unsigned Mac build, native Mac tests, Watch simulator build, iPhone unit tests and the fresh-user sign-in UI check. See [QA](QA.md) for verification scope.
 
-A public Developer ID signed and Apple-notarized Mac ZIP is available from the [0.7.1 release](https://github.com/bahachammakhi/cadence-music/releases/tag/v0.7.1). Its ticket is stapled; the final anonymous download passed checksum, signature, ticket and Gatekeeper verification. The archive includes the MIT license and asset notices. [Verification record](releases/0.7.1-mac.json).
+A public Developer ID signed and Apple-notarized Mac ZIP is available from the [0.7.2 release](https://github.com/bahachammakhi/cadence-music/releases/tag/v0.7.2). Its ticket is stapled; the final anonymous download passed checksum, signature, ticket and Gatekeeper verification. The archive includes the MIT license and asset notices. [Verification record](releases/0.7.2-mac.json).
 
 An iPhone/Watch public beta still requires an intentionally configured testing/distribution route; private TestFlight access is not a public invitation. Older internal binaries are not attached to this repository.
 

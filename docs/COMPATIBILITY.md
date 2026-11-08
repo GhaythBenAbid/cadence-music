@@ -8,7 +8,7 @@ Cadence uses two separate contracts: Subsonic for available library audio, and A
 |---|---|
 | Aurral 2.12.0 / native API v1 | Retained wire fixtures and prior live library, import and preparation/audio verification. |
 | Native API v2, upstream `743b57d94c54656d9cd7a01adf5a715be4c8d762` | Versioned fixtures plus the real production Hono app in an isolated database, serving only original Cadence audio. |
-| Unknown future version | Rejected instead of guessing that its routes/fields are compatible. |
+| Unknown future native version | Discover contract negotiation rejects it instead of guessing at its browse routes. |
 | Other Subsonic servers | Not certified as complete Aurral replacements. |
 
 The v2 implementation follows the [app contract](https://docs.aurral.org/api/app-contract/) and [pinned registry](https://github.com/lklynet/aurral/blob/743b57d94c54656d9cd7a01adf5a715be4c8d762/backend/config/apiContract.ts). API v2 support starts in Cadence 0.7.2; older 0.7.1 binaries retain their original v1 requirement.

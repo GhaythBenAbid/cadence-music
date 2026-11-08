@@ -4,6 +4,8 @@ Versions below describe implementation milestones. Public binary availability is
 
 ## 0.7.2 (18) — 8 November 2026
 
+- Publish a verified Developer ID signed, Apple-notarized universal Mac update with its checksum and notices.
+
 - Support native API v2 bootstrap capabilities and Discover playlist routes while retaining API v1 behavior.
 - Decode v2 static playlist import status and preserve the Subsonic `shared:` identifiers used by both server versions.
 - Keep provider identity in playlist navigation, reject unsafe/unknown entries and retain visible permission/partial-source errors.

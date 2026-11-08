@@ -17,7 +17,9 @@ The source is MIT licensed. There is no subscription or paid API built into Cade
 
 *Early demo/simulator screenshots; navigation has evolved. Watch imagery does not establish physical-device acceptance.*
 
-**Mac 0.7.1 (17):** [Download the signed and Apple-notarized ZIP](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.1/Cadence-Mac-0.7.1-17.zip) · [SHA-256 checksum](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.1/Cadence-Mac-0.7.1-17.zip.sha256). Supports Apple Silicon and Intel on macOS 14+. Unzip, drag Cadence.app into Applications, and open it. Enter your own Server URL/account or choose Explore demo. The archive includes the MIT license and asset notices.
+**Mac 0.7.2 (18):** [Download the signed and Apple-notarized ZIP](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.2/Cadence-Mac-0.7.2-18.zip) · [SHA-256 checksum](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.2/Cadence-Mac-0.7.2-18.zip.sha256). Supports Apple Silicon and Intel on macOS 14+. Unzip, drag Cadence.app into Applications, and open it. Enter your own Server URL/account or choose Explore demo. The archive includes the MIT license and asset notices.
+
+When moving from a development-signed Mac build, macOS may ask for Keychain access to its saved login. Review that system prompt yourself; do not delete your credentials or disable security protections.
 
 Server URL starts blank on iPhone and Mac. iPhone/Watch public distribution is not available yet; use source builds or an existing private beta invitation. Physical Watch acceptance remains pending as described below.
 

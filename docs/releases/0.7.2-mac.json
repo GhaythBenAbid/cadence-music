@@ -1,0 +1,23 @@
+{
+  "version": "0.7.2",
+  "build": "18",
+  "sourceCommit": "274130ed2ca49efa0b99d76434c447058f3aef0e",
+  "notarySubmissionID": "e31bb4e3-d183-4a9b-a606-cba8430e21f4",
+  "notaryStatus": "Accepted",
+  "architectures": [
+    "arm64",
+    "x86_64"
+  ],
+  "developerIDSignature": true,
+  "secureTimestamp": true,
+  "hardenedRuntime": true,
+  "debuggerEntitlement": false,
+  "sandboxAndNetworkEntitlementsPreserved": true,
+  "stapleValidated": true,
+  "gatekeeper": "Notarized Developer ID",
+  "privateDefaultsAbsent": true,
+  "filename": "Cadence-Mac-0.7.2-18.zip",
+  "sha256": "bc49a365dc35db5a4c5c45e51a6a01758ce7d07cebcc692037af12d232379637",
+  "publicDownloadVerified": true,
+  "downloadURL": "https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.2/Cadence-Mac-0.7.2-18.zip"
+}

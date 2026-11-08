@@ -43,10 +43,6 @@ Keep raw `.xcresult`, logs, archives, signing output and private fixtures in ign
 
 The current source cleanup was verified with 42 Core tests, three release-helper tests, three native Mac tests, a fresh unsigned Mac build and the iPhone welcome-validation UI test. The latter confirms the server field is initially blank/visible and validates HTTPS before account sign-in. XcodeGen generation, local Markdown links, Python compilation and workflow YAML parsing passed.
 
-A heuristic scan covered 372 reachable historical Git blobs plus the current source tree. No recognized private-key/token patterns were found; literal credential candidates were synthetic test fixtures. Historical personal endpoint/signing/config defaults were found and remain a publication consideration. This is not an independent security audit or a guarantee of secret-free history. The first hosted run exposed an `@main`/`main.swift` filename conflict in the probe on Swift 6.3.3; the source was renamed and all 42 package tests also passed from a fresh local scratch directory. Hosted workflow execution is separate from these local checks.
-
-The follow-up server-setup review passed all 42 Core tests, the Mac build and the focused iPhone welcome UI flow after moving Server URL above credentials as a permanent input. The current-tree pattern scan found no private endpoint/signing/config defaults; the historical scan covered 405 blobs and retained the known historical configuration findings. Ordinary networking guidance was made independent of a particular VPN. These are source checks, not a replacement installed/TestFlight build.
-
 ## Public Mac 0.7.1 (17)
 
 Apple accepted notarization submission `78a5f9ae-0a16-42da-8746-9b42bbf3b6c1`. The universal Developer ID signed app has hardened runtime, a secure timestamp, the original sandbox/network permissions and no debugger entitlement. Signature verification, stapling/ticket validation and Gatekeeper assessment passed. The final archive contains the MIT license and asset notices; an anonymous GitHub download matched SHA-256 `841ba26667d289f4e7982c126f4e017e2c189f525410a21c61c1dc716c0b3035` and its extracted app passed those checks again. [Machine-readable verification](releases/0.7.1-mac.json). No private server default or signing material was included.
@@ -54,3 +50,12 @@ Apple accepted notarization submission `78a5f9ae-0a16-42da-8746-9b42bbf3b6c1`. T
 ## 0.7.2 compatibility and client CI
 
 The new CI job passed its Watch simulator build, iPhone app unit suite and fresh-user Server URL UI check alongside existing Mac/Core checks. Local v2 source verification passed 48 Core tests, 54 iOS app tests (seven optional live skips) and three focused iPhone UI flows. The real upstream v2 production app was exercised in an isolated database on loopback, using extended original audio only: bootstrap/authentication, Discover/shelf, import status, retained Subsonic playlist identity, owned-track preparation, complete download checksum and actual full-audio playback passed. See [compatibility](COMPATIBILITY.md) for the exact producer pin and limits.
+
+
+## 0.7.2 (18) distribution
+
+The final source commit `274130ed2ca49efa0b99d76434c447058f3aef0e` passed both [hosted CI jobs](https://github.com/bahachammakhi/cadence-music/actions/runs/42512991060), covering Mac, iPhone and Watch. Local native Mac tests passed all three tests. Phone and embedded Watch archive/export passed with matching 0.7.2 (18) values, background audio declarations and no private server defaults in either executable. Internal TestFlight processing and availability were verified separately; no public beta link is supplied.
+
+Mac notarization was Accepted. The final universal archive passed strict signature, secure timestamp/hardened runtime, no-debugger-entitlement, stapled-ticket and Gatekeeper checks. The anonymously downloaded GitHub ZIP matched SHA-256 `bc49a365dc35db5a4c5c45e51a6a01758ce7d07cebcc692037af12d232379637` and its extracted app passed signature, ticket and Gatekeeper verification again. [Verification record](releases/0.7.2-mac.json).
+
+The local migration from the existing development-signed Mac install stopped in a Keychain read before a responsive window could be verified. The previous working 0.7.1 installation was restored and reopened with its paused song and position preserved. The 0.7.2 upgrade check on that account needs the user's macOS Keychain approval; it is not reported as passed. Physical Watch background/Bluetooth/phone-off acceptance also remains pending.
