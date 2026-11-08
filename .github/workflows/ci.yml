@@ -40,3 +40,61 @@ jobs:
         run: >-
           xcodebuild -project Cadence.xcodeproj -scheme CadenceMacTests
           -destination 'platform=macOS' -derivedDataPath .build/MacTests test
+
+  ios-watch:
+    runs-on: macos-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Show toolchain
+        run: xcodebuild -version && xcodebuild -showsdks
+      - name: Install XcodeGen
+        run: brew list xcodegen >/dev/null 2>&1 || brew install xcodegen
+      - name: Generate project
+        run: xcodegen generate
+      - name: Build Watch companion without signing
+        run: >-
+          xcodebuild -project Cadence.xcodeproj -scheme CadenceWatch
+          -destination 'generic/platform=watchOS Simulator' -derivedDataPath .build/Watch
+          CODE_SIGNING_ALLOWED=NO build
+      - name: Select and boot an installed iPhone simulator
+        id: simulator
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, re, subprocess
+          inventory = json.loads(subprocess.check_output(['xcrun', 'simctl', 'list', 'devices', 'available', '--json']))
+          choices = []
+          for runtime, devices in inventory['devices'].items():
+              if '.iOS-' not in runtime:
+                  continue
+              version = tuple(int(n) for n in re.findall(r'\d+', runtime.rsplit('iOS-', 1)[1]))
+              choices.extend((version, device) for device in devices if device['name'].startswith('iPhone'))
+          if not choices:
+              raise SystemExit('The runner has no available iPhone simulator runtime.')
+          _, device = max(choices, key=lambda item: item[0])
+          if device['state'] != 'Booted':
+              subprocess.run(['xcrun', 'simctl', 'boot', device['udid']], check=True)
+          subprocess.run(['xcrun', 'simctl', 'bootstatus', device['udid'], '-b'], check=True)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('destination=platform=iOS Simulator,id=' + device['udid'] + '\n')
+          print('Using installed simulator:', device['name'])
+          PY
+      - name: iPhone app unit tests with ad-hoc signing
+        env:
+          TEST_DESTINATION: ${{ steps.simulator.outputs.destination }}
+        run: >-
+          xcodebuild -project Cadence.xcodeproj -scheme Cadence
+          -destination "$TEST_DESTINATION" -derivedDataPath .build/iOS
+          CODE_SIGNING_ALLOWED=YES CODE_SIGN_IDENTITY=- ONLY_ACTIVE_ARCH=YES
+          -only-testing:CadenceTests test
+      - name: Fresh-user server setup UI check
+        env:
+          TEST_DESTINATION: ${{ steps.simulator.outputs.destination }}
+        run: >-
+          xcodebuild -project Cadence.xcodeproj -scheme Cadence
+          -destination "$TEST_DESTINATION" -derivedDataPath .build/iOS
+          CODE_SIGNING_ALLOWED=YES CODE_SIGN_IDENTITY=- ONLY_ACTIVE_ARCH=YES
+          -only-testing:CadenceUITests/CadenceUITests/testWelcomeValidation test
