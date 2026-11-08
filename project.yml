@@ -9,8 +9,8 @@ settings:
   base:
     SWIFT_VERSION: '5.0'
     CODE_SIGN_STYLE: Automatic
-    MARKETING_VERSION: 0.7.2
-    CURRENT_PROJECT_VERSION: 18
+    MARKETING_VERSION: 0.7.3
+    CURRENT_PROJECT_VERSION: 19
     ENABLE_USER_SCRIPT_SANDBOXING: true
     ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     GENERATE_INFOPLIST_FILE: false
@@ -90,6 +90,18 @@ targets:
         UIBackgroundModes: [audio]
     dependencies:
       - package: CadenceCore
+  CadenceWatchUITests:
+    type: bundle.ui-testing
+    platform: watchOS
+    sources:
+      - Tests/WatchUI
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bahachammakhi.cadencemusic.watchkitapp.uitests
+        GENERATE_INFOPLIST_FILE: true
+        TEST_TARGET_NAME: CadenceWatch
+    dependencies:
+      - target: CadenceWatch
   CadenceMac:
     type: application
     platform: macOS
@@ -192,6 +204,9 @@ schemes:
         CadenceWatch: all
     run:
       config: Debug
+    test:
+      targets: [CadenceWatchUITests]
+      gatherCoverageData: false
   CadenceMac:
     build:
       targets:

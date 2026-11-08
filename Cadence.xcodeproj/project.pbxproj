@@ -66,6 +66,7 @@
 		860AE9C61ABFD1D0D2693DA6 /* GlobalPlaybackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE8349B521CB3D8E742A7 /* GlobalPlaybackState.swift */; };
 		89F843B3C865B0A6DB859FE8 /* GlobalCatalogViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072428F8DE02C344CA04F64 /* GlobalCatalogViews.swift */; };
 		8A4FB3C7489976906DA4C825 /* HandoffTransportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7089A5311CF143239FA27B8F /* HandoffTransportTests.swift */; };
+		8F9F8EE982D2ADB41C38CFB8 /* WatchPlaybackViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A7B9496E33CD1FA8D140F2 /* WatchPlaybackViews.swift */; };
 		9013A006657824C4FB3EBDA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A43728D47A1365C8A6A3053 /* Assets.xcassets */; };
 		9127DADACB4FACF793732D88 /* PreparationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F966AE23C67F0AD7A3228A60 /* PreparationListView.swift */; };
 		94589AD46A87716CDBF9383A /* GlobalCatalogViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072428F8DE02C344CA04F64 /* GlobalCatalogViews.swift */; };
@@ -74,6 +75,7 @@
 		9CEEC7CC4F7A3CAC34CBE9D0 /* PreparationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F966AE23C67F0AD7A3228A60 /* PreparationListView.swift */; };
 		9E5A53D1EF8D5FC46D46740C /* MacStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65155CA90C565B2F1291D923 /* MacStore.swift */; };
 		9EA2FB0F73023D7E8AC4338B /* DiscoveryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164A4E5776BD38352D0BA58 /* DiscoveryModel.swift */; };
+		9EE078504CA88F12989EA93A /* CadenceWatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E743E80D404618A50FF4EC9 /* CadenceWatchUITests.swift */; };
 		A218CB3AC3AD679BD664E27B /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A22175853D4B80BA214F03 /* KeychainStore.swift */; };
 		A45849B3F78D9E8EDE4108BE /* DiscoveryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164A4E5776BD38352D0BA58 /* DiscoveryModel.swift */; };
 		A5884F7410E962B488D2613E /* PhoneDownloadsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D785007E01C2247DA49BE /* PhoneDownloadsTests.swift */; };
@@ -134,6 +136,13 @@
 			remoteGlobalIDString = 1D9D0CF3C214130166213D80;
 			remoteInfo = Cadence;
 		};
+		83BDD4437D60A162819B387E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FA114BF81E88A4D01B65D31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DB68EADAE79B2F439FD87AF;
+			remoteInfo = CadenceWatch;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -156,6 +165,7 @@
 		0A43728D47A1365C8A6A3053 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BA7AE3421888FA3A6FAF95B /* CadenceMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CadenceMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12FDA640A9F891EBCDD64F73 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1E743E80D404618A50FF4EC9 /* CadenceWatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceWatchUITests.swift; sourceTree = "<group>"; };
 		21EB31AD9ECEDAF0F4405314 /* ListeningViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningViews.swift; sourceTree = "<group>"; };
 		2747B5C0BD75EFECA1D2569B /* Cadence.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Cadence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DB5767A2794443D3AF1923 /* MacDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacDiscovery.swift; sourceTree = "<group>"; };
@@ -206,7 +216,9 @@
 		AEAC24576B97FB6406902660 /* LocalLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLibrary.swift; sourceTree = "<group>"; };
 		AF5EA7EB6F90440CA2E2D334 /* CadenceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceUITests.swift; sourceTree = "<group>"; };
 		B3C52A69BBC27DD1256DB9FF /* ListeningHistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningHistoryTests.swift; sourceTree = "<group>"; };
+		B8A7B9496E33CD1FA8D140F2 /* WatchPlaybackViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPlaybackViews.swift; sourceTree = "<group>"; };
 		BB69031F318658B8F2A4287F /* PhoneDownloadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDownloadsView.swift; sourceTree = "<group>"; };
+		BBB708BC3770F48ED293AA1B /* CadenceWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CadenceWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A22175853D4B80BA214F03 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
 		C99F2C7EC35E6D4B77A213DD /* CadenceWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceWatchApp.swift; sourceTree = "<group>"; };
 		CA7E6BF7AFAB463F590129AB /* DiscoveryViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViews.swift; sourceTree = "<group>"; };
@@ -348,6 +360,7 @@
 				C99F2C7EC35E6D4B77A213DD /* CadenceWatchApp.swift */,
 				4C0FF5C7D19976F39DA81E49 /* Info.plist */,
 				F926B3B1610A4B3396BABCCE /* PhoneRemoteView.swift */,
+				B8A7B9496E33CD1FA8D140F2 /* WatchPlaybackViews.swift */,
 				D118F39FEE49CD9A0507B0AD /* WatchStore.swift */,
 				6F38CD9D824CE4B936A20614 /* WatchViews.swift */,
 			);
@@ -373,6 +386,7 @@
 				53DC5566E2688823A894040D /* CadenceTests.xctest */,
 				4F456433D2A424E6A501E1CC /* CadenceUITests.xctest */,
 				9B52D6DCC988B5AA794E0844 /* CadenceWatch.app */,
+				BBB708BC3770F48ED293AA1B /* CadenceWatchUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -401,6 +415,7 @@
 				5C7750E2C29843049F60DAEC /* Mac */,
 				56B5E2FDC830F2BE293D7010 /* UI */,
 				869459B9586CD9B52CB90640 /* Unit */,
+				CB2BFAE7979495766277258D /* WatchUI */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -435,6 +450,14 @@
 				9E1452D8161FDBAC8F8A7807 /* WatchMixSending.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		CB2BFAE7979495766277258D /* WatchUI */ = {
+			isa = PBXGroup;
+			children = (
+				1E743E80D404618A50FF4EC9 /* CadenceWatchUITests.swift */,
+			);
+			path = WatchUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -559,6 +582,24 @@
 			productReference = 9B52D6DCC988B5AA794E0844 /* CadenceWatch.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AA8CF44EEFD7E631CEA4BC98 /* CadenceWatchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C14FF543B7BC3879C48AC750 /* Build configuration list for PBXNativeTarget "CadenceWatchUITests" */;
+			buildPhases = (
+				DB72CFCF33FCA600F5EBFD74 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2B799CD2FBC38BD43992511 /* PBXTargetDependency */,
+			);
+			name = CadenceWatchUITests;
+			packageProductDependencies = (
+			);
+			productName = CadenceWatchUITests;
+			productReference = BBB708BC3770F48ED293AA1B /* CadenceWatchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -587,6 +628,10 @@
 					4DB68EADAE79B2F439FD87AF = {
 						ProvisioningStyle = Automatic;
 					};
+					AA8CF44EEFD7E631CEA4BC98 = {
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4DB68EADAE79B2F439FD87AF;
+					};
 				};
 			};
 			buildConfigurationList = 6735F591880E2DF1BC393107 /* Build configuration list for PBXProject "Cadence" */;
@@ -608,6 +653,7 @@
 			targets = (
 				1D9D0CF3C214130166213D80 /* Cadence */,
 				4DB68EADAE79B2F439FD87AF /* CadenceWatch */,
+				AA8CF44EEFD7E631CEA4BC98 /* CadenceWatchUITests */,
 				11E3B751AA62E963A49758B8 /* CadenceMac */,
 				0AB0D7E2FDD0A6D4019C80C0 /* CadenceMacTests */,
 				2E3CAA181D5100DFBBBB5CE1 /* CadenceUITests */,
@@ -715,6 +761,7 @@
 				2DC5E3E5ADC6054CD3F1DB3B /* SpotifyImportView.swift in Sources */,
 				D66A57B81763E87DEE04DE64 /* WatchBridge.swift in Sources */,
 				C15DB86158265F214298ED06 /* WatchMixSending.swift in Sources */,
+				8F9F8EE982D2ADB41C38CFB8 /* WatchPlaybackViews.swift in Sources */,
 				760524DBE81080F864C6736D /* WatchStore.swift in Sources */,
 				995708B1C808F88DFA254E4B /* WatchViews.swift in Sources */,
 			);
@@ -751,6 +798,14 @@
 				24803A80EB90D118639C0942 /* StorageTests.swift in Sources */,
 				2EFC677668CB083FA9C3F27E /* WatchMixLibraryTests.swift in Sources */,
 				7871B157623A0FAB5DBDE459 /* WatchPreparationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB72CFCF33FCA600F5EBFD74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EE078504CA88F12989EA93A /* CadenceWatchUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,6 +852,11 @@
 			isa = PBXTargetDependency;
 			target = 1D9D0CF3C214130166213D80 /* Cadence */;
 			targetProxy = 690B1C47F49DC7098F27DBE4 /* PBXContainerItemProxy */;
+		};
+		F2B799CD2FBC38BD43992511 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DB68EADAE79B2F439FD87AF /* CadenceWatch */;
+			targetProxy = 83BDD4437D60A162819B387E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -962,7 +1022,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -977,7 +1037,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 0.7.2;
+				MARKETING_VERSION = 0.7.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1039,6 +1099,24 @@
 			};
 			name = Release;
 		};
+		BE377305C9FC865C5E5B12DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic.watchkitapp.uitests;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = CadenceWatch;
+			};
+			name = Release;
+		};
 		BFB3E54EDCC2D35C11F439D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1088,7 +1166,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1109,7 +1187,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 0.7.2;
+				MARKETING_VERSION = 0.7.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1118,6 +1196,24 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		CC8DE655C9E90DED16CDE7C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic.watchkitapp.uitests;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = CadenceWatch;
 			};
 			name = Debug;
 		};
@@ -1191,6 +1287,15 @@
 			buildConfigurations = (
 				68D6AFA7A98DFEC3904849FD /* Debug */,
 				BFB3E54EDCC2D35C11F439D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C14FF543B7BC3879C48AC750 /* Build configuration list for PBXNativeTarget "CadenceWatchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC8DE655C9E90DED16CDE7C5 /* Debug */,
+				BE377305C9FC865C5E5B12DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

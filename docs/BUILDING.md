@@ -68,8 +68,20 @@ xcodebuild -project Cadence.xcodeproj -scheme Cadence \
 
 Use `-only-testing:CadenceUITests` for demo UI flows. Simulator ad-hoc signing preserves background-download behavior; no Apple team is required. Optional live-server tests skip without an explicitly supplied private fixture. They can mutate your server or transfer real playback and must never be enabled automatically in CI. See [QA](QA.md).
 
-The GitHub workflow runs package/script tests, project generation, an unsigned Mac build, native Mac tests, a Watch simulator build, iPhone app unit tests with ad-hoc signing and a fresh-user Server URL UI check. It selects an installed iPhone simulator dynamically and uses no Apple signing credentials or live music accounts. Hosted CI does not establish real Watch operation, server compatibility or public signing readiness.
+The GitHub workflow runs package/script tests, project generation, an unsigned Mac build, native Mac tests, a Watch simulator app/UI-test build, iPhone app unit tests with ad-hoc signing and a fresh-user Server URL UI check. It selects an installed iPhone simulator dynamically and uses no Apple signing credentials or live music accounts. Hosted CI does not establish real Watch operation, server compatibility or public signing readiness.
 
 ## Changing resources
 
 `swift Scripts/generate-icon.swift` regenerates original brand assets. `python3 Scripts/generate-demo.py` regenerates original short demo WAVs. See [brand notes](../Resources/Brand/README.md). Do not replace the demo with copyrighted recordings or publish live account screenshots.
+
+## Watch UI checks
+
+With an installed watchOS simulator runtime, choose a Watch UDID from `xcrun simctl list devices available` and run:
+
+```sh
+xcodebuild -project Cadence.xcodeproj -scheme CadenceWatch \
+  -destination 'platform=watchOS Simulator,id=WATCH_SIMULATOR_UDID' \
+  -derivedDataPath .build/WatchTests CODE_SIGN_IDENTITY=- test
+```
+
+The Watch UI suite uses the bundled original demo audio with muted output. It covers device selection, the disconnected Mac fallback, local playback, queue navigation and seeking. It needs no live server, shared credentials or real Mac connection. The large-text case injects SwiftUI `xxLarge` in Debug only, because this watchOS simulator runtime does not support `simctl ui content_size`; it does not change system preferences. Repeat on a small Watch; screenshots are stored in the result bundle. The hosted job builds the Watch app and its UI test bundle without signing; it does not install a Watch runtime or claim to execute these UI checks. Physical-device acceptance is separate.

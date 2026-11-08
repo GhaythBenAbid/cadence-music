@@ -27,3 +27,30 @@ final class PlaybackSessionTests:XCTestCase {
         try await store.deletePlaylist(updated);XCTAssertFalse(store.playlists.contains{$0.id==playlist.id})
     }
 }
+
+extension PlaybackSessionTests {
+    @MainActor func testOfflineResumeKeepsEditedQueuePositionAndRepeatMode()throws{
+        let root=FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString);defer{try? FileManager.default.removeItem(at:root)}
+        let sessions=PlaybackSessionStore(root:root)
+        var queue=PlaybackQueue(songs:[DemoLibrary.songs[0],DemoLibrary.songs[1],DemoLibrary.songs[1],DemoLibrary.songs[2]])
+        XCTAssertTrue(queue.advance(repeating:false));queue.removeUpcoming(queue.upcoming[0].id)
+        try sessions.save(PlaybackSnapshot(queue:queue,position:7,repeats:true,volume:0,repeatMode:.one),account:"watch-resume")
+        let audio=AudioController(sessions:sessions);defer{audio.stop()}
+        audio.configureSession(account:"watch-resume",resolver:{DemoLibrary.url($0)})
+        XCTAssertFalse(audio.isPlaying)
+        audio.resumeOrPlay(DemoLibrary.songs,resolver:{DemoLibrary.url($0)})
+        XCTAssertEqual(audio.timeline.entries,queue.entries);XCTAssertEqual(audio.timeline.index,queue.index)
+        XCTAssertEqual(audio.current?.id,DemoLibrary.songs[1].id);XCTAssertEqual(audio.elapsed,7,accuracy:0.01);XCTAssertEqual(audio.repeatMode,.one)
+    }
+    @MainActor func testOfflineResumeRebuildsQueueWhenAudioIsNoLongerAvailable()throws{
+        let root=FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString);defer{try? FileManager.default.removeItem(at:root)}
+        let sessions=PlaybackSessionStore(root:root),queue=PlaybackQueue(songs:DemoLibrary.songs)
+        try sessions.save(PlaybackSnapshot(queue:queue,position:7,repeats:false,volume:0),account:"watch-missing")
+        let audio=AudioController(sessions:sessions);defer{audio.stop()}
+        audio.configureSession(account:"watch-missing",resolver:{DemoLibrary.url($0)})
+        let available=Array(DemoLibrary.songs.prefix(2))
+        audio.resumeOrPlay(available,resolver:{DemoLibrary.url($0)})
+        XCTAssertEqual(audio.timeline.entries.map(\.song.id),available.map(\.id));XCTAssertEqual(audio.timeline.index,0)
+        XCTAssertEqual(audio.elapsed,0);XCTAssertNotEqual(audio.timeline.entries.map(\.id),queue.entries.map(\.id))
+    }
+}

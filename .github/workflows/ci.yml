@@ -54,11 +54,11 @@ jobs:
         run: brew list xcodegen >/dev/null 2>&1 || brew install xcodegen
       - name: Generate project
         run: xcodegen generate
-      - name: Build Watch companion without signing
+      - name: Build Watch companion and UI tests without signing
         run: >-
           xcodebuild -project Cadence.xcodeproj -scheme CadenceWatch
           -destination 'generic/platform=watchOS Simulator' -derivedDataPath .build/Watch
-          CODE_SIGNING_ALLOWED=NO build
+          CODE_SIGNING_ALLOWED=NO build-for-testing
       - name: Select and boot an installed iPhone simulator
         id: simulator
         shell: bash

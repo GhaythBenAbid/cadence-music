@@ -25,13 +25,17 @@ import CadenceCore
         bridge.onActivation={ [weak self] in self?.local.acknowledge();self?.bridge.publishMixLibrary();self?.bridge.requestMix() }
         prepareAudio();resumeInbox()
         if ProcessInfo.processInfo.arguments.contains("--demo"){enterDemo()}
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("--watch-ui-testing"){audio.volume=0}
+        #endif
     }
     private func prepareAudio(){audio.configureSession(account:local.mix.map{$0.accountKey+":"+$0.id},resolver:{[weak self] in self?.local.localURL($0)},artwork:{[weak self] in self?.local.artwork($0)})}
     func play(_ song:Song?=nil){
         prepareAudio()
         if bridge.phonePlayback?.isPlaying==true && bridge.phoneReachable{bridge.control(.pause)}
         let songs=local.readySongs
-        audio.play(songs,startingAt:song,resolver:{[weak self] in self?.local.localURL($0)})
+        if let song{audio.play(songs,startingAt:song,resolver:{[weak self] in self?.local.localURL($0)},artwork:{[weak self] in self?.local.artwork($0)})}
+        else{audio.resumeOrPlay(songs,resolver:{[weak self] in self?.local.localURL($0)},artwork:{[weak self] in self?.local.artwork($0)})}
     }
     func enterDemo(){
         do{

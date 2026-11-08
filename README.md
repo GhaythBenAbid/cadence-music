@@ -12,10 +12,10 @@ The source is MIT licensed. There is no subscription or paid API built into Cade
 
 <p>
   <img src="docs/screenshots/01-library.png" width="235" alt="Cadence iPhone demo library" />
-  <img src="docs/screenshots/06-watch.png" width="210" alt="Cadence Watch companion preview" />
+  <img src="docs/screenshots/08-watch-player.png" width="210" alt="Cadence 0.7.3 Watch simulator showing offline playback controls" />
 </p>
 
-*Early demo/simulator screenshots; navigation has evolved. Watch imagery does not establish physical-device acceptance.*
+*Mac/phone images show earlier demos; the Watch image shows the 0.7.3 simulator player with original demo audio. Simulator imagery does not establish physical-device acceptance.*
 
 **Mac 0.7.2 (18):** [Download the signed and Apple-notarized ZIP](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.2/Cadence-Mac-0.7.2-18.zip) · [SHA-256 checksum](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.2/Cadence-Mac-0.7.2-18.zip.sha256). Supports Apple Silicon and Intel on macOS 14+. Unzip, drag Cadence.app into Applications, and open it. Enter your own Server URL/account or choose Explore demo. The archive includes the MIT license and asset notices.
 
@@ -55,6 +55,7 @@ For your own library, enter your **HTTPS Aurral URL, username and password** at 
 - iPhone/Mac downloads, system Now Playing and media controls; Space toggles Mac playback outside text fields and dialogs.
 - Private iPhone/Mac queue handoff and Watch remote control over Tailscale.
 - Up to 10 offline Watch playlists, 100 tracks each, with verified transfer receipts and shared-file reuse.
+- Watch device chooser, compact playback controls, local queue/seek screens, offline readiness and paused-session resume.
 
 ## Compatibility and limits
 

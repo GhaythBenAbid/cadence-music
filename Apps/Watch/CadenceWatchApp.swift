@@ -4,5 +4,9 @@ import WatchKit
     @WKApplicationDelegateAdaptor(WatchDelegate.self) var delegate
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var store=WatchStore.shared
-    var body:some Scene{WindowGroup{WatchRoot().environmentObject(store).tint(Color(red:0.84,green:0.96,blue:0.4)).preferredColorScheme(.dark).onChange(of:scenePhase){_,phase in if phase != .active{store.audio.persist()}}}}
+    var body:some Scene{WindowGroup{WatchRoot().transformEnvironment(\.dynamicTypeSize){size in
+                #if DEBUG
+                if ProcessInfo.processInfo.arguments.contains("--watch-ui-testing"),ProcessInfo.processInfo.arguments.contains("--watch-large-text"){size = .xxLarge}
+                #endif
+            }.environmentObject(store).tint(Color(red:0.84,green:0.96,blue:0.4)).preferredColorScheme(.dark).onChange(of:scenePhase){_,phase in if phase != .active{store.audio.persist()}}}}
 }

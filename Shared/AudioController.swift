@@ -147,6 +147,13 @@ import AppKit
         flushListening(skipped:elapsed+5<duration);self.resolver=resolver; self.artworkResolver=artwork;timeline=PlaybackQueue(songs:songs,startingAt:song);isShuffled=false
         loadCurrent(position:position)
     }
+    func resumeOrPlay(_ songs:[Song],resolver:@escaping(Song)->URL?,artwork:((Song)->Data?)?=nil){
+        guard !songs.isEmpty else{return}
+        let available=Set(songs.map(\.id))
+        if let current,current.id==timeline.current?.song.id,timeline.entries.allSatisfy({available.contains($0.song.id)}){
+            self.resolver=resolver;artworkResolver=artwork;resume()
+        }else{play(songs,resolver:resolver,artwork:artwork)}
+    }
     private func loadCurrent(autoplay:Bool=true,position:Double=0,recovering:Bool=false) {
         if !recovering{flushListening();listeningID=UUID().uuidString;heardSeconds=0;lastHistorySave=0;listeningStarted=Date()};lastAudiblePosition=nil
         suggestionTask?.work.cancel();suggestionTask=nil;stallTask?.cancel();stallTask=nil;recoveryTask?.cancel();recoveryTask=nil;relatedTask?.cancel();relatedTask=nil;preparingRelated=false

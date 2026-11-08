@@ -2,6 +2,15 @@
 
 Versions below describe implementation milestones. Public binary availability is separate; see [release guidance](docs/RELEASE.md).
 
+## 0.7.3 (19) — 8 November 2026
+
+- Improve Watch navigation with a device chooser and separate horizontal pages/vertical content scrolling.
+- Keep playback controls compact and add local queue navigation, removal, clearing and track seeking.
+- Preserve the existing Watch queue and position when resuming; rebuild safely if queued audio is unavailable.
+- Show offline readiness, saved duration, partial-playlist actions and an offline fallback from unavailable remote devices.
+- Restrict remote polling to the active Watch UI and keep the existing phone/Mac control protocol compatible.
+- Add Watch UI checks and offline-resume regression tests; physical Watch acceptance remains pending.
+
 ## 0.7.2 (18) — 8 November 2026
 
 - Publish a verified Developer ID signed, Apple-notarized universal Mac update with its checksum and notices.

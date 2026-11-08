@@ -34,6 +34,22 @@ Choose a saved playlist from Your run on iPhone to inspect/resend it. On Watch, 
 
 Remove playlist removes only that collection; audio shared with another saved playlist is retained. Erase saved music on Watch and signing out on iPhone still clear the Watch library. Deleted playlist IDs have tombstones, and old-account transfers are rejected after an account switch. A known playlist resend preserves its ID; a playlist erased on Watch gets a fresh manifest when sent again. Music files remain account-scoped and are reused between playlists rather than copied per playlist.
 
+### Watch playback in 0.7.3
+
+Use the device button in the top navigation bar to choose **This Watch**, **iPhone** or **Mac**. Fresh installs open the Watch library; an existing saved device selection is retained. Choosing a remote device pauses local Watch audio and changes the control target; it does not transfer a queue or wake another app.
+
+For local listening, swipe left/right between the library, player and settings. Scroll vertically, or use the Crown, within each page. Playlist rows show how many tracks are actually saved; incomplete playlists offer **Play saved tracks** and a sync check. Saved audio duration is a metadata estimate. A queued phone transfer is not treated as an offline file.
+
+**Resume** keeps the selected playlist's position, edited queue, shuffle and repeat mode when its queued files are still available. Selecting a particular song starts that song. If queued audio is no longer available, the Play action rebuilds a queue from the currently saved tracks. Background arrival of another playlist does not select it.
+
+The player keeps the main transport buttons near the track title. Tap the progress/time row to choose a new position, or open **Queue** to jump to an upcoming song, swipe to remove it, or confirm **Clear up next**. Queue edits leave the saved playlist and its audio intact. Shuffle, repeat-one/all/off, local volume and playback retry remain available. Seeking closes if the current song changes, so a position chosen for one song cannot seek a different track.
+
+Remote playback shows the selected device and its playing, paused or unavailable state. Commands are disabled without a usable connection; the unavailable view offers **Open saved Watch music**. Polling is limited to the active Watch UI. iPhone and Mac remote controls keep their existing companion protocol and foreground/network requirements; the local Watch queue screen does not edit the remote queue.
+
+[Library preview](screenshots/09-watch-library.png) · [Player preview](screenshots/08-watch-player.png) · [Queue preview](screenshots/10-watch-queue.png). These screenshots use original demo audio on the simulator.
+
+These changes improve software behavior and simulator usability. Physical Bluetooth, wrist-down/background playback and phone-off acceptance remain pending.
+
 ### Compatibility and migration
 
 | Producer/consumer | Behavior |
