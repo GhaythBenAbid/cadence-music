@@ -16,7 +16,7 @@ The source can be built locally in demo mode without a music server. Source CI c
 
 A public Developer ID signed and Apple-notarized Mac ZIP is available from the [0.7.2 release](https://github.com/bahachammakhi/cadence-music/releases/tag/v0.7.2). Its ticket is stapled; the final anonymous download passed checksum, signature, ticket and Gatekeeper verification. The archive includes the MIT license and asset notices. [Verification record](releases/0.7.2-mac.json).
 
-An iPhone/Watch public beta still requires an intentionally configured testing/distribution route; private TestFlight access is not a public invitation. Older internal binaries are not attached to this repository.
+iPhone/Watch 0.7.2 (18) is VALID internally and has been submitted for external TestFlight review. Its external beta group, build assignment, review contact, account-free original-audio demo instructions and public privacy/source metadata are configured. Apple reports WAITING_FOR_REVIEW; a public join link is not enabled before approval. [Dated status record](releases/0.7.2-testflight.json). Private TestFlight access is not a public invitation. Older internal binaries are not attached to this repository.
 
 Physical iPhone/Watch background transfer, Bluetooth, wrist-down playback and phone-off running remain pending hardware acceptance. API v1 (Aurral 2.12.0) and consumed API v2 routes (upstream `743b57d`) are covered starting with Cadence 0.7.2. External provider configuration remains server-specific. These limitations remain explicit for this experimental source release.
 

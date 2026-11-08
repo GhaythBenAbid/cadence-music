@@ -21,7 +21,7 @@ The source is MIT licensed. There is no subscription or paid API built into Cade
 
 When moving from a development-signed Mac build, macOS may ask for Keychain access to its saved login. Review that system prompt yourself; do not delete your credentials or disable security protections.
 
-Server URL starts blank on iPhone and Mac. iPhone/Watch public distribution is not available yet; use source builds or an existing private beta invitation. Physical Watch acceptance remains pending as described below.
+Server URL starts blank on iPhone and Mac. iPhone/Watch 0.7.2 (18) has been submitted for external TestFlight review and is waiting for Apple approval. No public join link is available yet; use source builds or an existing private beta invitation. Physical Watch acceptance remains pending as described below. [Review-status record](docs/releases/0.7.2-testflight.json).
 
 [Report a bug](https://github.com/bahachammakhi/cadence-music/issues/new/choose) · [Report a vulnerability privately](https://github.com/bahachammakhi/cadence-music/security/advisories/new)
 

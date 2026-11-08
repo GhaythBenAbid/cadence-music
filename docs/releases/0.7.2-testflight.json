@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-11-08T20:59:48+00:00",
+  "version": "0.7.2",
+  "build": "18",
+  "processingState": "VALID",
+  "externalBuildState": "WAITING_FOR_BETA_REVIEW",
+  "betaReviewState": "WAITING_FOR_REVIEW",
+  "betaReviewContactConfigured": true,
+  "demoAccountRequired": false,
+  "externalGroupConfigured": true,
+  "externalGroupBuildAssigned": true,
+  "publicLinkEnabled": false,
+  "publicLink": null,
+  "physicalWatchAcceptance": "pending"
+}
