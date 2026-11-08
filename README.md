@@ -59,8 +59,8 @@ For your own library, enter your **HTTPS Aurral URL, username and password** at 
 | Area | Current scope |
 |---|---|
 | Platforms | iOS 18+, watchOS 10+, macOS 14+; Mac Apple Silicon and Intel targets |
-| Server | Tested with **Aurral 2.12.0, native API v1**, plus its Subsonic endpoints |
-| Newer Aurral | Native API v2 is unvalidated; Discover currently requires v1 and may refuse newer servers |
+| Server | API v1 (Aurral 2.12.0) and consumed API v2 routes (upstream `743b57d`), plus Subsonic; v2 support starts with Cadence 0.7.2 |
+| Newer Aurral | API v2 baseline, Discover playlists and renamed import fields are covered; optional providers still depend on server configuration |
 | Other Subsonic servers | Basic routes may work, but full compatibility is not claimed |
 | Global metadata | Apple public Search API, US catalog, up to 200 results per lookup/search |
 | Full audio | Your Aurral library/sources; preparation can take time, require review or fail |

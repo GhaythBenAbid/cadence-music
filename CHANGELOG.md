@@ -2,6 +2,14 @@
 
 Versions below describe implementation milestones. Public binary availability is separate; see [release guidance](docs/RELEASE.md).
 
+## 0.7.2 (18) — 8 November 2026
+
+- Support native API v2 bootstrap capabilities and Discover playlist routes while retaining API v1 behavior.
+- Decode v2 static playlist import status and preserve the Subsonic `shared:` identifiers used by both server versions.
+- Keep provider identity in playlist navigation, reject unsafe/unknown entries and retain visible permission/partial-source errors.
+- Add iPhone unit/UI and Watch simulator builds to GitHub CI without signing credentials or live accounts.
+- Add an opt-in loopback contract probe; real upstream v2 routes were verified with original demo audio.
+
 ## 0.7.1 (17) — 8 November 2026
 
 - Publish a Developer ID signed, Apple-notarized universal Mac download with a stapled ticket, checksum, MIT license and notices.

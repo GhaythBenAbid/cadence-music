@@ -16,12 +16,12 @@ The app asks Aurral to prepare missing audio and surfaces its state. It does not
 - Handoff supports one Mac and its paired iPhone over a private Tailscale link, with foreground iPhone required. It cannot wake suspended clients.
 - Watch retains at most 10 playlists of 100 tracks each. One sync plan runs at a time; OS scheduling and storage constrain transfers.
 - Discover previews can be short. Full playback requires a real available library file.
-- Aurral 2.12.0 native API v1 is tested. API v2 and other Subsonic servers are not certified compatible.
+- Native API v1 (Aurral 2.12.0) and consumed v2 routes (upstream `743b57d`) are covered. Other Subsonic servers are not certified compatible.
 
 ## Next verification and development priorities
 
 1. Complete physical iPhone/Watch acceptance: background downloads/transfers, Bluetooth and wrist-down playback, phone-off offline runs, storage pressure and account erasure.
-2. Add tested compatibility with Aurral's newer native API contract before recommending newer server releases.
+2. Keep the v1/v2 compatibility checks current as upstream evolves; validate configured external services on each server.
 3. Improve recovery diagnostics and accessibility through real-device feedback.
 4. Expand public distribution beyond the signed/notarized Mac download: clear iPhone/Watch beta availability and continued physical-device acceptance.
 

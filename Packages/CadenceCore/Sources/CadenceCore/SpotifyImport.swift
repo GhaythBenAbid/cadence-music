@@ -33,6 +33,13 @@ public struct PlaylistImportStats:Decodable,Sendable {
 public struct PlaylistImportStatus:Decodable,Sendable {
     public var sharedPlaylists:[ImportedPlaylist];public var sharedPlaylistStats:[String:PlaylistImportStats]
     public var spotifyPlaylists:[ImportedPlaylist]{sharedPlaylists.filter{$0.importSource?.provider=="spotify-playlist"}}
+    private enum CodingKeys:String,CodingKey{case sharedPlaylists,sharedPlaylistStats,staticPlaylists,staticPlaylistStats}
+    public init(from decoder:Decoder)throws{
+        let c=try decoder.container(keyedBy:CodingKeys.self)
+        // The JSON API renamed these fields in v2; Subsonic still uses shared: IDs.
+        sharedPlaylists=try c.decode([ImportedPlaylist].self,forKey:c.contains(.staticPlaylists) ? .staticPlaylists : .sharedPlaylists)
+        sharedPlaylistStats=try c.decode([String:PlaylistImportStats].self,forKey:c.contains(.staticPlaylistStats) ? .staticPlaylistStats : .sharedPlaylistStats)
+    }
 }
 public enum SpotifyImportError:Error,LocalizedError {
     case invalidLink,connect,permission,playlistAccess,session,conflict,unavailable,uncertain

@@ -41,7 +41,11 @@ public struct DiscoverPlaylist:Codable,Identifiable,Hashable,Sendable {
     public var trackCount:Int?
     public var artworkUrl:String?
     public var curator:String?
-    public init(id:String,name:String,trackCount:Int?=nil,artworkUrl:String?=nil,curator:String?=nil){self.id=id;self.name=name;self.trackCount=trackCount;self.artworkUrl=artworkUrl;self.curator=curator}
+    public var provider:String?
+    public var browseProvider:String{provider ?? "deezer"}
+    public var listID:String{browseProvider+":"+id}
+    public var isSupported:Bool{["deezer","mix","discovery"].contains(browseProvider) && !id.isEmpty && id.utf8.count<=200 && id.unicodeScalars.allSatisfy{CharacterSet.alphanumerics.union(CharacterSet(charactersIn:"-_:")).contains($0)} && (browseProvider != "deezer" || id.allSatisfy(\.isNumber))}
+    public init(id:String,name:String,trackCount:Int?=nil,artworkUrl:String?=nil,curator:String?=nil,provider:String?=nil){self.id=id;self.name=name;self.trackCount=trackCount;self.artworkUrl=artworkUrl;self.curator=curator;self.provider=provider}
 }
 public struct DiscoverTrack:Codable,Identifiable,Hashable,Sendable {
     public var id:String
@@ -82,7 +86,7 @@ public enum DiscoveryLinks {
 }
 public protocol DiscoverySessionVault:Sendable {func load(_ key:String)->Data?;func save(_ data:Data?,key:String)}
 public enum DiscoveryAPIError:Error,LocalizedError {case unauthenticated,unavailable,permission,unsupported
-    public var errorDescription:String?{switch self{case .unauthenticated:return "Sign in again to load Discover.";case .permission:return "This Aurral account does not have access to discovery.";case .unsupported:return "This Aurral server does not support Discover yet.";case .unavailable:return "Discover couldn't reach Aurral. Check your server connection and try again."}}
+    public var errorDescription:String?{switch self{case .unauthenticated:return "Sign in again to load Discover.";case .permission:return "This Aurral account does not have access to discovery.";case .unsupported:return "This server's Discover API isn't supported by this Cadence build.";case .unavailable:return "Discover couldn't reach Aurral. Check your server connection and try again."}}
 }
 public actor AurralDiscoveryAPI {
     public struct Session:Codable,Sendable {public var token:String;public var expiresAt:Double}
@@ -94,6 +98,8 @@ public actor AurralDiscoveryAPI {
     private var authenticating:Task<Session,Error>?
     private var generation=UUID()
     private var signedOut=false
+    private struct Contract:Decodable,Sendable{var version:Int;var features:[String];var supportsDiscover:Bool{version==2 || (version==1 && features.contains("discover"))}}
+    private var apiContract:Contract?
     public init(credentials:ServerCredentials,session:URLSession = .shared,vault:(any DiscoverySessionVault)?=nil){self.credentials=credentials;self.session=session;self.vault=vault;key=SHA256.hash(data:Data((credentials.accountKey+"|"+credentials.password).utf8)).map{String(format:"%02x",$0)}.joined()}
     private func raw(_ path:[String],query:[URLQueryItem]=[],body:Data?=nil,bearer:String?=nil,timeout:TimeInterval=35)async throws->(Data,Int){
         var endpoint=credentials.server;for part in ["api"]+path{endpoint.appendPathComponent(part)}
@@ -124,22 +130,38 @@ public actor AurralDiscoveryAPI {
             return try JSONDecoder().decode(T.self,from:data)
         };throw DiscoveryAPIError.unauthenticated
     }
-    public func feed()async throws->DiscoverSnapshot{
-        struct Bootstrap:Decodable{struct Contract:Decodable{var version:Int;var features:[String]};var api:Contract?}
+    private func contract(refresh:Bool=false)async throws->Contract{
+        guard !signedOut else{throw CancellationError()}
+        if !refresh,let apiContract{return apiContract}
+        let stamp=generation
+        struct Bootstrap:Decodable{var api:Contract?}
         let (data,status)=try await raw(["health","bootstrap"]);guard status==200 else{throw status==404 ? DiscoveryAPIError.unsupported : DiscoveryAPIError.unavailable}
-        let bootstrap=try JSONDecoder().decode(Bootstrap.self,from:data);guard bootstrap.api?.version==1,bootstrap.api?.features.contains("discover")==true else{throw DiscoveryAPIError.unsupported}
+        let bootstrap=try JSONDecoder().decode(Bootstrap.self,from:data)
+        guard generation==stamp,!signedOut else{throw CancellationError()}
+        guard let value=bootstrap.api,[1,2].contains(value.version) else{throw DiscoveryAPIError.unsupported}
+        apiContract=value;return value
+    }
+    public func feed()async throws->DiscoverSnapshot{
+        let version=try await contract(refresh:true);guard version.supportsDiscover else{throw DiscoveryAPIError.unsupported}
         struct Shelf:Decodable,Sendable{var forYou:[DiscoverPlaylist]}
         async let recent:[DiscoverRelease]?=try? get(["library","recent-releases"])
-        async let editorial:Shelf?=try? get(["discover","editorial"])
+        async let editorial:Shelf?=try? get(["discover",version.version==2 ? "playlists" : "editorial"])
         let response:DiscoverResponse=try await get(["discover"],query:[.init(name:"limit",value:"40")])
         let (releases,shelf)=await(recent,editorial)
-        var result=DiscoverSnapshot(response:response,releases:releases ?? [],playlists:shelf?.forYou ?? [])
+        var seen=Set<String>()
+        var result=DiscoverSnapshot(response:response,releases:releases ?? [],playlists:(shelf?.forYou ?? []).filter{$0.isSupported && seen.insert($0.listID).inserted})
         result.partialSources=(releases==nil ? ["releases"] : [])+(shelf==nil ? ["playlists"] : [])
         return result
     }
 
     public func artistTracks(_ artist:DiscoverArtist)async throws->[DiscoverTrack]{guard let id=artist.mbid,UUID(uuidString:id) != nil else{return []};struct Response:Decodable,Sendable{var tracks:[DiscoverTrack]};let value:Response=try await get(["artists",id,"preview"],query:[.init(name:"artistName",value:artist.name)]);return value.tracks}
-    public func playlist(_ playlist:DiscoverPlaylist)async throws->DiscoverPlaylistDetail{guard !playlist.id.isEmpty,playlist.id.allSatisfy(\.isNumber) else{throw DiscoveryAPIError.unavailable};return try await get(["discover","editorial",playlist.id])}
+    public func playlist(_ playlist:DiscoverPlaylist)async throws->DiscoverPlaylistDetail{
+        guard playlist.isSupported else{throw DiscoveryAPIError.unavailable}
+        let version=try await contract()
+        if version.version==2{return try await get(["discover","playlists",playlist.browseProvider,playlist.id])}
+        guard version.supportsDiscover,playlist.browseProvider=="deezer" else{throw DiscoveryAPIError.unsupported}
+        return try await get(["discover","editorial",playlist.id])
+    }
     public func spotifyConnection()async throws->SpotifyConnection {
         do{return try await get(["playlists","import","spotify","status"])}
         catch DiscoveryAPIError.permission{throw SpotifyImportError.permission}

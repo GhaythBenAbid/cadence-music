@@ -50,3 +50,7 @@ The follow-up server-setup review passed all 42 Core tests, the Mac build and th
 ## Public Mac 0.7.1 (17)
 
 Apple accepted notarization submission `78a5f9ae-0a16-42da-8746-9b42bbf3b6c1`. The universal Developer ID signed app has hardened runtime, a secure timestamp, the original sandbox/network permissions and no debugger entitlement. Signature verification, stapling/ticket validation and Gatekeeper assessment passed. The final archive contains the MIT license and asset notices; an anonymous GitHub download matched SHA-256 `841ba26667d289f4e7982c126f4e017e2c189f525410a21c61c1dc716c0b3035` and its extracted app passed those checks again. [Machine-readable verification](releases/0.7.1-mac.json). No private server default or signing material was included.
+
+## 0.7.2 compatibility and client CI
+
+The new CI job passed its Watch simulator build, iPhone app unit suite and fresh-user Server URL UI check alongside existing Mac/Core checks. Local v2 source verification passed 48 Core tests, 54 iOS app tests (seven optional live skips) and three focused iPhone UI flows. The real upstream v2 production app was exercised in an isolated database on loopback, using extended original audio only: bootstrap/authentication, Discover/shelf, import status, retained Subsonic playlist identity, owned-track preparation, complete download checksum and actual full-audio playback passed. See [compatibility](COMPATIBILITY.md) for the exact producer pin and limits.

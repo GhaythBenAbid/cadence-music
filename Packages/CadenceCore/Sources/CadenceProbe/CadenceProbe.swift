@@ -4,6 +4,7 @@ import CadenceCore
 @main struct Probe {
     static func main() async {
         do {
+            if ProcessInfo.processInfo.arguments.contains("--native-contract-check"){try await NativeContractProbe.run();return}
             #if os(macOS)
             if ProcessInfo.processInfo.arguments.contains("--mac-remote-self-test"){try await MacRemoteProbe.run();return}
             #endif

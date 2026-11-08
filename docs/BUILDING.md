@@ -68,7 +68,7 @@ xcodebuild -project Cadence.xcodeproj -scheme Cadence \
 
 Use `-only-testing:CadenceUITests` for demo UI flows. Simulator ad-hoc signing preserves background-download behavior; no Apple team is required. Optional live-server tests skip without an explicitly supplied private fixture. They can mutate your server or transfer real playback and must never be enabled automatically in CI. See [QA](QA.md).
 
-The GitHub workflow runs package/script tests, project generation, an unsigned Mac build and native Mac tests. Hosted CI does not establish real Watch operation, server compatibility or public signing readiness.
+The GitHub workflow runs package/script tests, project generation, an unsigned Mac build, native Mac tests, a Watch simulator build, iPhone app unit tests with ad-hoc signing and a fresh-user Server URL UI check. It selects an installed iPhone simulator dynamically and uses no Apple signing credentials or live music accounts. Hosted CI does not establish real Watch operation, server compatibility or public signing readiness.
 
 ## Changing resources
 

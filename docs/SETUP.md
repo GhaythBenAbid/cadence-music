@@ -2,7 +2,7 @@
 
 ## Bring your own server
 
-Cadence is a client, not an Aurral installer or a music provider. Obtain an Aurral account on a server you control or are authorized to use. The tested contract is **Aurral 2.12.0 / native API v1**; newer API v2 support has not been verified. Library playback uses Subsonic endpoints; Discover, importing and preparation also need Aurral's native endpoints.
+Cadence is a client, not an Aurral installer or a music provider. Obtain an Aurral account on a server you control or are authorized to use. Cadence 0.7.2 supports native API v1 (tested with Aurral 2.12.0) and the consumed API v2 routes (verified against upstream source `743b57d`). Library playback uses Subsonic endpoints; Discover, importing and preparation also need Aurral's native endpoints.
 
 On iPhone and Mac, the login form has an always-visible **Server URL** field above username/password. It starts blank; `https://music.example.com` is a placeholder, not a configured service. Existing signed-in installations keep their own Keychain credentials. To switch servers, sign out (which removes local downloads), then enter the new URL and account. The Watch is an iPhone companion: it receives music/control state from the paired phone and has no server login or stored server credentials.
 
@@ -51,7 +51,7 @@ For Watch remote control or queue handoff, sign into the same account on Mac and
 |---|---|
 | Cannot connect | Exact HTTPS base URL, trusted certificate, VPN/tailnet access, correct account |
 | Only a preview plays | Discover preview is separate from full library playback; inspect preparation status |
-| Discover unavailable | Native API v1 capability and permission; newer API v2 is not validated |
+| Discover unavailable | Supported native API v1/v2 capability and permission; unknown future contract versions are rejected |
 | Import button unavailable | Valid playlist preview and non-empty name; inspect visible connection/import errors |
 | Song stays preparing | Aurral job status, source availability and add-music permission; do not blindly resubmit an unconfirmed job |
 | Watch still syncing | Both apps updated/opened, devices near each other, storage space and actual receipt; OS schedules delivery |

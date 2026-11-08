@@ -49,6 +49,6 @@ The iPhone mediates Watch-to-Mac commands. Handoff exchanges queue and position,
 
 ## Integration compatibility
 
-The tested Aurral release is 2.12.0 using native API v1. Native API v2 is not validated, and the Discover bootstrap currently explicitly requires v1 plus its capability flag. Do not broaden the version check without contract fixtures and real compatibility verification. Subsonic-only support is an unverified subset, not an advertised equivalent product.
+The client retains API v1 support (Aurral 2.12.0) and supports the consumed API v2 routes verified against upstream commit `743b57d`. Bootstrap v1 requires the discover capability; v2 includes it in the baseline, even with an empty feature array. Discover refresh renegotiates the contract. Version 2 uses the provider-specific playlist routes and static playlist status field names; Subsonic playlist IDs remain `shared:`. Unknown future versions and malformed contracts are rejected. See [compatibility evidence](COMPATIBILITY.md). Subsonic-only support is an unverified subset, not an advertised equivalent product.
 
 No third-party Swift packages, cloud account system, push server or Cadence analytics backend are present. [Privacy](PRIVACY.md) describes where data goes.
