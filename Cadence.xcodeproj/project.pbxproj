@@ -1,0 +1,1240 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0217969212050509CE4F193F /* MacViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CFDFF03FF94DAA50F61379 /* MacViews.swift */; };
+		04BD04AA929E39CF1195AD92 /* GlobalCatalogViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072428F8DE02C344CA04F64 /* GlobalCatalogViews.swift */; };
+		098942F3E0EE00D27DE725F1 /* PreparationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A564A53677FF8CDF20F6E912 /* PreparationCenter.swift */; };
+		0D433C89DE3BC20E4A0546A2 /* ListeningHistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C52A69BBC27DD1256DB9FF /* ListeningHistoryTests.swift */; };
+		0DC55E533458261B37CC2425 /* ListeningViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB31AD9ECEDAF0F4405314 /* ListeningViews.swift */; };
+		10AADF4A7B5CAA7E30E7CBF7 /* Demo in Resources */ = {isa = PBXBuildFile; fileRef = 6FB35EFEE1524E247365A38B /* Demo */; };
+		22F70EA3F30377CCF79CA5C7 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A132FB7968F5314C5E57C13C /* AudioController.swift */; };
+		24803A80EB90D118639C0942 /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A470EC6FE9264A35E54B049 /* StorageTests.swift */; };
+		263C9905228C2AE23A068D51 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A132FB7968F5314C5E57C13C /* AudioController.swift */; };
+		29DFB929F6C25C306DD73126 /* MobileNowPlayingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A54D5D7D23BDF497C5B51F1 /* MobileNowPlayingTests.swift */; };
+		2DC5E3E5ADC6054CD3F1DB3B /* SpotifyImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822F387512ABF7B75E12B818 /* SpotifyImportView.swift */; };
+		2E31BE45B29E3079148A0634 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A132FB7968F5314C5E57C13C /* AudioController.swift */; };
+		2EFC677668CB083FA9C3F27E /* WatchMixLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0028AAB3CA941016E8E3F7 /* WatchMixLibraryTests.swift */; };
+		344CB77513D8F808ACCE9D3E /* GlobalPlaybackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE8349B521CB3D8E742A7 /* GlobalPlaybackState.swift */; };
+		349796B6E5D0B87CD1E5C49A /* ListeningViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB31AD9ECEDAF0F4405314 /* ListeningViews.swift */; };
+		398BCBE388A62C94DAF22262 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A22175853D4B80BA214F03 /* KeychainStore.swift */; };
+		3CA2AB958EB3B7AEC9E596CD /* RemotePlaybackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908FC632BB0335CE06B05709 /* RemotePlaybackTests.swift */; };
+		3F4FEB6B33474BC447347BA3 /* SpotifyImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822F387512ABF7B75E12B818 /* SpotifyImportView.swift */; };
+		445F422B4EF2E46ED891ADAF /* GlobalPlaybackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB2C81FDB96DB255EC16E9 /* GlobalPlaybackTests.swift */; };
+		48E40D3260469D42B287ECBC /* CatalogSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DBD2F122E918D24B2086B8 /* CatalogSearchView.swift */; };
+		49837A86FDEB8D0FBF25F766 /* ListeningHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80780E65218A057AAB01F463 /* ListeningHistory.swift */; };
+		4B24D793360D73E8DDAC68F1 /* SpotifyImportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF49E48C0BE8676F4113F67 /* SpotifyImportState.swift */; };
+		4B3D7AA497AB55CFE12ED8EA /* ListeningHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80780E65218A057AAB01F463 /* ListeningHistory.swift */; };
+		4C2B223EBB1CCDD4CB714DCA /* GlobalPlaybackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE8349B521CB3D8E742A7 /* GlobalPlaybackState.swift */; };
+		4C6DEBC5AE59AF0FAEB9C51D /* SpotifyImportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF49E48C0BE8676F4113F67 /* SpotifyImportState.swift */; };
+		4CDE00597C6BA7BF8178B3C9 /* WatchBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38E6E370579EFC88D1146C7 /* WatchBridge.swift */; };
+		4FB54462A707D5BA3B500191 /* MacPlaybackKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B7CD0F6E07469AD6C8AA8 /* MacPlaybackKeys.swift */; };
+		503980357E1488EE67C2CDEF /* NowPlayingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BDAD81003E560533EA1862 /* NowPlayingTests.swift */; };
+		5A140596F4C88AAF6433F40F /* PhoneDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9C266155D793596BD55472 /* PhoneDownloadManager.swift */; };
+		5A3E2B151CACD95908F8C5B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A43728D47A1365C8A6A3053 /* Assets.xcassets */; };
+		5AB3A2308B2BF10C330C6ED5 /* CadenceCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1A9D336090AE8A31C7761FD2 /* CadenceCore */; };
+		5B940EAF5E4A3B571703E56C /* KeyboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E057C027937C33B2F8F4174 /* KeyboardTests.swift */; };
+		60C42881A94B21CDF413269D /* LiveHandoffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD618B03FFAAC122A6A2FB6 /* LiveHandoffTests.swift */; };
+		624BEA62C41ED79BCC0DB23C /* LocalLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAC24576B97FB6406902660 /* LocalLibrary.swift */; };
+		62993D0AC4B452730F3B7619 /* PreparationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A564A53677FF8CDF20F6E912 /* PreparationCenter.swift */; };
+		657FB603B041CE966D4B22A2 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 12FDA640A9F891EBCDD64F73 /* PrivacyInfo.xcprivacy */; };
+		6676861CAE3E7544AA78B87D /* LocalLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAC24576B97FB6406902660 /* LocalLibrary.swift */; };
+		681E47253AC010969DD134BC /* PreparationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A564A53677FF8CDF20F6E912 /* PreparationCenter.swift */; };
+		6891B9FF43355723405D1D5A /* ListeningViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB31AD9ECEDAF0F4405314 /* ListeningViews.swift */; };
+		69A2C54B2DC4EB2C0B05A9C8 /* MacPlaybackKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B7CD0F6E07469AD6C8AA8 /* MacPlaybackKeys.swift */; };
+		6A810D521AE90FABD0FEF73A /* DiscoveryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164A4E5776BD38352D0BA58 /* DiscoveryModel.swift */; };
+		6C5A969F37EE35B644C7F57E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A43728D47A1365C8A6A3053 /* Assets.xcassets */; };
+		6DD9901804D23A4B2DCB8464 /* PlaybackSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFD2471BB012CB58585F4A /* PlaybackSessionTests.swift */; };
+		73AB4878A2E3016070FB26CF /* CadenceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90160A015B26202B7A81F17 /* CadenceApp.swift */; };
+		75638C5F001487C67B348A49 /* DiscoveryViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7E6BF7AFAB463F590129AB /* DiscoveryViews.swift */; };
+		760524DBE81080F864C6736D /* WatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118F39FEE49CD9A0507B0AD /* WatchStore.swift */; };
+		761DADF8812F32D7DFC42B21 /* PlaybackDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C89AF3FE388D4395C07A578 /* PlaybackDevicesView.swift */; };
+		77697403F6CEE2B35C10CD0C /* DiscoveryViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7E6BF7AFAB463F590129AB /* DiscoveryViews.swift */; };
+		7871B157623A0FAB5DBDE459 /* WatchPreparationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09BE8BC54C7A3ADC535A322 /* WatchPreparationTests.swift */; };
+		7942C57BD03FA53A9B8302EA /* PhoneDownloadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69031F318658B8F2A4287F /* PhoneDownloadsView.swift */; };
+		7B357B992B616052E2B50C99 /* CadenceWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99F2C7EC35E6D4B77A213DD /* CadenceWatchApp.swift */; };
+		7B3EEA7AF2EA7DC21934387C /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A132FB7968F5314C5E57C13C /* AudioController.swift */; };
+		7C9729580C81C9E780737846 /* MacDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB5767A2794443D3AF1923 /* MacDiscovery.swift */; };
+		84747C85D3FD740D23114921 /* DeviceDownloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AA75E0A2C0F21A43A3FA79 /* DeviceDownloads.swift */; };
+		84E81FB6281D2A0068993C7C /* Demo in Resources */ = {isa = PBXBuildFile; fileRef = 6FB35EFEE1524E247365A38B /* Demo */; };
+		85201B37FB18F3DEA10D104A /* CatalogSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DBD2F122E918D24B2086B8 /* CatalogSearchView.swift */; };
+		860AE9C61ABFD1D0D2693DA6 /* GlobalPlaybackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDE8349B521CB3D8E742A7 /* GlobalPlaybackState.swift */; };
+		89F843B3C865B0A6DB859FE8 /* GlobalCatalogViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072428F8DE02C344CA04F64 /* GlobalCatalogViews.swift */; };
+		8A4FB3C7489976906DA4C825 /* HandoffTransportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7089A5311CF143239FA27B8F /* HandoffTransportTests.swift */; };
+		9013A006657824C4FB3EBDA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A43728D47A1365C8A6A3053 /* Assets.xcassets */; };
+		9127DADACB4FACF793732D88 /* PreparationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F966AE23C67F0AD7A3228A60 /* PreparationListView.swift */; };
+		94589AD46A87716CDBF9383A /* GlobalCatalogViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072428F8DE02C344CA04F64 /* GlobalCatalogViews.swift */; };
+		995708B1C808F88DFA254E4B /* WatchViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F38CD9D824CE4B936A20614 /* WatchViews.swift */; };
+		9B6E1AA1003CE9B3724541A6 /* MacRemoteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2F302513492ECDA6ACC7AD /* MacRemoteCard.swift */; };
+		9CEEC7CC4F7A3CAC34CBE9D0 /* PreparationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F966AE23C67F0AD7A3228A60 /* PreparationListView.swift */; };
+		9E5A53D1EF8D5FC46D46740C /* MacStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65155CA90C565B2F1291D923 /* MacStore.swift */; };
+		9EA2FB0F73023D7E8AC4338B /* DiscoveryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164A4E5776BD38352D0BA58 /* DiscoveryModel.swift */; };
+		A218CB3AC3AD679BD664E27B /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A22175853D4B80BA214F03 /* KeychainStore.swift */; };
+		A45849B3F78D9E8EDE4108BE /* DiscoveryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8164A4E5776BD38352D0BA58 /* DiscoveryModel.swift */; };
+		A5884F7410E962B488D2613E /* PhoneDownloadsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D785007E01C2247DA49BE /* PhoneDownloadsTests.swift */; };
+		A87128E437DBABD66FC284DA /* SpotifyImportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF49E48C0BE8676F4113F67 /* SpotifyImportState.swift */; };
+		AA8464F9853E588CCC640444 /* CadenceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5EA7EB6F90440CA2E2D334 /* CadenceUITests.swift */; };
+		AAC99367AB24B6FE037CDF83 /* DiscoveryViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7E6BF7AFAB463F590129AB /* DiscoveryViews.swift */; };
+		AEE9BE66827108E602BC36CF /* PreparationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F966AE23C67F0AD7A3228A60 /* PreparationListView.swift */; };
+		B2522777278E2386853774FC /* MacConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB58FA417A5A1C58D98BCD3 /* MacConnectionView.swift */; };
+		B3E3DFAF84551D271ACAA74F /* WatchMixSending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1452D8161FDBAC8F8A7807 /* WatchMixSending.swift */; };
+		B458D7724486536800054C0A /* LiveGlobalSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0892E71102BC1717467332B1 /* LiveGlobalSearchTests.swift */; };
+		B83E1589AFB39107AF336E95 /* DemoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC50EE29670F05AAE814E532 /* DemoLibrary.swift */; };
+		BEB98B3FB93C48D0F522A15A /* PhoneStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F57BA8AF1D49AEBC1D8F0FD /* PhoneStore.swift */; };
+		BFBCDAF1EBFE685260068C9A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 12FDA640A9F891EBCDD64F73 /* PrivacyInfo.xcprivacy */; };
+		C15DB86158265F214298ED06 /* WatchMixSending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1452D8161FDBAC8F8A7807 /* WatchMixSending.swift */; };
+		C24A893DB8BC164D06338F92 /* CadenceCore in Frameworks */ = {isa = PBXBuildFile; productRef = 60D7659AC6167ABB3386EDED /* CadenceCore */; };
+		C2C105916C40CE7431771AA7 /* CadenceMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43185A084EF88E75FB52940A /* CadenceMacApp.swift */; };
+		CA7DEBC92273F86FC09DB926 /* CadenceCore in Frameworks */ = {isa = PBXBuildFile; productRef = 38EDF1AB1CA092D633BF30A9 /* CadenceCore */; };
+		CABB5028B36801502E43B243 /* DeviceDownloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AA75E0A2C0F21A43A3FA79 /* DeviceDownloads.swift */; };
+		CCF339687B9E0C37CB113A34 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 12FDA640A9F891EBCDD64F73 /* PrivacyInfo.xcprivacy */; };
+		CD72B49D00782F2FBF6C8849 /* CadenceCore in Frameworks */ = {isa = PBXBuildFile; productRef = E37E425927E2076BEFE6FEAA /* CadenceCore */; };
+		CF8B4579CECDBC4ABAC52B16 /* CatalogContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7411BF02B42417FF6EE1BDD3 /* CatalogContractTests.swift */; };
+		D0BB4C146ED7869493C1C5B5 /* SpotifyImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822F387512ABF7B75E12B818 /* SpotifyImportView.swift */; };
+		D221A9DFBDA524E3245DCE59 /* WatchPreparation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EDEC3120BF4C83E9CED998 /* WatchPreparation.swift */; };
+		D66A57B81763E87DEE04DE64 /* WatchBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38E6E370579EFC88D1146C7 /* WatchBridge.swift */; };
+		DB696D35A5706AF414A4AE9F /* PhoneViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB2C401C78815BF7DBA4254 /* PhoneViews.swift */; };
+		E2B18702CE5EA23A939F59E7 /* CadenceCore in Frameworks */ = {isa = PBXBuildFile; productRef = E514E58695F09489A4AD2680 /* CadenceCore */; };
+		E705B8EFE7C0312AA596AB21 /* CadenceWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9B52D6DCC988B5AA794E0844 /* CadenceWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EB02674528D3DB2F6318E189 /* PhoneRemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926B3B1610A4B3396BABCCE /* PhoneRemoteView.swift */; };
+		EE065C0AE4EB02CD99BFB3D4 /* DemoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC50EE29670F05AAE814E532 /* DemoLibrary.swift */; };
+		EF813203C155260806918811 /* DemoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC50EE29670F05AAE814E532 /* DemoLibrary.swift */; };
+		EFE5BF1A7FA8668AFA7CCBFE /* CatalogSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DBD2F122E918D24B2086B8 /* CatalogSearchView.swift */; };
+		F38B900DAC7017C57EB21F90 /* DiscoveryFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575C9C5ED335D25D4D2A2FEE /* DiscoveryFeatureTests.swift */; };
+		F6DF0BCB1326AC7A522BAAEB /* Demo in Resources */ = {isa = PBXBuildFile; fileRef = 6FB35EFEE1524E247365A38B /* Demo */; };
+		F8AC68A44CE1C3BD199252FB /* ListeningHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80780E65218A057AAB01F463 /* ListeningHistory.swift */; };
+		FD1E9940A006EA141369F640 /* PreparationCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8575DED8DCEA1A67D5FFC898 /* PreparationCenterTests.swift */; };
+		FE9B2A8E6D39CF6CC92667F8 /* PlaybackUpgradeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016590FC6D8DCB636F11142E /* PlaybackUpgradeTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01DC11D1F5C56AC04566BA99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FA114BF81E88A4D01B65D31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DB68EADAE79B2F439FD87AF;
+			remoteInfo = CadenceWatch;
+		};
+		2545F026B05945D5E8F1168B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FA114BF81E88A4D01B65D31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D9D0CF3C214130166213D80;
+			remoteInfo = Cadence;
+		};
+		690B1C47F49DC7098F27DBE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FA114BF81E88A4D01B65D31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D9D0CF3C214130166213D80;
+			remoteInfo = Cadence;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		92CA5CD4FDB6A19AD7A4918F /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				E705B8EFE7C0312AA596AB21 /* CadenceWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		016590FC6D8DCB636F11142E /* PlaybackUpgradeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackUpgradeTests.swift; sourceTree = "<group>"; };
+		0892E71102BC1717467332B1 /* LiveGlobalSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveGlobalSearchTests.swift; sourceTree = "<group>"; };
+		0A43728D47A1365C8A6A3053 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0BA7AE3421888FA3A6FAF95B /* CadenceMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CadenceMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		12FDA640A9F891EBCDD64F73 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		21EB31AD9ECEDAF0F4405314 /* ListeningViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningViews.swift; sourceTree = "<group>"; };
+		2747B5C0BD75EFECA1D2569B /* Cadence.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Cadence.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31DB5767A2794443D3AF1923 /* MacDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacDiscovery.swift; sourceTree = "<group>"; };
+		320E99792D7AEC89C02C1464 /* CadenceCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CadenceCore; path = Packages/CadenceCore; sourceTree = SOURCE_ROOT; };
+		35DBD2F122E918D24B2086B8 /* CatalogSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSearchView.swift; sourceTree = "<group>"; };
+		3742C92AA60105F9C4309CA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		37BDAD81003E560533EA1862 /* NowPlayingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingTests.swift; sourceTree = "<group>"; };
+		43185A084EF88E75FB52940A /* CadenceMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceMacApp.swift; sourceTree = "<group>"; };
+		4C0FF5C7D19976F39DA81E49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4D8468FD1CC01C4B16832068 /* CadenceMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CadenceMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F456433D2A424E6A501E1CC /* CadenceUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5072428F8DE02C344CA04F64 /* GlobalCatalogViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalCatalogViews.swift; sourceTree = "<group>"; };
+		53DC5566E2688823A894040D /* CadenceTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CadenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		575C9C5ED335D25D4D2A2FEE /* DiscoveryFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryFeatureTests.swift; sourceTree = "<group>"; };
+		5A470EC6FE9264A35E54B049 /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
+		5E057C027937C33B2F8F4174 /* KeyboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTests.swift; sourceTree = "<group>"; };
+		5F57BA8AF1D49AEBC1D8F0FD /* PhoneStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneStore.swift; sourceTree = "<group>"; };
+		5FB58FA417A5A1C58D98BCD3 /* MacConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacConnectionView.swift; sourceTree = "<group>"; };
+		65155CA90C565B2F1291D923 /* MacStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacStore.swift; sourceTree = "<group>"; };
+		6A54D5D7D23BDF497C5B51F1 /* MobileNowPlayingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNowPlayingTests.swift; sourceTree = "<group>"; };
+		6CDB2C81FDB96DB255EC16E9 /* GlobalPlaybackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalPlaybackTests.swift; sourceTree = "<group>"; };
+		6E2F302513492ECDA6ACC7AD /* MacRemoteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacRemoteCard.swift; sourceTree = "<group>"; };
+		6F38CD9D824CE4B936A20614 /* WatchViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchViews.swift; sourceTree = "<group>"; };
+		6FB35EFEE1524E247365A38B /* Demo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Demo; path = Resources/Demo; sourceTree = SOURCE_ROOT; };
+		6FD618B03FFAAC122A6A2FB6 /* LiveHandoffTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveHandoffTests.swift; sourceTree = "<group>"; };
+		7089A5311CF143239FA27B8F /* HandoffTransportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandoffTransportTests.swift; sourceTree = "<group>"; };
+		73BDE8349B521CB3D8E742A7 /* GlobalPlaybackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalPlaybackState.swift; sourceTree = "<group>"; };
+		7411BF02B42417FF6EE1BDD3 /* CatalogContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogContractTests.swift; sourceTree = "<group>"; };
+		7BC45DE3673F65BF24122C20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		80780E65218A057AAB01F463 /* ListeningHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningHistory.swift; sourceTree = "<group>"; };
+		8164A4E5776BD38352D0BA58 /* DiscoveryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryModel.swift; sourceTree = "<group>"; };
+		822F387512ABF7B75E12B818 /* SpotifyImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyImportView.swift; sourceTree = "<group>"; };
+		82CFDFF03FF94DAA50F61379 /* MacViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacViews.swift; sourceTree = "<group>"; };
+		8575DED8DCEA1A67D5FFC898 /* PreparationCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationCenterTests.swift; sourceTree = "<group>"; };
+		85EDEC3120BF4C83E9CED998 /* WatchPreparation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPreparation.swift; sourceTree = "<group>"; };
+		908FC632BB0335CE06B05709 /* RemotePlaybackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePlaybackTests.swift; sourceTree = "<group>"; };
+		9B52D6DCC988B5AA794E0844 /* CadenceWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CadenceWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C89AF3FE388D4395C07A578 /* PlaybackDevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackDevicesView.swift; sourceTree = "<group>"; };
+		9D68AC6CF45FB947BD0C2464 /* Cadence.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cadence.entitlements; sourceTree = "<group>"; };
+		9E0028AAB3CA941016E8E3F7 /* WatchMixLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMixLibraryTests.swift; sourceTree = "<group>"; };
+		9E1452D8161FDBAC8F8A7807 /* WatchMixSending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMixSending.swift; sourceTree = "<group>"; };
+		A09BE8BC54C7A3ADC535A322 /* WatchPreparationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPreparationTests.swift; sourceTree = "<group>"; };
+		A132FB7968F5314C5E57C13C /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
+		A35B7CD0F6E07469AD6C8AA8 /* MacPlaybackKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacPlaybackKeys.swift; sourceTree = "<group>"; };
+		A3EFD2471BB012CB58585F4A /* PlaybackSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackSessionTests.swift; sourceTree = "<group>"; };
+		A564A53677FF8CDF20F6E912 /* PreparationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationCenter.swift; sourceTree = "<group>"; };
+		A90160A015B26202B7A81F17 /* CadenceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceApp.swift; sourceTree = "<group>"; };
+		AEAC24576B97FB6406902660 /* LocalLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLibrary.swift; sourceTree = "<group>"; };
+		AF5EA7EB6F90440CA2E2D334 /* CadenceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceUITests.swift; sourceTree = "<group>"; };
+		B3C52A69BBC27DD1256DB9FF /* ListeningHistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningHistoryTests.swift; sourceTree = "<group>"; };
+		BB69031F318658B8F2A4287F /* PhoneDownloadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDownloadsView.swift; sourceTree = "<group>"; };
+		C2A22175853D4B80BA214F03 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		C99F2C7EC35E6D4B77A213DD /* CadenceWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceWatchApp.swift; sourceTree = "<group>"; };
+		CA7E6BF7AFAB463F590129AB /* DiscoveryViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViews.swift; sourceTree = "<group>"; };
+		CB8D785007E01C2247DA49BE /* PhoneDownloadsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDownloadsTests.swift; sourceTree = "<group>"; };
+		CC50EE29670F05AAE814E532 /* DemoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoLibrary.swift; sourceTree = "<group>"; };
+		D118F39FEE49CD9A0507B0AD /* WatchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchStore.swift; sourceTree = "<group>"; };
+		D38E6E370579EFC88D1146C7 /* WatchBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBridge.swift; sourceTree = "<group>"; };
+		DB9C266155D793596BD55472 /* PhoneDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDownloadManager.swift; sourceTree = "<group>"; };
+		DDB2C401C78815BF7DBA4254 /* PhoneViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViews.swift; sourceTree = "<group>"; };
+		EEF49E48C0BE8676F4113F67 /* SpotifyImportState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyImportState.swift; sourceTree = "<group>"; };
+		F8AA75E0A2C0F21A43A3FA79 /* DeviceDownloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDownloads.swift; sourceTree = "<group>"; };
+		F926B3B1610A4B3396BABCCE /* PhoneRemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneRemoteView.swift; sourceTree = "<group>"; };
+		F966AE23C67F0AD7A3228A60 /* PreparationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationListView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		35AA1DB60740D36E9136151E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AB3A2308B2BF10C330C6ED5 /* CadenceCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56B76F527BA1B0C195D380DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA7DEBC92273F86FC09DB926 /* CadenceCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D05CC7CA88F8012A52D1BD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C24A893DB8BC164D06338F92 /* CadenceCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2C09595DE23F3603D890D05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD72B49D00782F2FBF6C8849 /* CadenceCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEDCA3F1219E8691ABB97270 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2B18702CE5EA23A939F59E7 /* CadenceCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01C30CD73E26923D46FCDAEC /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				9D68AC6CF45FB947BD0C2464 /* Cadence.entitlements */,
+				43185A084EF88E75FB52940A /* CadenceMacApp.swift */,
+				3742C92AA60105F9C4309CA0 /* Info.plist */,
+				A35B7CD0F6E07469AD6C8AA8 /* MacPlaybackKeys.swift */,
+				6E2F302513492ECDA6ACC7AD /* MacRemoteCard.swift */,
+				65155CA90C565B2F1291D923 /* MacStore.swift */,
+				82CFDFF03FF94DAA50F61379 /* MacViews.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		33875562046F758084300112 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				AEEF08EDF37094DE6F9FE90E /* iOS */,
+				01C30CD73E26923D46FCDAEC /* macOS */,
+				87FA653E9EEB55DB5EC49E87 /* Watch */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
+		56B5E2FDC830F2BE293D7010 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AF5EA7EB6F90440CA2E2D334 /* CadenceUITests.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		5C7750E2C29843049F60DAEC /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				7089A5311CF143239FA27B8F /* HandoffTransportTests.swift */,
+				5E057C027937C33B2F8F4174 /* KeyboardTests.swift */,
+				37BDAD81003E560533EA1862 /* NowPlayingTests.swift */,
+			);
+			path = Mac;
+			sourceTree = "<group>";
+		};
+		6A9F1C3B6267176F20AE4B03 = {
+			isa = PBXGroup;
+			children = (
+				33875562046F758084300112 /* Apps */,
+				BE9D6ACC5D9D37512579251A /* Packages */,
+				881C78F8E4400412B32350C1 /* Resources */,
+				C6537590FF0355D3BBEE48F4 /* Shared */,
+				B047DFEDF445B494EFA692A8 /* Tests */,
+				ADFE63F9A7B11522B6C8E81A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		869459B9586CD9B52CB90640 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				7411BF02B42417FF6EE1BDD3 /* CatalogContractTests.swift */,
+				575C9C5ED335D25D4D2A2FEE /* DiscoveryFeatureTests.swift */,
+				6CDB2C81FDB96DB255EC16E9 /* GlobalPlaybackTests.swift */,
+				B3C52A69BBC27DD1256DB9FF /* ListeningHistoryTests.swift */,
+				0892E71102BC1717467332B1 /* LiveGlobalSearchTests.swift */,
+				6FD618B03FFAAC122A6A2FB6 /* LiveHandoffTests.swift */,
+				6A54D5D7D23BDF497C5B51F1 /* MobileNowPlayingTests.swift */,
+				CB8D785007E01C2247DA49BE /* PhoneDownloadsTests.swift */,
+				A3EFD2471BB012CB58585F4A /* PlaybackSessionTests.swift */,
+				016590FC6D8DCB636F11142E /* PlaybackUpgradeTests.swift */,
+				8575DED8DCEA1A67D5FFC898 /* PreparationCenterTests.swift */,
+				908FC632BB0335CE06B05709 /* RemotePlaybackTests.swift */,
+				5A470EC6FE9264A35E54B049 /* StorageTests.swift */,
+				9E0028AAB3CA941016E8E3F7 /* WatchMixLibraryTests.swift */,
+				A09BE8BC54C7A3ADC535A322 /* WatchPreparationTests.swift */,
+			);
+			path = Unit;
+			sourceTree = "<group>";
+		};
+		87FA653E9EEB55DB5EC49E87 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				C99F2C7EC35E6D4B77A213DD /* CadenceWatchApp.swift */,
+				4C0FF5C7D19976F39DA81E49 /* Info.plist */,
+				F926B3B1610A4B3396BABCCE /* PhoneRemoteView.swift */,
+				D118F39FEE49CD9A0507B0AD /* WatchStore.swift */,
+				6F38CD9D824CE4B936A20614 /* WatchViews.swift */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		881C78F8E4400412B32350C1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0A43728D47A1365C8A6A3053 /* Assets.xcassets */,
+				6FB35EFEE1524E247365A38B /* Demo */,
+				12FDA640A9F891EBCDD64F73 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		ADFE63F9A7B11522B6C8E81A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2747B5C0BD75EFECA1D2569B /* Cadence.app */,
+				0BA7AE3421888FA3A6FAF95B /* CadenceMac.app */,
+				4D8468FD1CC01C4B16832068 /* CadenceMacTests.xctest */,
+				53DC5566E2688823A894040D /* CadenceTests.xctest */,
+				4F456433D2A424E6A501E1CC /* CadenceUITests.xctest */,
+				9B52D6DCC988B5AA794E0844 /* CadenceWatch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AEEF08EDF37094DE6F9FE90E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A90160A015B26202B7A81F17 /* CadenceApp.swift */,
+				7BC45DE3673F65BF24122C20 /* Info.plist */,
+				C2A22175853D4B80BA214F03 /* KeychainStore.swift */,
+				5FB58FA417A5A1C58D98BCD3 /* MacConnectionView.swift */,
+				31DB5767A2794443D3AF1923 /* MacDiscovery.swift */,
+				DB9C266155D793596BD55472 /* PhoneDownloadManager.swift */,
+				BB69031F318658B8F2A4287F /* PhoneDownloadsView.swift */,
+				5F57BA8AF1D49AEBC1D8F0FD /* PhoneStore.swift */,
+				DDB2C401C78815BF7DBA4254 /* PhoneViews.swift */,
+				9C89AF3FE388D4395C07A578 /* PlaybackDevicesView.swift */,
+				85EDEC3120BF4C83E9CED998 /* WatchPreparation.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		B047DFEDF445B494EFA692A8 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5C7750E2C29843049F60DAEC /* Mac */,
+				56B5E2FDC830F2BE293D7010 /* UI */,
+				869459B9586CD9B52CB90640 /* Unit */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		BE9D6ACC5D9D37512579251A /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				320E99792D7AEC89C02C1464 /* CadenceCore */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		C6537590FF0355D3BBEE48F4 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A132FB7968F5314C5E57C13C /* AudioController.swift */,
+				35DBD2F122E918D24B2086B8 /* CatalogSearchView.swift */,
+				CC50EE29670F05AAE814E532 /* DemoLibrary.swift */,
+				F8AA75E0A2C0F21A43A3FA79 /* DeviceDownloads.swift */,
+				8164A4E5776BD38352D0BA58 /* DiscoveryModel.swift */,
+				CA7E6BF7AFAB463F590129AB /* DiscoveryViews.swift */,
+				5072428F8DE02C344CA04F64 /* GlobalCatalogViews.swift */,
+				73BDE8349B521CB3D8E742A7 /* GlobalPlaybackState.swift */,
+				80780E65218A057AAB01F463 /* ListeningHistory.swift */,
+				21EB31AD9ECEDAF0F4405314 /* ListeningViews.swift */,
+				AEAC24576B97FB6406902660 /* LocalLibrary.swift */,
+				A564A53677FF8CDF20F6E912 /* PreparationCenter.swift */,
+				F966AE23C67F0AD7A3228A60 /* PreparationListView.swift */,
+				EEF49E48C0BE8676F4113F67 /* SpotifyImportState.swift */,
+				822F387512ABF7B75E12B818 /* SpotifyImportView.swift */,
+				D38E6E370579EFC88D1146C7 /* WatchBridge.swift */,
+				9E1452D8161FDBAC8F8A7807 /* WatchMixSending.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0AB0D7E2FDD0A6D4019C80C0 /* CadenceMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A0B6BEEB842FECA5EA34BB0 /* Build configuration list for PBXNativeTarget "CadenceMacTests" */;
+			buildPhases = (
+				73DBA907DCC117FF4AB2A77C /* Sources */,
+				6D05CC7CA88F8012A52D1BD9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CadenceMacTests;
+			packageProductDependencies = (
+				60D7659AC6167ABB3386EDED /* CadenceCore */,
+			);
+			productName = CadenceMacTests;
+			productReference = 4D8468FD1CC01C4B16832068 /* CadenceMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		11E3B751AA62E963A49758B8 /* CadenceMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDCCFBF5BCE5CFAA0C1BDEE8 /* Build configuration list for PBXNativeTarget "CadenceMac" */;
+			buildPhases = (
+				F09AED7416B3BCA91316064E /* Sources */,
+				BC6E3A52F654C049550C5CEC /* Resources */,
+				35AA1DB60740D36E9136151E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CadenceMac;
+			packageProductDependencies = (
+				1A9D336090AE8A31C7761FD2 /* CadenceCore */,
+			);
+			productName = CadenceMac;
+			productReference = 0BA7AE3421888FA3A6FAF95B /* CadenceMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1D9D0CF3C214130166213D80 /* Cadence */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07126B28B5B904C139BBD128 /* Build configuration list for PBXNativeTarget "Cadence" */;
+			buildPhases = (
+				1F5350DE3B53E65CAAF89D1D /* Sources */,
+				BFA5A0EE784FE6F59E5E0293 /* Resources */,
+				56B76F527BA1B0C195D380DB /* Frameworks */,
+				92CA5CD4FDB6A19AD7A4918F /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				58E7D062F7BB93597E0DF5F0 /* PBXTargetDependency */,
+			);
+			name = Cadence;
+			packageProductDependencies = (
+				38EDF1AB1CA092D633BF30A9 /* CadenceCore */,
+			);
+			productName = Cadence;
+			productReference = 2747B5C0BD75EFECA1D2569B /* Cadence.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2E3CAA181D5100DFBBBB5CE1 /* CadenceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97FFA9ED78584659D73C73D1 /* Build configuration list for PBXNativeTarget "CadenceUITests" */;
+			buildPhases = (
+				1BD5AA8178D9E39E5E0957C9 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C4A050CAD1405004413D20E /* PBXTargetDependency */,
+			);
+			name = CadenceUITests;
+			packageProductDependencies = (
+			);
+			productName = CadenceUITests;
+			productReference = 4F456433D2A424E6A501E1CC /* CadenceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		3C958ED18FAE60638046C026 /* CadenceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66B1F7C89C12897815378340 /* Build configuration list for PBXNativeTarget "CadenceTests" */;
+			buildPhases = (
+				94943CCF8CDAF6F711DB61FA /* Sources */,
+				B2C09595DE23F3603D890D05 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFC1C557A6F407EF2ED1660D /* PBXTargetDependency */,
+			);
+			name = CadenceTests;
+			packageProductDependencies = (
+				E37E425927E2076BEFE6FEAA /* CadenceCore */,
+			);
+			productName = CadenceTests;
+			productReference = 53DC5566E2688823A894040D /* CadenceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4DB68EADAE79B2F439FD87AF /* CadenceWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B29FDB6DECF84C7210C78545 /* Build configuration list for PBXNativeTarget "CadenceWatch" */;
+			buildPhases = (
+				46F9E1D438C1EC5841A29741 /* Sources */,
+				1ECCBF09177BA98FC01203DF /* Resources */,
+				FEDCA3F1219E8691ABB97270 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CadenceWatch;
+			packageProductDependencies = (
+				E514E58695F09489A4AD2680 /* CadenceCore */,
+			);
+			productName = CadenceWatch;
+			productReference = 9B52D6DCC988B5AA794E0844 /* CadenceWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9FA114BF81E88A4D01B65D31 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					0AB0D7E2FDD0A6D4019C80C0 = {
+						ProvisioningStyle = Automatic;
+					};
+					11E3B751AA62E963A49758B8 = {
+						ProvisioningStyle = Automatic;
+					};
+					1D9D0CF3C214130166213D80 = {
+						ProvisioningStyle = Automatic;
+					};
+					2E3CAA181D5100DFBBBB5CE1 = {
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1D9D0CF3C214130166213D80;
+					};
+					3C958ED18FAE60638046C026 = {
+						ProvisioningStyle = Automatic;
+					};
+					4DB68EADAE79B2F439FD87AF = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6735F591880E2DF1BC393107 /* Build configuration list for PBXProject "Cadence" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 6A9F1C3B6267176F20AE4B03;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				ECD7C00A329A52A2DDDBAD1F /* XCLocalSwiftPackageReference "Packages/CadenceCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = ADFE63F9A7B11522B6C8E81A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D9D0CF3C214130166213D80 /* Cadence */,
+				4DB68EADAE79B2F439FD87AF /* CadenceWatch */,
+				11E3B751AA62E963A49758B8 /* CadenceMac */,
+				0AB0D7E2FDD0A6D4019C80C0 /* CadenceMacTests */,
+				2E3CAA181D5100DFBBBB5CE1 /* CadenceUITests */,
+				3C958ED18FAE60638046C026 /* CadenceTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1ECCBF09177BA98FC01203DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A3E2B151CACD95908F8C5B9 /* Assets.xcassets in Resources */,
+				F6DF0BCB1326AC7A522BAAEB /* Demo in Resources */,
+				657FB603B041CE966D4B22A2 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC6E3A52F654C049550C5CEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9013A006657824C4FB3EBDA9 /* Assets.xcassets in Resources */,
+				10AADF4A7B5CAA7E30E7CBF7 /* Demo in Resources */,
+				BFBCDAF1EBFE685260068C9A /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFA5A0EE784FE6F59E5E0293 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C5A969F37EE35B644C7F57E /* Assets.xcassets in Resources */,
+				84E81FB6281D2A0068993C7C /* Demo in Resources */,
+				CCF339687B9E0C37CB113A34 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1BD5AA8178D9E39E5E0957C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA8464F9853E588CCC640444 /* CadenceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F5350DE3B53E65CAAF89D1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E31BE45B29E3079148A0634 /* AudioController.swift in Sources */,
+				73AB4878A2E3016070FB26CF /* CadenceApp.swift in Sources */,
+				85201B37FB18F3DEA10D104A /* CatalogSearchView.swift in Sources */,
+				EE065C0AE4EB02CD99BFB3D4 /* DemoLibrary.swift in Sources */,
+				CABB5028B36801502E43B243 /* DeviceDownloads.swift in Sources */,
+				9EA2FB0F73023D7E8AC4338B /* DiscoveryModel.swift in Sources */,
+				75638C5F001487C67B348A49 /* DiscoveryViews.swift in Sources */,
+				04BD04AA929E39CF1195AD92 /* GlobalCatalogViews.swift in Sources */,
+				4C2B223EBB1CCDD4CB714DCA /* GlobalPlaybackState.swift in Sources */,
+				398BCBE388A62C94DAF22262 /* KeychainStore.swift in Sources */,
+				F8AC68A44CE1C3BD199252FB /* ListeningHistory.swift in Sources */,
+				349796B6E5D0B87CD1E5C49A /* ListeningViews.swift in Sources */,
+				6676861CAE3E7544AA78B87D /* LocalLibrary.swift in Sources */,
+				B2522777278E2386853774FC /* MacConnectionView.swift in Sources */,
+				7C9729580C81C9E780737846 /* MacDiscovery.swift in Sources */,
+				5A140596F4C88AAF6433F40F /* PhoneDownloadManager.swift in Sources */,
+				7942C57BD03FA53A9B8302EA /* PhoneDownloadsView.swift in Sources */,
+				BEB98B3FB93C48D0F522A15A /* PhoneStore.swift in Sources */,
+				DB696D35A5706AF414A4AE9F /* PhoneViews.swift in Sources */,
+				761DADF8812F32D7DFC42B21 /* PlaybackDevicesView.swift in Sources */,
+				098942F3E0EE00D27DE725F1 /* PreparationCenter.swift in Sources */,
+				AEE9BE66827108E602BC36CF /* PreparationListView.swift in Sources */,
+				4C6DEBC5AE59AF0FAEB9C51D /* SpotifyImportState.swift in Sources */,
+				D0BB4C146ED7869493C1C5B5 /* SpotifyImportView.swift in Sources */,
+				4CDE00597C6BA7BF8178B3C9 /* WatchBridge.swift in Sources */,
+				B3E3DFAF84551D271ACAA74F /* WatchMixSending.swift in Sources */,
+				D221A9DFBDA524E3245DCE59 /* WatchPreparation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46F9E1D438C1EC5841A29741 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F70EA3F30377CCF79CA5C7 /* AudioController.swift in Sources */,
+				7B357B992B616052E2B50C99 /* CadenceWatchApp.swift in Sources */,
+				48E40D3260469D42B287ECBC /* CatalogSearchView.swift in Sources */,
+				EF813203C155260806918811 /* DemoLibrary.swift in Sources */,
+				84747C85D3FD740D23114921 /* DeviceDownloads.swift in Sources */,
+				A45849B3F78D9E8EDE4108BE /* DiscoveryModel.swift in Sources */,
+				77697403F6CEE2B35C10CD0C /* DiscoveryViews.swift in Sources */,
+				94589AD46A87716CDBF9383A /* GlobalCatalogViews.swift in Sources */,
+				860AE9C61ABFD1D0D2693DA6 /* GlobalPlaybackState.swift in Sources */,
+				49837A86FDEB8D0FBF25F766 /* ListeningHistory.swift in Sources */,
+				0DC55E533458261B37CC2425 /* ListeningViews.swift in Sources */,
+				624BEA62C41ED79BCC0DB23C /* LocalLibrary.swift in Sources */,
+				EB02674528D3DB2F6318E189 /* PhoneRemoteView.swift in Sources */,
+				62993D0AC4B452730F3B7619 /* PreparationCenter.swift in Sources */,
+				9CEEC7CC4F7A3CAC34CBE9D0 /* PreparationListView.swift in Sources */,
+				A87128E437DBABD66FC284DA /* SpotifyImportState.swift in Sources */,
+				2DC5E3E5ADC6054CD3F1DB3B /* SpotifyImportView.swift in Sources */,
+				D66A57B81763E87DEE04DE64 /* WatchBridge.swift in Sources */,
+				C15DB86158265F214298ED06 /* WatchMixSending.swift in Sources */,
+				760524DBE81080F864C6736D /* WatchStore.swift in Sources */,
+				995708B1C808F88DFA254E4B /* WatchViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73DBA907DCC117FF4AB2A77C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				263C9905228C2AE23A068D51 /* AudioController.swift in Sources */,
+				8A4FB3C7489976906DA4C825 /* HandoffTransportTests.swift in Sources */,
+				5B940EAF5E4A3B571703E56C /* KeyboardTests.swift in Sources */,
+				4FB54462A707D5BA3B500191 /* MacPlaybackKeys.swift in Sources */,
+				503980357E1488EE67C2CDEF /* NowPlayingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94943CCF8CDAF6F711DB61FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF8B4579CECDBC4ABAC52B16 /* CatalogContractTests.swift in Sources */,
+				F38B900DAC7017C57EB21F90 /* DiscoveryFeatureTests.swift in Sources */,
+				445F422B4EF2E46ED891ADAF /* GlobalPlaybackTests.swift in Sources */,
+				0D433C89DE3BC20E4A0546A2 /* ListeningHistoryTests.swift in Sources */,
+				B458D7724486536800054C0A /* LiveGlobalSearchTests.swift in Sources */,
+				60C42881A94B21CDF413269D /* LiveHandoffTests.swift in Sources */,
+				29DFB929F6C25C306DD73126 /* MobileNowPlayingTests.swift in Sources */,
+				A5884F7410E962B488D2613E /* PhoneDownloadsTests.swift in Sources */,
+				6DD9901804D23A4B2DCB8464 /* PlaybackSessionTests.swift in Sources */,
+				FE9B2A8E6D39CF6CC92667F8 /* PlaybackUpgradeTests.swift in Sources */,
+				FD1E9940A006EA141369F640 /* PreparationCenterTests.swift in Sources */,
+				3CA2AB958EB3B7AEC9E596CD /* RemotePlaybackTests.swift in Sources */,
+				24803A80EB90D118639C0942 /* StorageTests.swift in Sources */,
+				2EFC677668CB083FA9C3F27E /* WatchMixLibraryTests.swift in Sources */,
+				7871B157623A0FAB5DBDE459 /* WatchPreparationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F09AED7416B3BCA91316064E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B3EEA7AF2EA7DC21934387C /* AudioController.swift in Sources */,
+				C2C105916C40CE7431771AA7 /* CadenceMacApp.swift in Sources */,
+				EFE5BF1A7FA8668AFA7CCBFE /* CatalogSearchView.swift in Sources */,
+				B83E1589AFB39107AF336E95 /* DemoLibrary.swift in Sources */,
+				6A810D521AE90FABD0FEF73A /* DiscoveryModel.swift in Sources */,
+				AAC99367AB24B6FE037CDF83 /* DiscoveryViews.swift in Sources */,
+				89F843B3C865B0A6DB859FE8 /* GlobalCatalogViews.swift in Sources */,
+				344CB77513D8F808ACCE9D3E /* GlobalPlaybackState.swift in Sources */,
+				A218CB3AC3AD679BD664E27B /* KeychainStore.swift in Sources */,
+				4B3D7AA497AB55CFE12ED8EA /* ListeningHistory.swift in Sources */,
+				6891B9FF43355723405D1D5A /* ListeningViews.swift in Sources */,
+				69A2C54B2DC4EB2C0B05A9C8 /* MacPlaybackKeys.swift in Sources */,
+				9B6E1AA1003CE9B3724541A6 /* MacRemoteCard.swift in Sources */,
+				9E5A53D1EF8D5FC46D46740C /* MacStore.swift in Sources */,
+				0217969212050509CE4F193F /* MacViews.swift in Sources */,
+				681E47253AC010969DD134BC /* PreparationCenter.swift in Sources */,
+				9127DADACB4FACF793732D88 /* PreparationListView.swift in Sources */,
+				4B24D793360D73E8DDAC68F1 /* SpotifyImportState.swift in Sources */,
+				3F4FEB6B33474BC447347BA3 /* SpotifyImportView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2C4A050CAD1405004413D20E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D9D0CF3C214130166213D80 /* Cadence */;
+			targetProxy = 2545F026B05945D5E8F1168B /* PBXContainerItemProxy */;
+		};
+		58E7D062F7BB93597E0DF5F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DB68EADAE79B2F439FD87AF /* CadenceWatch */;
+			targetProxy = 01DC11D1F5C56AC04566BA99 /* PBXContainerItemProxy */;
+		};
+		EFC1C557A6F407EF2ED1660D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D9D0CF3C214130166213D80 /* Cadence */;
+			targetProxy = 690B1C47F49DC7098F27DBE4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0AC6D37A18265C6868E862C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Apps/iOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic;
+				PRODUCT_NAME = Cadence;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		40B0C3524D20E0C4E0C1DEE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_ALLOWED = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic.mac.tests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		546926190A864975A04B0641 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = MacAppIcon;
+				CODE_SIGN_ENTITLEMENTS = Apps/macOS/Cadence.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Apps/macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic.mac;
+				PRODUCT_NAME = Cadence;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		64C6CF1BFAA4BDE598E812CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = MacAppIcon;
+				CODE_SIGN_ENTITLEMENTS = Apps/macOS/Cadence.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Apps/macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic.mac;
+				PRODUCT_NAME = Cadence;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		66FA57B5F57FFDBD1C1E8963 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Apps/iOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic;
+				PRODUCT_NAME = Cadence;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		68D6AFA7A98DFEC3904849FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Apps/Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic.watchkitapp;
+				PRODUCT_NAME = CadenceWatch;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		7B0C9F1CC906EEAD602A80A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_ALLOWED = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic.mac.tests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9DBE9E0079A7DB194A03BF0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 17;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 0.7.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		A38A095653F045528829CF0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cadence;
+			};
+			name = Debug;
+		};
+		A689E1BC11344A42CCA247B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cadence.app/Cadence";
+			};
+			name = Debug;
+		};
+		B5B3D1AA68DA1BC4864376F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cadence;
+			};
+			name = Release;
+		};
+		BFB3E54EDCC2D35C11F439D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Apps/Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic.watchkitapp;
+				PRODUCT_NAME = CadenceWatch;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		C78721ED836CA881972A504D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 17;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 0.7.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		D702FB8328777E6F85191BAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bahachammakhi.cadencemusic.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cadence.app/Cadence";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07126B28B5B904C139BBD128 /* Build configuration list for PBXNativeTarget "Cadence" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AC6D37A18265C6868E862C8 /* Debug */,
+				66FA57B5F57FFDBD1C1E8963 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2A0B6BEEB842FECA5EA34BB0 /* Build configuration list for PBXNativeTarget "CadenceMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B0C9F1CC906EEAD602A80A1 /* Debug */,
+				40B0C3524D20E0C4E0C1DEE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		66B1F7C89C12897815378340 /* Build configuration list for PBXNativeTarget "CadenceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A689E1BC11344A42CCA247B3 /* Debug */,
+				D702FB8328777E6F85191BAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6735F591880E2DF1BC393107 /* Build configuration list for PBXProject "Cadence" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C78721ED836CA881972A504D /* Debug */,
+				9DBE9E0079A7DB194A03BF0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		97FFA9ED78584659D73C73D1 /* Build configuration list for PBXNativeTarget "CadenceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A38A095653F045528829CF0C /* Debug */,
+				B5B3D1AA68DA1BC4864376F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B29FDB6DECF84C7210C78545 /* Build configuration list for PBXNativeTarget "CadenceWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68D6AFA7A98DFEC3904849FD /* Debug */,
+				BFB3E54EDCC2D35C11F439D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FDCCFBF5BCE5CFAA0C1BDEE8 /* Build configuration list for PBXNativeTarget "CadenceMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				546926190A864975A04B0641 /* Debug */,
+				64C6CF1BFAA4BDE598E812CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		ECD7C00A329A52A2DDDBAD1F /* XCLocalSwiftPackageReference "Packages/CadenceCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/CadenceCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1A9D336090AE8A31C7761FD2 /* CadenceCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CadenceCore;
+		};
+		38EDF1AB1CA092D633BF30A9 /* CadenceCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CadenceCore;
+		};
+		60D7659AC6167ABB3386EDED /* CadenceCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CadenceCore;
+		};
+		E37E425927E2076BEFE6FEAA /* CadenceCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CadenceCore;
+		};
+		E514E58695F09489A4AD2680 /* CadenceCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CadenceCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 9FA114BF81E88A4D01B65D31 /* Project object */;
+}

@@ -1,0 +1,209 @@
+name: Cadence
+options:
+  bundleIdPrefix: com.bahachammakhi.cadencemusic
+  deploymentTarget:
+    iOS: '18.0'
+    watchOS: '10.0'
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: '5.0'
+    CODE_SIGN_STYLE: Automatic
+    MARKETING_VERSION: 0.7.1
+    CURRENT_PROJECT_VERSION: 17
+    ENABLE_USER_SCRIPT_SANDBOXING: true
+    ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    GENERATE_INFOPLIST_FILE: false
+packages:
+  CadenceCore:
+    path: Packages/CadenceCore
+targets:
+  Cadence:
+    type: application
+    platform: iOS
+    sources:
+      - Apps/iOS
+      - Shared
+      - path: Resources/Assets.xcassets
+      - path: Resources/PrivacyInfo.xcprivacy
+      - path: Resources/Demo
+        type: folder
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bahachammakhi.cadencemusic
+        PRODUCT_NAME: Cadence
+        TARGETED_DEVICE_FAMILY: '1'
+        SUPPORTS_MACCATALYST: false
+        SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: false
+    info:
+      path: Apps/iOS/Info.plist
+      properties:
+        CFBundleDisplayName: Cadence
+        CFBundleDevelopmentRegion: en
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        ITSAppUsesNonExemptEncryption: false
+        NSLocalNetworkUsageDescription: Cadence finds your Mac so your Apple Watch can control its music through this iPhone.
+        NSBonjourServices: [_cadence-remote._tcp]
+        CFBundleURLTypes:
+          - CFBundleURLName: Cadence Mac pairing
+            CFBundleURLSchemes: [cadence]
+        UIBackgroundModes: [audio]
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+          UIImageName: LaunchLogo
+          UIImageRespectsSafeAreaInsets: true
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+    dependencies:
+      - package: CadenceCore
+      - target: CadenceWatch
+        embed: true
+  CadenceWatch:
+    type: application
+    platform: watchOS
+    sources:
+      - Apps/Watch
+      - Shared
+      - path: Resources/Assets.xcassets
+      - path: Resources/PrivacyInfo.xcprivacy
+      - path: Resources/Demo
+        type: folder
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bahachammakhi.cadencemusic.watchkitapp
+        PRODUCT_NAME: CadenceWatch
+        TARGETED_DEVICE_FAMILY: '4'
+        SKIP_INSTALL: true
+    info:
+      path: Apps/Watch/Info.plist
+      properties:
+        CFBundleDisplayName: Cadence
+        CFBundleDevelopmentRegion: en
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        ITSAppUsesNonExemptEncryption: false
+        WKApplication: true
+        WKCompanionAppBundleIdentifier: com.bahachammakhi.cadencemusic
+        WKWatchOnly: false
+        UIBackgroundModes: [audio]
+    dependencies:
+      - package: CadenceCore
+  CadenceMac:
+    type: application
+    platform: macOS
+    deploymentTarget: '14.0'
+    sources:
+      - Apps/macOS
+      - Shared/AudioController.swift
+      - Shared/ListeningViews.swift
+      - Shared/CatalogSearchView.swift
+      - Shared/GlobalCatalogViews.swift
+      - Shared/GlobalPlaybackState.swift
+      - Shared/PreparationCenter.swift
+      - Shared/PreparationListView.swift
+      - Shared/ListeningHistory.swift
+      - Shared/DiscoveryModel.swift
+      - Shared/DiscoveryViews.swift
+      - Shared/SpotifyImportView.swift
+      - Shared/SpotifyImportState.swift
+      - Shared/DemoLibrary.swift
+      - Apps/iOS/KeychainStore.swift
+      - path: Resources/Assets.xcassets
+      - path: Resources/PrivacyInfo.xcprivacy
+      - path: Resources/Demo
+        type: folder
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bahachammakhi.cadencemusic.mac
+        PRODUCT_NAME: Cadence
+        ASSETCATALOG_COMPILER_APPICON_NAME: MacAppIcon
+        ENABLE_HARDENED_RUNTIME: true
+        CODE_SIGN_ENTITLEMENTS: Apps/macOS/Cadence.entitlements
+    info:
+      path: Apps/macOS/Info.plist
+      properties:
+        CFBundleDisplayName: Cadence
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        ITSAppUsesNonExemptEncryption: false
+        NSHighResolutionCapable: true
+        LSApplicationCategoryType: public.app-category.music
+        NSLocalNetworkUsageDescription: Cadence announces this Mac to your iPhone for private Apple Watch playback control.
+        NSBonjourServices: [_cadence-remote._tcp]
+    dependencies:
+      - package: CadenceCore
+  CadenceMacTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: '14.0'
+    sources:
+      - Tests/Mac
+      - Apps/macOS/MacPlaybackKeys.swift
+      - Shared/AudioController.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bahachammakhi.cadencemusic.mac.tests
+        GENERATE_INFOPLIST_FILE: true
+        CODE_SIGNING_ALLOWED: false
+    dependencies:
+      - package: CadenceCore
+  CadenceUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - Tests/UI
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bahachammakhi.cadencemusic.uitests
+        GENERATE_INFOPLIST_FILE: true
+        TEST_TARGET_NAME: Cadence
+    dependencies:
+      - target: Cadence
+
+  CadenceTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Tests/Unit
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bahachammakhi.cadencemusic.tests
+        GENERATE_INFOPLIST_FILE: true
+    dependencies:
+      - target: Cadence
+      - package: CadenceCore
+schemes:
+  Cadence:
+    build:
+      targets:
+        Cadence: all
+    run:
+      config: Debug
+    archive:
+      config: Release
+    test:
+      targets: [CadenceTests, CadenceUITests]
+      gatherCoverageData: false
+  CadenceWatch:
+    build:
+      targets:
+        CadenceWatch: all
+    run:
+      config: Debug
+  CadenceMac:
+    build:
+      targets:
+        CadenceMac: all
+    run:
+      config: Debug
+    archive:
+      config: Release
+
+  CadenceMacTests:
+    build:
+      targets:
+        CadenceMacTests: all
+    test:
+      targets: [CadenceMacTests]

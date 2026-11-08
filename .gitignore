@@ -1,0 +1,24 @@
+.build/
+build/
+DerivedData/
+*.xcarchive/
+*.ipa
+*.dSYM/
+*.xcuserstate
+xcuserdata/
+.env*
+*.p8
+*.p12
+*.mobileprovision
+*.credentials*
+.DS_Store
+__pycache__/
+*.pyc
+*.zip
+*.dmg
+*.app/
+.local-*
+# Local signing configuration; commit only placeholder examples.
+.local-config/
+apple-upload.json
+apple.json

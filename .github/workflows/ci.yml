@@ -1,0 +1,42 @@
+name: Source checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: source-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  mac:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Show toolchain
+        run: xcodebuild -version && swift --version
+      - name: Install XcodeGen
+        run: brew list xcodegen >/dev/null 2>&1 || brew install xcodegen
+      - name: Core tests
+        run: swift test --package-path Packages/CadenceCore
+      - name: Release helper tests
+        run: python3 -m unittest discover -s Scripts/tests -v
+      - name: Generate project
+        run: xcodegen generate
+      - name: Build Mac without signing
+        run: >-
+          xcodebuild -project Cadence.xcodeproj -scheme CadenceMac
+          -destination 'generic/platform=macOS' -derivedDataPath .build/Mac
+          CODE_SIGNING_ALLOWED=NO build
+      - name: Native Mac tests
+        run: >-
+          xcodebuild -project Cadence.xcodeproj -scheme CadenceMacTests
+          -destination 'platform=macOS' -derivedDataPath .build/MacTests test

@@ -1,0 +1,6 @@
+{
+  "keyPath": "~/.config/cadence/AuthKey_YOUR_KEY_ID.p8",
+  "keyId": "YOUR_KEY_ID",
+  "issuerId": "YOUR_ISSUER_ID",
+  "teamId": "YOUR_TEAM_ID"
+}
