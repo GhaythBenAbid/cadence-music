@@ -2,6 +2,14 @@
 
 Versions below describe implementation milestones. Public binary availability is separate; see [release guidance](docs/RELEASE.md).
 
+## 0.7.5 (21) — 9 November 2026
+
+- Restore the player as soon as the Watch scene becomes active, including when the brightness notification arrives later.
+- Keep one navigation/player hierarchy through dimming and waking; retain the native volume control while releasing inactive Crown focus.
+- Make the dimmed display tappable to restore controls and close playback sheets during inactive transitions.
+- Prevent automatic iPhone audio activity from pausing or taking over an actively playing Watch session; explicit device selection still switches playback.
+- Add repeated wrist-state, tap recovery, automatic activity and longer background/dimmed playback regressions. Physical Watch crash and battery acceptance remain separate.
+
 ## 0.7.4 (20) — 9 November 2026
 
 - Add a minimal gray-on-black Always On player and restore normal controls on wake without changing the audio session.

@@ -19,7 +19,7 @@ struct WatchTrackHeading:View {
                 Text(song.title).font(.headline).lineLimit(2)
                 Text(song.subtitle).font(.caption2).foregroundStyle(.secondary).lineLimit(1)
             }.frame(maxWidth:.infinity,alignment:.leading)
-        }.accessibilityElement(children:.combine)
+        }.accessibilityElement(children:.combine).accessibilityIdentifier("watch.track")
     }
 }
 

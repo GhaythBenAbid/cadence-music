@@ -47,6 +47,7 @@ struct PhoneRemoteView:View {
             }.padding(.horizontal,6).padding(.top,4).padding(.bottom,14)
         }.sheet(isPresented:$seeking){if let state,let song=state.song{WatchSeekView(song:song,elapsed:state.elapsed,duration:state.duration,commit:{if connected,self.state?.song?.id==song.id{control(.seek,value:$0)}})}}
             .onChange(of:state?.song?.id){_,_ in seeking=false}
+            .onChange(of:controlsActive){_,value in if !value{seeking=false}}
             .task(id:scenePhase){
                 guard scenePhase == .active else{return}
                 while !Task.isCancelled{

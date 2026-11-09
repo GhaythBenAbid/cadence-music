@@ -88,7 +88,8 @@ import CadenceCore
     func applicationDidFinishLaunching(){_ = WatchStore.shared;_ = WatchBackgroundTracker.shared}
     func handleRemoteNowPlayingActivity(){
         let store=WatchStore.shared
-        store.audio.pause()
+        // Automatic activity may arrive late; only an explicit device choice can stop a run.
+        guard !store.audio.isPlaying else{return}
         UserDefaults.standard.set("phone",forKey:"playbackSource")
         store.bridge.requestPlayback(target:"phone")
     }

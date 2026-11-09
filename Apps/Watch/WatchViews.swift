@@ -4,46 +4,58 @@ import CadenceCore
 
 struct WatchRoot:View {
     @Environment(\.isLuminanceReduced) private var dimmed
+    @Environment(\.scenePhase) private var phase
     @EnvironmentObject var store:WatchStore
     @State private var tab=0
     @State private var choosingSource=false
+    @State private var requestedControls=false
     @AppStorage("playbackSource") private var source="watch"
+    // Lifecycle and luminance notifications can arrive in either order on wake.
+    private var ambient:Bool{dimmed && phase != .active && !requestedControls}
     private var deviceName:String{source=="phone" ? "iPhone" : source=="mac" ? "Mac" : "This Watch"}
     private var deviceIcon:String{source=="phone" ? "iphone" : source=="mac" ? "laptopcomputer" : "applewatch"}
     var body:some View {
-        Group{
-        if dimmed{NavigationStack{WatchAmbientPlayer(audio:store.audio,bridge:store.bridge,source:source)}.navigationBarTitleDisplayMode(.inline)}
-        else{NavigationStack{
-            Group{
-                if source=="phone" || source=="mac"{
-                    PhoneRemoteView(bridge:store.bridge,target:source,useOffline:{source="watch";tab=0},controlsActive:!choosingSource).id(source)
-                }else{
-                    TabView(selection:$tab){
-                        WatchMixView(local:store.local,audio:store.audio,onPlay:{song in store.play(song);tab=1}).tag(0)
-                        WatchPlayer(audio:store.audio,local:store.local,showLibrary:{tab=0},crownActive:tab==1 && !choosingSource).tag(1)
-                        WatchSettings(local:store.local,bridge:store.bridge).tag(2)
-                    }.tabViewStyle(.page(indexDisplayMode:.automatic))
-                }
+        NavigationStack{
+            ZStack{
+                ZStack{content}.opacity(ambient ? 0 : 1).allowsHitTesting(!ambient).accessibilityElement(children:.contain).accessibilityHidden(ambient)
+                if ambient{WatchAmbientPlayer(audio:store.audio,bridge:store.bridge,source:source,showControls:{requestedControls=true;showPlayer()})}
             }.navigationBarTitleDisplayMode(.inline).toolbar{
-                ToolbarItem(placement:.topBarLeading){
-                    Button{choosingSource=true}label:{HStack(spacing:4){Image(systemName:deviceIcon);Text(source=="watch" ? "Watch" : deviceName);Image(systemName:"chevron.down").font(.caption2)}.font(.caption2.weight(.semibold))}.buttonStyle(.plain).foregroundStyle(watchLime).accessibilityLabel("Playback device: "+deviceName).accessibilityHint("Choose Watch, iPhone or Mac").accessibilityIdentifier("watch.device")
+                if !ambient{
+                    ToolbarItem(placement:.topBarLeading){
+                        Button{choosingSource=true}label:{HStack(spacing:4){Image(systemName:deviceIcon);Text(source=="watch" ? "Watch" : deviceName);Image(systemName:"chevron.down").font(.caption2)}.font(.caption2.weight(.semibold))}.buttonStyle(.plain).foregroundStyle(watchLime).accessibilityLabel("Playback device: "+deviceName).accessibilityHint("Choose Watch, iPhone or Mac").accessibilityIdentifier("watch.device")
+                    }
                 }
             }
-        }}
         }.sheet(isPresented:$choosingSource){WatchSourcePicker(source:$source)}
-            .onChange(of:dimmed){_,value in if value{choosingSource=false}else if source=="watch",store.audio.current != nil{tab=1}}
+            .onChange(of:phase){_,value in
+                if value == .active{showPlayer()}
+                else{requestedControls=false;choosingSource=false}
+            }
+            .onChange(of:dimmed){_,value in if !value{requestedControls=false}else if phase != .active{choosingSource=false}}
             .onChange(of:source){_,value in
                 if value=="phone" || value=="mac"{store.audio.pause();store.bridge.requestPlayback(target:value)}
                 else{tab=store.audio.current == nil ? 0 : 1}
             }
             .onAppear{
                 if !["phone","mac","watch"].contains(source) || ProcessInfo.processInfo.arguments.contains("--demo"){source="watch"}
-                if store.audio.current != nil{tab=1}
+                showPlayer()
                 #if DEBUG
                 if ProcessInfo.processInfo.arguments.contains("--watch-ui-testing"),ProcessInfo.processInfo.arguments.contains("--remote-now-playing"){WatchDelegate().handleRemoteNowPlayingActivity()}
                 #endif
             }
     }
+    @ViewBuilder private var content:some View {
+        if source=="phone" || source=="mac"{
+            PhoneRemoteView(bridge:store.bridge,target:source,useOffline:{source="watch";tab=0},controlsActive:!choosingSource && !ambient).id(source)
+        }else{
+            TabView(selection:$tab){
+                WatchMixView(local:store.local,audio:store.audio,onPlay:{song in store.play(song);tab=1}).tag(0)
+                WatchPlayer(audio:store.audio,local:store.local,showLibrary:{tab=0},crownActive:tab==1 && !choosingSource && !ambient).tag(1)
+                WatchSettings(local:store.local,bridge:store.bridge).tag(2)
+            }.tabViewStyle(.page(indexDisplayMode:.automatic))
+        }
+    }
+    private func showPlayer(){if source=="watch",store.audio.current != nil{tab=1}}
 }
 
 struct WatchSourcePicker:View {
@@ -154,9 +166,7 @@ struct WatchPlayer:View {
                 if let song=audio.current{
                     HStack(spacing:4){
                         WatchTrackHeading(song:song,showsArtwork:false)
-                        if crownActive && scenePhase == .active && presented==nil{
-                            WatchVolume(active:!voiceOver).frame(width:50,height:50).accessibilityLabel("Watch volume").accessibilityHint("Turn the Digital Crown to adjust headphone volume").accessibilityIdentifier("watch.volume")
-                        }else{Image(systemName:"speaker.wave.2.fill").frame(width:50,height:50).accessibilityHidden(true)}
+                        WatchVolume(active:crownActive && scenePhase == .active && presented==nil && !voiceOver).frame(width:50,height:50).accessibilityLabel("Watch volume").accessibilityHint("Turn the Digital Crown to adjust headphone volume").accessibilityIdentifier("watch.volume")
                     }
                     WatchTransport(isPlaying:audio.isPlaying,device:"Watch",previous:{audio.previous()},toggle:{audio.toggle()},next:{audio.next()})
                     Button{presented = .seek}label:{VStack(spacing:3){ProgressView(value:min(max(0,audio.elapsed),max(audio.duration,1)),total:max(audio.duration,1)).tint(watchLime);HStack{Text(watchTime(audio.elapsed));Spacer();Text(watchTime(audio.duration))}.font(.caption2.monospacedDigit()).foregroundStyle(.secondary)}.frame(minHeight:44).contentShape(Rectangle())}.buttonStyle(.plain).disabled(audio.duration<=0).accessibilityLabel("Seek in track").accessibilityValue(watchTime(audio.elapsed)+" of "+watchTime(audio.duration)).accessibilityIdentifier("watch.seek")
@@ -179,6 +189,8 @@ struct WatchPlayer:View {
             case .seek:if let song=audio.current{WatchSeekView(song:song,elapsed:audio.elapsed,duration:audio.duration,commit:{if audio.current?.id==song.id{audio.seek($0)}})}
             }
         }.onChange(of:audio.current?.id){_,_ in if presented == .seek{presented=nil}}
+            .onChange(of:scenePhase){_,value in if value != .active{presented=nil}}
+            .onChange(of:crownActive){_,value in if !value{presented=nil}}
     }
 }
 

@@ -28,6 +28,72 @@ final class CadenceWatchUITests:XCTestCase {
         reveal(apply,in:app);apply.tap();XCTAssertTrue(transport.waitForExistence(timeout:5))
         if transport.label=="Pause Watch"{transport.tap()}
     }
+    func testAutomaticPhoneActivityDoesNotStopWatchPlayback(){
+        let app=XCUIApplication();app.launchArguments=["--demo","--watch-ui-testing","--watch-lifecycle-fixture"];app.launch()
+        let play=app.buttons["watch.play"];XCTAssertTrue(play.waitForExistence(timeout:15));play.tap()
+        let transport=app.buttons["watch.transport.play"]
+        XCTAssertEqual(XCTWaiter.wait(for:[XCTNSPredicateExpectation(predicate:NSPredicate(format:"label == %@","Pause Watch"),object:transport)],timeout:8),.completed)
+        app.buttons["watch.fixture.phone-event"].tap()
+        XCTAssertEqual(app.buttons["watch.device"].firstMatch.label,"Playback device: This Watch","An automatic phone event must not take over an active Watch session")
+        XCTAssertTrue(transport.exists);XCTAssertEqual(transport.label,"Pause Watch")
+    }
+    func testDimmedScreenCanBeTappedToShowControls(){
+        let app=XCUIApplication();app.launchArguments=["--demo","--watch-ui-testing","--watch-lifecycle-fixture"];app.launch()
+        let play=app.buttons["watch.play"];XCTAssertTrue(play.waitForExistence(timeout:15));play.tap()
+        let transport=app.buttons["watch.transport.play"];XCTAssertTrue(transport.waitForExistence(timeout:8))
+        app.buttons["watch.fixture.lifecycle"].tap()
+        let ambient=app.buttons["watch.ambient"];XCTAssertTrue(ambient.waitForExistence(timeout:5));ambient.tap()
+        XCTAssertTrue(transport.waitForExistence(timeout:5));XCTAssertTrue(transport.isHittable)
+    }
+    func testWakeRestoresControlsBeforeLuminanceRefresh(){
+        let app=XCUIApplication();app.launchArguments=["--demo","--watch-ui-testing","--watch-lifecycle-fixture"];app.launch()
+        let play=app.buttons["watch.play"];XCTAssertTrue(play.waitForExistence(timeout:15));play.tap()
+        let transport=app.buttons["watch.transport.play"];XCTAssertTrue(transport.waitForExistence(timeout:8))
+        XCTAssertEqual(XCTWaiter.wait(for:[XCTNSPredicateExpectation(predicate:NSPredicate(format:"label == %@","Pause Watch"),object:transport)],timeout:8),.completed)
+        transport.tap()
+        let lifecycle=app.buttons["watch.fixture.lifecycle"]
+        for _ in 0..<3{
+            lifecycle.tap();XCTAssertTrue(app.descendants(matching:.any)["watch.ambient"].firstMatch.waitForExistence(timeout:5))
+            lifecycle.tap()
+            XCTAssertTrue(transport.waitForExistence(timeout:5),"An active scene must restore controls even before the luminance signal catches up")
+            XCTAssertTrue(transport.isHittable);XCTAssertEqual(transport.label,"Play Watch")
+            lifecycle.tap()
+        }
+        let queue=app.buttons["watch.queue"];reveal(queue,in:app);queue.tap()
+        XCTAssertTrue(app.staticTexts["Up next · 2"].waitForExistence(timeout:5),"Wrist transitions must preserve the queue")
+    }
+    func testPlaybackAdvancesWhileDimmedAndRestoresOnWake(){
+        let app=XCUIApplication();app.launchArguments=["--demo","--watch-ui-testing","--watch-lifecycle-fixture"];app.launch()
+        let play=app.buttons["watch.play"];XCTAssertTrue(play.waitForExistence(timeout:15));play.tap()
+        let transport=app.buttons["watch.transport.play"]
+        XCTAssertEqual(XCTWaiter.wait(for:[XCTNSPredicateExpectation(predicate:NSPredicate(format:"label == %@","Pause Watch"),object:transport)],timeout:8),.completed)
+        app.buttons["watch.fixture.lifecycle"].tap()
+        XCTAssertTrue(app.buttons["watch.ambient"].waitForExistence(timeout:5))
+        let elapsed=expectation(description:"Thirty-five seconds in the dimmed layout")
+        DispatchQueue.main.asyncAfter(deadline:.now()+35){elapsed.fulfill()}
+        XCTAssertEqual(XCTWaiter.wait(for:[elapsed],timeout:38),.completed)
+        app.buttons["watch.fixture.lifecycle"].tap()
+        XCTAssertTrue(transport.waitForExistence(timeout:8));XCTAssertEqual(transport.label,"Pause Watch")
+        let heading=app.descendants(matching:.any)["watch.track"].firstMatch
+        XCTAssertTrue(heading.waitForExistence(timeout:5));XCTAssertFalse(heading.label.contains("First Light"))
+        capture("Watch after dimmed playback and wake");transport.tap()
+    }
+    func testPlaybackContinuesPastThirtySecondsInBackground(){
+        let app=launch(),play=app.buttons["watch.play"];XCTAssertTrue(play.waitForExistence(timeout:15));play.tap()
+        let transport=app.buttons["watch.transport.play"]
+        XCTAssertTrue(transport.waitForExistence(timeout:8))
+        XCTAssertEqual(XCTWaiter.wait(for:[XCTNSPredicateExpectation(predicate:NSPredicate(format:"label == %@","Pause Watch"),object:transport)],timeout:8),.completed)
+        XCUIDevice.shared.press(.home)
+        let elapsed=expectation(description:"Thirty-five seconds with the app backgrounded")
+        DispatchQueue.main.asyncAfter(deadline:.now()+35){elapsed.fulfill()}
+        XCTAssertEqual(XCTWaiter.wait(for:[elapsed],timeout:38),.completed)
+        app.activate()
+        XCTAssertTrue(transport.waitForExistence(timeout:8));XCTAssertEqual(transport.label,"Pause Watch")
+        let heading=app.descendants(matching:.any)["watch.track"].firstMatch
+        XCTAssertTrue(heading.waitForExistence(timeout:5));XCTAssertFalse(heading.label.contains("First Light"),"Audio must advance beyond the first twenty-second demo track while backgrounded")
+        capture("Watch after background playback")
+        transport.tap()
+    }
     func testCrownDoesNotScrollTheNowPlayingControls(){
         let app=launch(),play=app.buttons["watch.play"];XCTAssertTrue(play.waitForExistence(timeout:15));reveal(play,in:app);play.tap()
         let transport=app.buttons["watch.transport.play"];XCTAssertTrue(transport.waitForExistence(timeout:8));let initial=transport.frame.minY
@@ -82,9 +148,10 @@ final class CadenceWatchUITests:XCTestCase {
     func testLargeTextDimmedLayout(){ambientFlow(largeText:true)}
     private func ambientFlow(largeText:Bool=false){
         let app=XCUIApplication();app.launchArguments=["--demo","--watch-ui-testing","--watch-dimmed"];if largeText{app.launchArguments.append("--watch-large-text")};app.launch()
-        XCTAssertTrue(app.otherElements["watch.ambient"].firstMatch.waitForExistence(timeout:10),"Wrist-down mode must use the ambient player")
+        XCTAssertTrue(app.descendants(matching:.any)["watch.ambient"].firstMatch.waitForExistence(timeout:10),"Wrist-down mode must use the ambient player")
         XCTAssertTrue(app.staticTexts["First Light"].exists)
-        XCTAssertFalse(app.buttons["watch.transport.play"].exists,"Bright transport controls must not remain in Always On mode")
+        XCTAssertFalse(app.buttons["watch.transport.play"].isHittable,"The retained transport must be hidden and untappable in Always On mode")
+        XCTAssertNoThrow(try app.performAccessibilityAudit(for:[.hitRegion,.sufficientElementDescription,.contrast,.trait]))
         capture("Watch dimmed player")
     }
     func testDisconnectedMacOffersSavedWatchMusic(){

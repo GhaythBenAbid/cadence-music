@@ -50,13 +50,13 @@ Remote playback shows the selected device and its playing, paused or unavailable
 
 These changes improve software behavior and simulator usability. Physical Bluetooth, wrist-down/background playback and phone-off acceptance remain pending.
 
-### Native input and Always On in 0.7.4
+### Native input and Always On in 0.7.5
 
-The player now focuses the visible local volume control for the Digital Crown. iPhone/Mac volume uses the same bounded remote volume command as before, with a focused Crown control and slider/accessible adjustment alternatives. Native volume views are mounted only on the active player page; queue/seek sheets and other pages retain their navigation focus. VoiceOver suppresses automatic volume focus.
+The player now focuses the visible local volume control for the Digital Crown. iPhone/Mac volume uses the same bounded remote volume command as before, with a focused Crown control and slider/accessible adjustment alternatives. The native volume view retains its identity; only the active player requests Crown focus. Queue/seek sheets and other pages retain their navigation focus. VoiceOver suppresses automatic volume focus.
 
-Wrist-down Always On rendering uses `isLuminanceReduced`: black background, gray track/artist/status text, no artwork or large bright fills, and no elapsed-time labels. It preserves the audio controller; raising the wrist returns to the player. watchOS owns actual screen brightness. This improves the supplied pixels; it is not a measured claim about battery life.
+Wrist-down Always On rendering uses `isLuminanceReduced`: black background, gray track/artist/status text, no artwork or large bright fills, and no elapsed-time labels. It preserves the audio controller. In 0.7.5 the normal navigation/player hierarchy also remains mounted, an active scene restores controls ahead of a delayed brightness notification, and tapping the gray display provides a fallback. watchOS owns actual screen brightness. This improves the supplied pixels; it is not a measured claim about battery life.
 
-The native iPhone audio-launch event opens iPhone controls when the system delivers it. Actual auto-launch remains controlled by watchOS and the user's settings.
+The native iPhone audio-launch event opens iPhone controls when the system delivers it. Actual auto-launch remains controlled by watchOS and the user's settings. Automatic activity does not take over an actively playing local Watch session; choose iPhone explicitly to switch during a run.
 
 See the [Watch accessibility and feature review](WATCH-ACCESSIBILITY.md) for supported controls, automated-check scope, physical checks and optional features that are not implemented.
 

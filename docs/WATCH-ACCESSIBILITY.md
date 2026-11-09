@@ -2,15 +2,15 @@
 
 Cadence uses native watchOS controls and the existing iPhone/Mac companion protocol. This review covers the music player, not every optional Apple Watch capability. Hardware behavior and battery measurements are separate from simulator verification.
 
-## Implemented baseline in 0.7.4
+## Implemented baseline in 0.7.5
 
 | Feature | Implementation and verification boundary |
 |---|---|
 | Digital Crown: Watch audio | The visible player gives Apple's local volume control focus. Focus is released for another page, a sheet, an inactive scene or VoiceOver. Crown input no longer scrolls the player in the regression test. Real headphone loudness still needs a device check. |
 | Digital Crown: iPhone/Mac | The volume control adjusts the existing Cadence player volume command, bounded to 0–100%, with coalesced messages. A real Crown-input fixture verifies the component's output; it does not certify a live peer connection. |
-| Always On | `isLuminanceReduced` switches to a black, gray-text player without artwork, bright fills or playback buttons. It observes track/playing changes without subscribing to elapsed-time ticks. watchOS controls physical brightness; no measured battery saving is claimed. |
+| Always On | Reduced luminance while inactive shows a black, gray-text player without artwork or bright fills. An active scene restores controls even if the luminance notification is delayed. Tapping the dimmed display also shows controls. The normal player/navigation hierarchy stays mounted. It observes track/playing changes without subscribing to elapsed-time ticks. watchOS controls physical brightness; no measured battery saving is claimed. |
 | Double tap | Default system list/scroll behavior remains. Custom Play/Pause is withheld: synthetic Double Tap followed by touch input failed in the tested simulator, while the same touch flow without the gesture passed. Physical mixed-input verification is needed before adding it. |
-| iPhone audio auto-launch | The real `handleRemoteNowPlayingActivity()` delegate selects iPhone controls when watchOS delivers its audio launch event. OS delivery depends on the user's audio auto-launch settings; the handler/UI route is exercised in tests. |
+| iPhone audio auto-launch | The real `handleRemoteNowPlayingActivity()` delegate selects iPhone controls when watchOS delivers its audio launch event and local Watch audio is not playing. Active Watch playback retains ownership; explicit device selection can still switch devices. OS delivery depends on the user's audio auto-launch settings; the handler/UI route is exercised in tests. |
 | Playback basics | Play/Pause, previous/next, shuffle, repeat off/all/one, local queue/seek, saved-playlist selection and position/queue resume. Existing background audio, route interruption and system media-control behavior remain. |
 | Screen-reader semantics | Named controls, current selection, shuffle/repeat values, volume percentages, adjustable remote volume and named removal actions for queue entries/playlists. Destructive library actions retain confirmation. |
 | VoiceOver focus | Automatic Crown volume focus is suppressed while VoiceOver is enabled so the app does not seize navigation from the screen reader. Native volume/slider controls and explicit actions remain available. |
@@ -28,7 +28,7 @@ AssistiveTouch, VoiceOver and double tap have system-defined interactions; Caden
 ## Device checks still required
 
 - Confirm physical headphone loudness changes with the Crown, including after returning from the queue and after waking.
-- Confirm Always On becomes the gray-text layout, restores controls on wrist raise, and keeps music/next-track playback running.
+- Confirm Always On becomes the gray-text layout, restores controls on wrist raise or tap, and keeps music/next-track playback running for several minutes. A 30-second physical stop/return-to-clock report is not certified resolved by simulator tests.
 - Compare battery use over a representative session; screenshots cannot measure display nits or energy consumption.
 - Confirm real VoiceOver reading order, adjustable volume, named removal actions and AssistiveTouch navigation.
 - Check maximum text size, Bold Text, Zoom, Reduce Motion and Reduce Transparency on the user's Watch.

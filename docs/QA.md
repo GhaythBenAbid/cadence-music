@@ -79,3 +79,16 @@ The accessibility audits cover touch regions, element descriptions, contrast and
 A proposed custom Double Tap Play/Pause action was withheld. Its synthetic gesture changed playback, but subsequent touch input failed in the tested simulator; the same touch flow without the gesture passed. The narrowed three-case sequence reproduced the problem, while the two-case sequence without the gesture passed. Button-style and focus-release changes did not resolve it and were reverted. No custom primary hand-gesture action is registered in the shipping candidate. This is not a claim that the issue reproduces on physical hardware.
 
 The final Watch app/UI-test bundle builds unsigned, and paired iPhone/Watch archive/export passed with matching 0.7.4 (20), background audio declarations and no private server defaults or signing keys embedded. Shared playback code is unchanged. Existing 0.7.3 Core/iPhone/Mac results remain the preceding baseline; this update adds Watch-focused execution evidence. Real headphone loudness, VoiceOver/AssistiveTouch, actual auto-launch, wrist-down/background behavior and battery measurements remain physical checks. See [the feature audit](WATCH-ACCESSIBILITY.md).
+
+
+## 0.7.5 (21) wrist wake and local playback recovery
+
+The user reported local Series 9 playback stopping after about 30 seconds and returning to the watch face. The physical Watch was unavailable to the Mac, and no submitted TestFlight crash feedback was available. No physical crash/route cause is claimed proven.
+
+Two real app paths reproduced separate failures before the fix: the player stayed hidden when the scene became active before the reduced-luminance value cleared; an automatic phone Now Playing activity paused an active Watch session and selected iPhone. Both regressions passed after the active-scene override and active-Watch ownership guard. Explicit device selection still pauses local playback and switches the target.
+
+The normal navigation/player tree and native volume control now retain their identity during dimming. Crown focus is released when inactive; the dimmed display has a native button action to restore controls. Ambient tests assert the retained transport is hidden and untappable, rather than asserting that its view was deleted. Scoped accessibility audits also exercise the dimmed display.
+
+The added native UI checks cover three wrist-state cycles with a paused queue preserved, tap recovery, automatic phone activity, and two distinct longer-playback paths. One injects inactive/reduced-luminance UI signals for over 35 seconds; the other sends the real Home button event, leaves the app backgrounded for over 35 seconds and activates it again. Both require playback to remain playing and to have advanced beyond the first 20-second original demo track. Injected signals are test fixtures, not a physical wrist sensor; simulator background success does not certify physical Watch execution budgets, Bluetooth routing or battery life.
+
+The final suite passed all 17 cases on each of the 40 mm and 46 mm simulators (34 successful executions), including both longer playback paths and the normal/larger-text dimmed accessibility audits. Shared playback code is unchanged. Physical Series 9 confirmation of the reported stop/return-to-clock remains pending.
