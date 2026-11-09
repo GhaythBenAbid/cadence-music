@@ -11,9 +11,10 @@ func watchTime(_ value:Double)->String {
 struct WatchTrackHeading:View {
     let song:Song
     var artwork:Data?
+    var showsArtwork=true
     var body:some View {
         HStack(spacing:8){
-            WatchArtwork(song:song,data:artwork,size:38)
+            if showsArtwork{WatchArtwork(song:song,data:artwork,size:38)}
             VStack(alignment:.leading,spacing:2){
                 Text(song.title).font(.headline).lineLimit(2)
                 Text(song.subtitle).font(.caption2).foregroundStyle(.secondary).lineLimit(1)
@@ -74,7 +75,7 @@ struct WatchQueueView:View {
                 Section("Up next · \(audio.upcoming.count)"){
                     ForEach(audio.upcoming){entry in
                         Button{audio.playEntry(entry.id);dismiss()}label:{VStack(alignment:.leading,spacing:3){Text(entry.song.title).lineLimit(2);Text(entry.song.subtitle).font(.caption2).foregroundStyle(.secondary).lineLimit(1)}}
-                            .accessibilityIdentifier("watch.queue."+entry.id)
+                            .accessibilityIdentifier("watch.queue."+entry.id).accessibilityHint("Play this upcoming song").accessibilityAction(named:Text("Remove from queue")){audio.removeUpcoming(entry.id)}
                             .swipeActions(edge:.trailing,allowsFullSwipe:false){Button("Remove",role:.destructive){audio.removeUpcoming(entry.id)}}
                     }
                     if audio.upcoming.isEmpty{Text(audio.repeatMode == .off ? "You're at the end of this queue." : audio.repeatMode.label).font(.footnote).foregroundStyle(.secondary)}

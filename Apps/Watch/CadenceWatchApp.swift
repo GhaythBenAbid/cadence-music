@@ -4,9 +4,21 @@ import WatchKit
     @WKApplicationDelegateAdaptor(WatchDelegate.self) var delegate
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var store=WatchStore.shared
-    var body:some Scene{WindowGroup{WatchRoot().transformEnvironment(\.dynamicTypeSize){size in
+    var body:some Scene{WindowGroup{rootView.transformEnvironment(\.dynamicTypeSize){size in
                 #if DEBUG
-                if ProcessInfo.processInfo.arguments.contains("--watch-ui-testing"),ProcessInfo.processInfo.arguments.contains("--watch-large-text"){size = .xxLarge}
+                if ProcessInfo.processInfo.arguments.contains("--watch-ui-testing"),ProcessInfo.processInfo.arguments.contains("--watch-large-text"){size = .xxxLarge}
+                #endif
+            }.transformEnvironment(\.isLuminanceReduced){reduced in
+                #if DEBUG
+                if ProcessInfo.processInfo.arguments.contains("--watch-ui-testing"),ProcessInfo.processInfo.arguments.contains("--watch-dimmed"){reduced=true}
                 #endif
             }.environmentObject(store).tint(Color(red:0.84,green:0.96,blue:0.4)).preferredColorScheme(.dark).onChange(of:scenePhase){_,phase in if phase != .active{store.audio.persist()}}}}
+    @ViewBuilder private var rootView:some View {
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("--watch-ui-testing"),ProcessInfo.processInfo.arguments.contains("--remote-volume-fixture"){WatchRemoteVolumeFixture()}else{WatchRoot()}
+        #else
+        WatchRoot()
+        #endif
+    }
+
 }

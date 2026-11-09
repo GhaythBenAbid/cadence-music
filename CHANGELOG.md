@@ -2,6 +2,15 @@
 
 Versions below describe implementation milestones. Public binary availability is separate; see [release guidance](docs/RELEASE.md).
 
+## 0.7.4 (20) — 9 November 2026
+
+- Add a minimal gray-on-black Always On player and restore normal controls on wake without changing the audio session.
+- Give the visible native Watch volume control Digital Crown focus; preserve scrolling and VoiceOver ownership elsewhere.
+- Add focused, bounded Crown volume control for iPhone/Mac playback with accessible adjustment and slider alternatives.
+- Handle native iPhone audio auto-launch and verify touch Play/Pause/Resume.
+- Add named accessibility actions, stronger selection/state descriptions, automated accessibility audits and Crown/ambient/resume regression checks.
+- Document Watch feature coverage and remaining physical, battery and assistive-technology acceptance.
+
 ## 0.7.3 (19) — 8 November 2026
 
 - Improve Watch navigation with a device chooser and separate horizontal pages/vertical content scrolling.

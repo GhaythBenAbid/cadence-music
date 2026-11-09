@@ -12,10 +12,10 @@ The source is MIT licensed. There is no subscription or paid API built into Cade
 
 <p>
   <img src="docs/screenshots/01-library.png" width="235" alt="Cadence iPhone demo library" />
-  <img src="docs/screenshots/08-watch-player.png" width="210" alt="Cadence 0.7.3 Watch simulator showing offline playback controls" />
+  <img src="docs/screenshots/08-watch-player.png" width="210" alt="Cadence 0.7.4 Watch simulator showing offline playback controls" />
 </p>
 
-*Mac/phone images show earlier demos; the Watch image shows the 0.7.3 simulator player with original demo audio. Simulator imagery does not establish physical-device acceptance.*
+*Mac/phone images show earlier demos; the Watch image shows the 0.7.4 simulator player with original demo audio. Simulator imagery does not establish physical-device acceptance.*
 
 **Mac 0.7.2 (18):** [Download the signed and Apple-notarized ZIP](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.2/Cadence-Mac-0.7.2-18.zip) · [SHA-256 checksum](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.2/Cadence-Mac-0.7.2-18.zip.sha256). Supports Apple Silicon and Intel on macOS 14+. Unzip, drag Cadence.app into Applications, and open it. Enter your own Server URL/account or choose Explore demo. The archive includes the MIT license and asset notices.
 
@@ -56,6 +56,7 @@ For your own library, enter your **HTTPS Aurral URL, username and password** at 
 - Private iPhone/Mac queue handoff and Watch remote control over Tailscale.
 - Up to 10 offline Watch playlists, 100 tracks each, with verified transfer receipts and shared-file reuse.
 - Watch device chooser, compact playback controls, local queue/seek screens, offline readiness and paused-session resume.
+- Crown volume, a minimal Always On layout, native iPhone audio-launch routing and accessible control actions.
 
 ## Compatibility and limits
 
@@ -81,6 +82,7 @@ Free, instant, reliable access to every mainstream recording is not something th
 - [Build and test from source](docs/BUILDING.md)
 - [Product scope and roadmap](docs/PRODUCT.md)
 - [Listening, preparation and Watch playlists](docs/LISTENING-AND-WATCH.md)
+- [Watch controls, accessibility and device checks](docs/WATCH-ACCESSIBILITY.md)
 - [Private Mac control and handoff](docs/MAC-CONTROL.md)
 - [Architecture](docs/ARCHITECTURE.md) · [Privacy](docs/PRIVACY.md)
 - [Testing and known verification gaps](docs/QA.md)

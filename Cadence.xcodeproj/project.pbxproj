@@ -10,6 +10,7 @@
 		0217969212050509CE4F193F /* MacViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CFDFF03FF94DAA50F61379 /* MacViews.swift */; };
 		04BD04AA929E39CF1195AD92 /* GlobalCatalogViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5072428F8DE02C344CA04F64 /* GlobalCatalogViews.swift */; };
 		098942F3E0EE00D27DE725F1 /* PreparationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A564A53677FF8CDF20F6E912 /* PreparationCenter.swift */; };
+		0AA112E6DC4CB52B6038B3A0 /* WatchRemoteVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45BE1B4C1333A133C749625 /* WatchRemoteVolume.swift */; };
 		0D433C89DE3BC20E4A0546A2 /* ListeningHistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C52A69BBC27DD1256DB9FF /* ListeningHistoryTests.swift */; };
 		0DC55E533458261B37CC2425 /* ListeningViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB31AD9ECEDAF0F4405314 /* ListeningViews.swift */; };
 		10AADF4A7B5CAA7E30E7CBF7 /* Demo in Resources */ = {isa = PBXBuildFile; fileRef = 6FB35EFEE1524E247365A38B /* Demo */; };
@@ -43,6 +44,7 @@
 		624BEA62C41ED79BCC0DB23C /* LocalLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAC24576B97FB6406902660 /* LocalLibrary.swift */; };
 		62993D0AC4B452730F3B7619 /* PreparationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A564A53677FF8CDF20F6E912 /* PreparationCenter.swift */; };
 		657FB603B041CE966D4B22A2 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 12FDA640A9F891EBCDD64F73 /* PrivacyInfo.xcprivacy */; };
+		6619A13126A3D50952906853 /* WatchAmbientPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B0001E675B0FF82BE6400E /* WatchAmbientPlayer.swift */; };
 		6676861CAE3E7544AA78B87D /* LocalLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAC24576B97FB6406902660 /* LocalLibrary.swift */; };
 		681E47253AC010969DD134BC /* PreparationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A564A53677FF8CDF20F6E912 /* PreparationCenter.swift */; };
 		6891B9FF43355723405D1D5A /* ListeningViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB31AD9ECEDAF0F4405314 /* ListeningViews.swift */; };
@@ -109,6 +111,7 @@
 		EFE5BF1A7FA8668AFA7CCBFE /* CatalogSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DBD2F122E918D24B2086B8 /* CatalogSearchView.swift */; };
 		F38B900DAC7017C57EB21F90 /* DiscoveryFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575C9C5ED335D25D4D2A2FEE /* DiscoveryFeatureTests.swift */; };
 		F6DF0BCB1326AC7A522BAAEB /* Demo in Resources */ = {isa = PBXBuildFile; fileRef = 6FB35EFEE1524E247365A38B /* Demo */; };
+		F8656A90C94250769339B764 /* WatchVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9EC45F28CF70331DDE8228 /* WatchVolume.swift */; };
 		F8AC68A44CE1C3BD199252FB /* ListeningHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80780E65218A057AAB01F463 /* ListeningHistory.swift */; };
 		FD1E9940A006EA141369F640 /* PreparationCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8575DED8DCEA1A67D5FFC898 /* PreparationCenterTests.swift */; };
 		FE9B2A8E6D39CF6CC92667F8 /* PlaybackUpgradeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016590FC6D8DCB636F11142E /* PlaybackUpgradeTests.swift */; };
@@ -170,6 +173,7 @@
 		2747B5C0BD75EFECA1D2569B /* Cadence.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Cadence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DB5767A2794443D3AF1923 /* MacDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacDiscovery.swift; sourceTree = "<group>"; };
 		320E99792D7AEC89C02C1464 /* CadenceCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CadenceCore; path = Packages/CadenceCore; sourceTree = SOURCE_ROOT; };
+		33B0001E675B0FF82BE6400E /* WatchAmbientPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAmbientPlayer.swift; sourceTree = "<group>"; };
 		35DBD2F122E918D24B2086B8 /* CatalogSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSearchView.swift; sourceTree = "<group>"; };
 		3742C92AA60105F9C4309CA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		37BDAD81003E560533EA1862 /* NowPlayingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingTests.swift; sourceTree = "<group>"; };
@@ -219,7 +223,9 @@
 		B8A7B9496E33CD1FA8D140F2 /* WatchPlaybackViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPlaybackViews.swift; sourceTree = "<group>"; };
 		BB69031F318658B8F2A4287F /* PhoneDownloadsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDownloadsView.swift; sourceTree = "<group>"; };
 		BBB708BC3770F48ED293AA1B /* CadenceWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CadenceWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE9EC45F28CF70331DDE8228 /* WatchVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchVolume.swift; sourceTree = "<group>"; };
 		C2A22175853D4B80BA214F03 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		C45BE1B4C1333A133C749625 /* WatchRemoteVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchRemoteVolume.swift; sourceTree = "<group>"; };
 		C99F2C7EC35E6D4B77A213DD /* CadenceWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceWatchApp.swift; sourceTree = "<group>"; };
 		CA7E6BF7AFAB463F590129AB /* DiscoveryViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViews.swift; sourceTree = "<group>"; };
 		CB8D785007E01C2247DA49BE /* PhoneDownloadsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDownloadsTests.swift; sourceTree = "<group>"; };
@@ -360,9 +366,12 @@
 				C99F2C7EC35E6D4B77A213DD /* CadenceWatchApp.swift */,
 				4C0FF5C7D19976F39DA81E49 /* Info.plist */,
 				F926B3B1610A4B3396BABCCE /* PhoneRemoteView.swift */,
+				33B0001E675B0FF82BE6400E /* WatchAmbientPlayer.swift */,
 				B8A7B9496E33CD1FA8D140F2 /* WatchPlaybackViews.swift */,
+				C45BE1B4C1333A133C749625 /* WatchRemoteVolume.swift */,
 				D118F39FEE49CD9A0507B0AD /* WatchStore.swift */,
 				6F38CD9D824CE4B936A20614 /* WatchViews.swift */,
+				BE9EC45F28CF70331DDE8228 /* WatchVolume.swift */,
 			);
 			path = Watch;
 			sourceTree = "<group>";
@@ -759,11 +768,14 @@
 				9CEEC7CC4F7A3CAC34CBE9D0 /* PreparationListView.swift in Sources */,
 				A87128E437DBABD66FC284DA /* SpotifyImportState.swift in Sources */,
 				2DC5E3E5ADC6054CD3F1DB3B /* SpotifyImportView.swift in Sources */,
+				6619A13126A3D50952906853 /* WatchAmbientPlayer.swift in Sources */,
 				D66A57B81763E87DEE04DE64 /* WatchBridge.swift in Sources */,
 				C15DB86158265F214298ED06 /* WatchMixSending.swift in Sources */,
 				8F9F8EE982D2ADB41C38CFB8 /* WatchPlaybackViews.swift in Sources */,
+				0AA112E6DC4CB52B6038B3A0 /* WatchRemoteVolume.swift in Sources */,
 				760524DBE81080F864C6736D /* WatchStore.swift in Sources */,
 				995708B1C808F88DFA254E4B /* WatchViews.swift in Sources */,
+				F8656A90C94250769339B764 /* WatchVolume.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1022,7 +1034,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1037,7 +1049,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 0.7.3;
+				MARKETING_VERSION = 0.7.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1166,7 +1178,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1187,7 +1199,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 0.7.3;
+				MARKETING_VERSION = 0.7.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

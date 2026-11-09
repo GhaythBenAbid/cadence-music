@@ -3,6 +3,7 @@ import WatchKit
 import CadenceCore
 
 struct WatchRoot:View {
+    @Environment(\.isLuminanceReduced) private var dimmed
     @EnvironmentObject var store:WatchStore
     @State private var tab=0
     @State private var choosingSource=false
@@ -10,14 +11,16 @@ struct WatchRoot:View {
     private var deviceName:String{source=="phone" ? "iPhone" : source=="mac" ? "Mac" : "This Watch"}
     private var deviceIcon:String{source=="phone" ? "iphone" : source=="mac" ? "laptopcomputer" : "applewatch"}
     var body:some View {
-        NavigationStack{
+        Group{
+        if dimmed{NavigationStack{WatchAmbientPlayer(audio:store.audio,bridge:store.bridge,source:source)}.navigationBarTitleDisplayMode(.inline)}
+        else{NavigationStack{
             Group{
                 if source=="phone" || source=="mac"{
-                    PhoneRemoteView(bridge:store.bridge,target:source,useOffline:{source="watch";tab=0}).id(source)
+                    PhoneRemoteView(bridge:store.bridge,target:source,useOffline:{source="watch";tab=0},controlsActive:!choosingSource).id(source)
                 }else{
                     TabView(selection:$tab){
                         WatchMixView(local:store.local,audio:store.audio,onPlay:{song in store.play(song);tab=1}).tag(0)
-                        WatchPlayer(audio:store.audio,local:store.local,showLibrary:{tab=0}).tag(1)
+                        WatchPlayer(audio:store.audio,local:store.local,showLibrary:{tab=0},crownActive:tab==1 && !choosingSource).tag(1)
                         WatchSettings(local:store.local,bridge:store.bridge).tag(2)
                     }.tabViewStyle(.page(indexDisplayMode:.automatic))
                 }
@@ -26,7 +29,9 @@ struct WatchRoot:View {
                     Button{choosingSource=true}label:{HStack(spacing:4){Image(systemName:deviceIcon);Text(source=="watch" ? "Watch" : deviceName);Image(systemName:"chevron.down").font(.caption2)}.font(.caption2.weight(.semibold))}.buttonStyle(.plain).foregroundStyle(watchLime).accessibilityLabel("Playback device: "+deviceName).accessibilityHint("Choose Watch, iPhone or Mac").accessibilityIdentifier("watch.device")
                 }
             }
+        }}
         }.sheet(isPresented:$choosingSource){WatchSourcePicker(source:$source)}
+            .onChange(of:dimmed){_,value in if value{choosingSource=false}else if source=="watch",store.audio.current != nil{tab=1}}
             .onChange(of:source){_,value in
                 if value=="phone" || value=="mac"{store.audio.pause();store.bridge.requestPlayback(target:value)}
                 else{tab=store.audio.current == nil ? 0 : 1}
@@ -34,6 +39,9 @@ struct WatchRoot:View {
             .onAppear{
                 if !["phone","mac","watch"].contains(source) || ProcessInfo.processInfo.arguments.contains("--demo"){source="watch"}
                 if store.audio.current != nil{tab=1}
+                #if DEBUG
+                if ProcessInfo.processInfo.arguments.contains("--watch-ui-testing"),ProcessInfo.processInfo.arguments.contains("--remote-now-playing"){WatchDelegate().handleRemoteNowPlayingActivity()}
+                #endif
             }
     }
 }
@@ -79,7 +87,7 @@ struct WatchMixView:View {
             VStack(alignment:.leading,spacing:12){
                 if let mix=local.mix{
                     Text(mix.name).font(.headline).lineLimit(2).fixedSize(horizontal:false,vertical:true)
-                    Button{onPlay(nil)}label:{Label(playTitle,systemImage:"play.fill").frame(maxWidth:.infinity,minHeight:44)}.tint(watchLime).foregroundStyle(.black).buttonStyle(.borderedProminent).disabled(local.readySongs.isEmpty).accessibilityIdentifier("watch.play")
+                    Button{onPlay(nil)}label:{Label(playTitle,systemImage:"play.fill").frame(maxWidth:.infinity,minHeight:44).contentShape(Rectangle())}.tint(watchLime).foregroundStyle(.black).buttonStyle(.borderedProminent).disabled(local.readySongs.isEmpty).accessibilityIdentifier("watch.play")
                     readiness(mix)
                     NavigationLink{WatchSavedMixesView(local:local)}label:{Label("Saved playlists · \(local.mixes.count)",systemImage:"music.note.list")}.accessibilityIdentifier("watch.library")
                     if local.readyIDs.count<mix.songs.count{
@@ -123,7 +131,7 @@ struct WatchSavedMixesView:View {
         List{
             ForEach(local.mixes,id:\.id){mix in
                 let ready=local.ready(mix).count
-                Button{store.selectMix(mix.id);dismiss()}label:{HStack{VStack(alignment:.leading,spacing:4){Text(mix.name).lineLimit(2);Text("\(ready) / \(mix.songs.count) saved").font(.caption2).foregroundStyle(.secondary)};Spacer(minLength:0);Image(systemName:local.mix?.id==mix.id ? "checkmark.circle.fill" : ready==mix.songs.count ? "arrow.down.circle.fill" : "clock").foregroundStyle(local.mix?.id==mix.id ? watchLime : .secondary)}}.accessibilityIdentifier("watch.mix."+mix.id)
+                Button{store.selectMix(mix.id);dismiss()}label:{HStack{VStack(alignment:.leading,spacing:4){Text(mix.name).lineLimit(2);Text("\(ready) / \(mix.songs.count) saved").font(.caption2).foregroundStyle(.secondary)};Spacer(minLength:0);Image(systemName:local.mix?.id==mix.id ? "checkmark.circle.fill" : ready==mix.songs.count ? "arrow.down.circle.fill" : "clock").foregroundStyle(local.mix?.id==mix.id ? watchLime : .secondary)}}.accessibilityIdentifier("watch.mix."+mix.id).accessibilityValue((local.mix?.id==mix.id ? "Selected. " : "")+"\(ready) of \(mix.songs.count) tracks saved").accessibilityAction(named:Text("Remove saved playlist")){removal=mix}
                     .swipeActions(edge:.trailing,allowsFullSwipe:false){Button("Remove",role:.destructive){removal=mix}}
             }
             if local.mixes.isEmpty{Text("Send a playlist from iPhone.").font(.footnote).foregroundStyle(.secondary)}
@@ -132,24 +140,31 @@ struct WatchSavedMixesView:View {
 }
 
 struct WatchPlayer:View {
+    @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.accessibilityVoiceOverEnabled) private var voiceOver
     @ObservedObject var audio:AudioController
     @ObservedObject var local:LocalLibrary
     var showLibrary:()->Void
+    var crownActive:Bool
     private enum Sheet:String,Identifiable{case queue,seek;var id:String{rawValue}}
     @State private var presented:Sheet?
     var body:some View {
         ScrollView{
             VStack(spacing:6){
                 if let song=audio.current{
-                    WatchTrackHeading(song:song,artwork:local.artwork(song))
+                    HStack(spacing:4){
+                        WatchTrackHeading(song:song,showsArtwork:false)
+                        if crownActive && scenePhase == .active && presented==nil{
+                            WatchVolume(active:!voiceOver).frame(width:50,height:50).accessibilityLabel("Watch volume").accessibilityHint("Turn the Digital Crown to adjust headphone volume").accessibilityIdentifier("watch.volume")
+                        }else{Image(systemName:"speaker.wave.2.fill").frame(width:50,height:50).accessibilityHidden(true)}
+                    }
                     WatchTransport(isPlaying:audio.isPlaying,device:"Watch",previous:{audio.previous()},toggle:{audio.toggle()},next:{audio.next()})
                     Button{presented = .seek}label:{VStack(spacing:3){ProgressView(value:min(max(0,audio.elapsed),max(audio.duration,1)),total:max(audio.duration,1)).tint(watchLime);HStack{Text(watchTime(audio.elapsed));Spacer();Text(watchTime(audio.duration))}.font(.caption2.monospacedDigit()).foregroundStyle(.secondary)}.frame(minHeight:44).contentShape(Rectangle())}.buttonStyle(.plain).disabled(audio.duration<=0).accessibilityLabel("Seek in track").accessibilityValue(watchTime(audio.elapsed)+" of "+watchTime(audio.duration)).accessibilityIdentifier("watch.seek")
                     HStack(spacing:0){
                         Button{audio.shuffle()}label:{Image(systemName:"shuffle").frame(maxWidth:.infinity,minHeight:44).contentShape(Rectangle()).foregroundStyle(audio.isShuffled ? watchLime : .secondary)}.accessibilityLabel("Shuffle").accessibilityValue(audio.isShuffled ? "On" : "Off")
-                        Button{presented = .queue}label:{Image(systemName:"list.bullet").frame(maxWidth:.infinity,minHeight:44)}.accessibilityLabel("Open queue").accessibilityIdentifier("watch.queue")
+                        Button{presented = .queue}label:{Image(systemName:"list.bullet").frame(maxWidth:.infinity,minHeight:44).contentShape(Rectangle())}.accessibilityLabel("Open queue").accessibilityIdentifier("watch.queue")
                         Button{audio.cycleRepeat()}label:{Image(systemName:audio.repeatMode == .one ? "repeat.1" : "repeat").frame(maxWidth:.infinity,minHeight:44).contentShape(Rectangle()).foregroundStyle(audio.repeats ? watchLime : .secondary)}.accessibilityLabel(audio.repeatMode.label)
                     }.buttonStyle(.plain)
-                    WatchVolume().frame(height:35).accessibilityLabel("Watch volume")
                     if let error=audio.error{Text(error).font(.caption2).foregroundStyle(.orange);Button("Retry playback"){audio.retryCurrent()}}
                 }else{
                     Image(systemName:"headphones").font(.largeTitle).foregroundStyle(watchLime)
@@ -185,9 +200,4 @@ struct WatchSettings:View {
         }.padding(.vertical,12)}
             .confirmationDialog("Erase saved music?",isPresented:$erase,titleVisibility:.visible){Button("Erase music",role:.destructive){store.clear()}}message:{Text("Music is removed from this Watch. Send a fresh playlist from your iPhone to listen again.")}
     }
-}
-
-struct WatchVolume:WKInterfaceObjectRepresentable {
-    func makeWKInterfaceObject(context:Context)->WKInterfaceVolumeControl{WKInterfaceVolumeControl(origin:.local)}
-    func updateWKInterfaceObject(_ object:WKInterfaceVolumeControl,context:Context){}
 }

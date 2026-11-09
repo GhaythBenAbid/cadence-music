@@ -1,7 +1,7 @@
 import XCTest
 
 final class CadenceWatchUITests:XCTestCase {
-    override func setUpWithError()throws{continueAfterFailure=false}
+    override func setUpWithError()throws{continueAfterFailure=false;XCUIApplication().terminate()}
     private func launch(largeText:Bool=false)->XCUIApplication{
         let app=XCUIApplication();app.launchArguments=["--demo","--watch-ui-testing"];if largeText{app.launchArguments.append("--watch-large-text")};app.launch();return app
     }
@@ -27,6 +27,65 @@ final class CadenceWatchUITests:XCTestCase {
         let apply=app.buttons["watch.seek.apply"];XCTAssertTrue(app.descendants(matching:.any)["watch.seek.slider"].firstMatch.waitForExistence(timeout:5));capture("Watch seeking")
         reveal(apply,in:app);apply.tap();XCTAssertTrue(transport.waitForExistence(timeout:5))
         if transport.label=="Pause Watch"{transport.tap()}
+    }
+    func testCrownDoesNotScrollTheNowPlayingControls(){
+        let app=launch(),play=app.buttons["watch.play"];XCTAssertTrue(play.waitForExistence(timeout:15));reveal(play,in:app);play.tap()
+        let transport=app.buttons["watch.transport.play"];XCTAssertTrue(transport.waitForExistence(timeout:8));let initial=transport.frame.minY
+        XCUIDevice.shared.rotateDigitalCrown(delta:1)
+        XCTAssertTrue(transport.isHittable,"Crown volume must not scroll the player out of view")
+        XCTAssertEqual(transport.frame.minY,initial,accuracy:3,"Crown input should reach volume, not page scrolling")
+        capture("Watch Crown volume")
+        if transport.isHittable,transport.label=="Pause Watch"{transport.tap()}
+    }
+    func testPhoneNowPlayingLaunchSelectsPhoneControls(){
+        let app=XCUIApplication();app.launchArguments=["--demo","--watch-ui-testing","--remote-now-playing"];app.launch()
+        XCTAssertTrue(app.buttons["watch.remote.reconnect"].waitForExistence(timeout:10))
+        XCTAssertEqual(app.buttons["watch.device"].firstMatch.label,"Playback device: iPhone")
+    }
+    func testTouchPauseResume(){
+        let app=launch(),play=app.buttons["watch.play"];XCTAssertTrue(play.waitForExistence(timeout:15));play.tap()
+        let transport=app.buttons["watch.transport.play"]
+        func expect(_ label:String){XCTAssertEqual(XCTWaiter.wait(for:[XCTNSPredicateExpectation(predicate:NSPredicate(format:"label == %@",label),object:transport)],timeout:6),.completed)}
+        expect("Pause Watch");transport.tap();expect("Play Watch");transport.tap();expect("Pause Watch");transport.tap();expect("Play Watch")
+    }
+    func testRemoteCrownVolumeInput()throws{
+        let app=XCUIApplication();app.launchArguments=["--demo","--watch-ui-testing","--remote-volume-fixture"];app.launch()
+        let volume=app.buttons["watch.remote.volume"];XCTAssertTrue(volume.waitForExistence(timeout:10));XCTAssertEqual(volume.value as? String,"50 percent")
+        XCUIDevice.shared.rotateDigitalCrown(delta:1)
+        let changed=XCTNSPredicateExpectation(predicate:NSPredicate(format:"value != %@","50 percent"),object:volume)
+        XCTAssertEqual(XCTWaiter.wait(for:[changed],timeout:5),.completed)
+        let text=try XCTUnwrap(volume.value as? String),percent=try XCTUnwrap(Int(text.filter(\.isNumber)))
+        XCTAssertTrue((0...100).contains(percent))
+        let applied=app.staticTexts["watch.fixture.applied-volume"]
+        let acknowledged=XCTNSPredicateExpectation(predicate:NSPredicate(format:"label == %@","Applied \(percent) percent"),object:applied)
+        XCTAssertEqual(XCTWaiter.wait(for:[acknowledged],timeout:5),.completed)
+        try app.performAccessibilityAudit(for:[.hitRegion,.sufficientElementDescription,.contrast,.trait])
+        capture("Watch remote Crown volume")
+    }
+    func testLibraryAndQueueAccessibility()throws{
+        let app=launch(),play=app.buttons["watch.play"];XCTAssertTrue(play.waitForExistence(timeout:15))
+        try app.performAccessibilityAudit(for:[.hitRegion,.sufficientElementDescription,.contrast,.trait])
+        app.buttons["watch.device"].firstMatch.tap();XCTAssertTrue(app.buttons["watch.device.watch"].waitForExistence(timeout:5))
+        try app.performAccessibilityAudit(for:[.hitRegion,.sufficientElementDescription,.contrast,.trait])
+        app.buttons["watch.device.watch"].tap()
+        reveal(play,in:app);play.tap();let queue=app.buttons["watch.queue"];XCTAssertTrue(queue.waitForExistence(timeout:8));reveal(queue,in:app);queue.tap()
+        XCTAssertTrue(app.staticTexts["Up next · 2"].waitForExistence(timeout:5))
+        try app.performAccessibilityAudit(for:[.hitRegion,.sufficientElementDescription,.contrast,.trait])
+    }
+    func testNowPlayingAccessibility()throws{
+        let app=launch(),play=app.buttons["watch.play"];XCTAssertTrue(play.waitForExistence(timeout:15));reveal(play,in:app);play.tap()
+        let transport=app.buttons["watch.transport.play"];XCTAssertTrue(transport.waitForExistence(timeout:8))
+        try app.performAccessibilityAudit(for:[.hitRegion,.sufficientElementDescription,.contrast,.trait])
+        if transport.label=="Pause Watch"{transport.tap()}
+    }
+    func testDimmedPlayerUsesMinimalLayout(){ambientFlow()}
+    func testLargeTextDimmedLayout(){ambientFlow(largeText:true)}
+    private func ambientFlow(largeText:Bool=false){
+        let app=XCUIApplication();app.launchArguments=["--demo","--watch-ui-testing","--watch-dimmed"];if largeText{app.launchArguments.append("--watch-large-text")};app.launch()
+        XCTAssertTrue(app.otherElements["watch.ambient"].firstMatch.waitForExistence(timeout:10),"Wrist-down mode must use the ambient player")
+        XCTAssertTrue(app.staticTexts["First Light"].exists)
+        XCTAssertFalse(app.buttons["watch.transport.play"].exists,"Bright transport controls must not remain in Always On mode")
+        capture("Watch dimmed player")
     }
     func testDisconnectedMacOffersSavedWatchMusic(){
         let app=launch(),device=app.buttons["watch.device"].firstMatch

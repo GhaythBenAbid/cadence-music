@@ -26,7 +26,7 @@ import CadenceCore
         prepareAudio();resumeInbox()
         if ProcessInfo.processInfo.arguments.contains("--demo"){enterDemo()}
         #if DEBUG
-        if ProcessInfo.processInfo.arguments.contains("--watch-ui-testing"){audio.volume=0}
+        if ProcessInfo.processInfo.arguments.contains("--watch-ui-testing"){audio.volume=0;if ProcessInfo.processInfo.arguments.contains("--watch-dimmed"){play()}}
         #endif
     }
     private func prepareAudio(){audio.configureSession(account:local.mix.map{$0.accountKey+":"+$0.id},resolver:{[weak self] in self?.local.localURL($0)},artwork:{[weak self] in self?.local.artwork($0)})}
@@ -86,6 +86,12 @@ import CadenceCore
 }
 @MainActor final class WatchDelegate:NSObject,WKApplicationDelegate {
     func applicationDidFinishLaunching(){_ = WatchStore.shared;_ = WatchBackgroundTracker.shared}
+    func handleRemoteNowPlayingActivity(){
+        let store=WatchStore.shared
+        store.audio.pause()
+        UserDefaults.standard.set("phone",forKey:"playbackSource")
+        store.bridge.requestPlayback(target:"phone")
+    }
     func handle(_ backgroundTasks:Set<WKRefreshBackgroundTask>){
         _ = WatchStore.shared
         for task in backgroundTasks{

@@ -46,9 +46,19 @@ The player keeps the main transport buttons near the track title. Tap the progre
 
 Remote playback shows the selected device and its playing, paused or unavailable state. Commands are disabled without a usable connection; the unavailable view offers **Open saved Watch music**. Polling is limited to the active Watch UI. iPhone and Mac remote controls keep their existing companion protocol and foreground/network requirements; the local Watch queue screen does not edit the remote queue.
 
-[Library preview](screenshots/09-watch-library.png) · [Player preview](screenshots/08-watch-player.png) · [Queue preview](screenshots/10-watch-queue.png). These screenshots use original demo audio on the simulator.
+[Library preview](screenshots/09-watch-library.png) · [Player preview](screenshots/08-watch-player.png) · [Queue preview](screenshots/10-watch-queue.png) · [Always On preview](screenshots/11-watch-ambient.png). These screenshots use original demo audio on the simulator.
 
 These changes improve software behavior and simulator usability. Physical Bluetooth, wrist-down/background playback and phone-off acceptance remain pending.
+
+### Native input and Always On in 0.7.4
+
+The player now focuses the visible local volume control for the Digital Crown. iPhone/Mac volume uses the same bounded remote volume command as before, with a focused Crown control and slider/accessible adjustment alternatives. Native volume views are mounted only on the active player page; queue/seek sheets and other pages retain their navigation focus. VoiceOver suppresses automatic volume focus.
+
+Wrist-down Always On rendering uses `isLuminanceReduced`: black background, gray track/artist/status text, no artwork or large bright fills, and no elapsed-time labels. It preserves the audio controller; raising the wrist returns to the player. watchOS owns actual screen brightness. This improves the supplied pixels; it is not a measured claim about battery life.
+
+The native iPhone audio-launch event opens iPhone controls when the system delivers it. Actual auto-launch remains controlled by watchOS and the user's settings.
+
+See the [Watch accessibility and feature review](WATCH-ACCESSIBILITY.md) for supported controls, automated-check scope, physical checks and optional features that are not implemented.
 
 ### Compatibility and migration
 

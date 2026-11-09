@@ -6,9 +6,8 @@ struct PhoneRemoteView:View {
     @ObservedObject var bridge:WatchBridge
     var target="phone"
     var useOffline:()->Void
+    var controlsActive=true
     @State private var seeking=false
-    @State private var volumeValue=1.0
-    @State private var changingVolume=false
     private var name:String{target=="mac" ? "Mac" : "iPhone"}
     private var state:PhonePlayback?{target=="mac" ? bridge.macRemote.playback : bridge.phonePlayback}
     private var connected:Bool{
@@ -26,7 +25,7 @@ struct PhoneRemoteView:View {
         ScrollView{
             VStack(spacing:6){
                 if let state,let song=state.song{
-                    WatchTrackHeading(song:song,artwork:state.artwork)
+                    HStack(spacing:4){WatchTrackHeading(song:song,showsArtwork:false);WatchRemoteVolume(value:state.volume,enabled:connected,active:controlsActive && !seeking,device:name,send:{control(.volume,value:$0)})}
                     WatchTransport(isPlaying:state.isPlaying,device:name,previous:{control(.previous)},toggle:{control(state.isPlaying ? .pause : .play)},next:{control(.next)}).disabled(!connected)
                     Button{seeking=true}label:{VStack(spacing:3){ProgressView(value:max(0,min(state.elapsed,max(1,state.duration))),total:max(1,state.duration)).tint(watchLime);HStack{Text(watchTime(state.elapsed));Spacer();Text(watchTime(state.duration))}.font(.caption2.monospacedDigit()).foregroundStyle(.secondary)}.frame(minHeight:44).contentShape(Rectangle())}.buttonStyle(.plain).disabled(!connected || state.duration<=0).accessibilityLabel("Seek on "+name).accessibilityIdentifier("watch.remote.seek")
                     Text(status).font(.caption2).foregroundStyle(connected ? Color.secondary : Color.orange)
@@ -34,11 +33,6 @@ struct PhoneRemoteView:View {
                         Button{control(.shuffle,value:state.shuffled ? 0 : 1)}label:{Image(systemName:"shuffle").frame(maxWidth:.infinity,minHeight:44).contentShape(Rectangle()).foregroundStyle(state.shuffled ? watchLime : .secondary)}.accessibilityLabel("Shuffle "+name).accessibilityValue(state.shuffled ? "On" : "Off")
                         Button{control(.repeatMode,value:state.repeats ? 0 : 1)}label:{Image(systemName:"repeat").frame(maxWidth:.infinity,minHeight:44).contentShape(Rectangle()).foregroundStyle(state.repeats ? watchLime : .secondary)}.accessibilityLabel("Repeat "+name).accessibilityValue(state.repeats ? "On" : "Off")
                     }.buttonStyle(.plain).disabled(!connected)
-                    Label(name+" Cadence volume",systemImage:"speaker.wave.2").font(.caption2).foregroundStyle(.secondary)
-                    Slider(value:Binding(get:{changingVolume ? volumeValue : state.volume},set:{volumeValue=$0}),in:0...1,onEditingChanged:{editing in
-                        if editing{volumeValue=state.volume;changingVolume=true}
-                        else{changingVolume=false;if connected{control(.volume,value:volumeValue)}}
-                    }).tint(watchLime).disabled(!connected).accessibilityLabel(name+" Cadence volume")
                 }else{
                     Image("CadenceMarkLime").resizable().scaledToFit().frame(width:38,height:38)
                     Text(connected ? "Ready on "+name : "Connect your "+name).font(.title3.bold()).multilineTextAlignment(.center)

@@ -25,6 +25,6 @@ The app asks Aurral to prepare missing audio and surfaces its state. It does not
 3. Improve recovery diagnostics and accessibility through real-device feedback.
 4. Expand public distribution beyond the signed/notarized Mac download: clear iPhone/Watch beta availability and continued physical-device acceptance.
 
-Lyrics, advanced equalizer/crossfade, social features, collaborative/cloud-synced listening profiles, remote wake and a public music service are not delivered features. Roadmap items are proposals, not release promises.
+Custom Double Tap Play/Pause, Siri/App Shortcuts, a Watch complication/Smart Stack widget, independent Watch streaming, workout tracking, lyrics, advanced equalizer/crossfade, social features, collaborative/cloud-synced listening profiles, remote wake and a public music service are not delivered features. Roadmap items are proposals, not release promises.
 
 See [QA](QA.md) for verification evidence and [changelog](../CHANGELOG.md) for shipped milestones.
