@@ -1,8 +1,18 @@
 # Testing and verification
 
-## Verified baseline: 0.7.0 (16)
+## Current source and distribution
 
-These are recorded local results for the released implementation, not a claim that every contributor or CI host has run them:
+The current source is **0.7.5 (21)**. The public Mac installer is **0.7.2 (18)**. Results below are dated implementation records; later Watch-specific sections describe the newer source checks. The [source CI workflow](https://github.com/bahachammakhi/cadence-music/actions/workflows/ci.yml) reports current branch health.
+
+## Repository health check — 10 November 2026
+
+Source commit `d160c194f9d04527afb832d1e53eb413a5b1b278` passed both [hosted CI jobs](https://github.com/bahachammakhi/cadence-music/actions/runs/42615840753): Mac/Core checks and iPhone/Watch checks. A fresh local run on Xcode 27.2 passed all 48 Core tests, three release-helper tests, an unsigned Mac build and all three native Mac tests. XcodeGen regeneration left the committed project unchanged, and local documentation links resolved.
+
+This check changes documentation only. It does not add new physical Watch acceptance, a newer public Mac installer or a public TestFlight invitation.
+
+## Historical baseline: 0.7.0 (16)
+
+These are recorded local results for that implementation milestone, not a claim that every contributor or CI host has run them:
 
 | Check | Result |
 |---|---|
@@ -22,7 +32,7 @@ Follow [BUILDING.md](BUILDING.md) for exact package, script, Mac and iOS simulat
 
 Optional live tests deliberately skip unless a local private fixture authorizes them. Read each test's fixture schema and side effects before supplying one; never include real fixtures in Git, CI, screenshots or issues. Live tests can download/acquire music, edit server state or move playback. Use a dedicated account/library and authorized content. Host directories and credentials are intentionally not documented as copy/paste defaults.
 
-CI covers deterministic Core/script tests, XcodeGen generation, an unsigned Mac build and native Mac tests. The transport test may skip without Tailscale. Hosted CI is neither a production-server contract check nor physical Watch acceptance.
+CI covers deterministic Core/script tests, XcodeGen generation, an unsigned Mac build, native Mac tests, a Watch simulator app/UI-test bundle build, iPhone app unit tests and the fresh-user Server URL UI check. The transport test may skip without Tailscale. Hosted CI is neither a production-server contract check nor physical Watch acceptance.
 
 ## Manual acceptance before a dependable running release
 

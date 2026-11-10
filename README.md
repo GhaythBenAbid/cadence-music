@@ -1,5 +1,9 @@
 # Cadence
 
+[![Source checks](https://github.com/bahachammakhi/cadence-music/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bahachammakhi/cadence-music/actions/workflows/ci.yml)
+[![Latest Mac release](https://img.shields.io/github/v/release/bahachammakhi/cadence-music?label=Mac%20download)](https://github.com/bahachammakhi/cadence-music/releases/latest)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 <img src="Resources/Brand/cadence-app-icon.png" width="96" alt="Cadence logo" />
 
 Your music on iPhone and Mac. Your running soundtrack on Apple Watch.
@@ -17,17 +21,27 @@ The source is MIT licensed. There is no subscription or paid API built into Cade
 
 *Mac/phone images show earlier demos; the Watch image shows the 0.7.4 simulator player with original demo audio. Simulator imagery does not establish physical-device acceptance.*
 
-**Mac 0.7.2 (18):** [Download the signed and Apple-notarized ZIP](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.2/Cadence-Mac-0.7.2-18.zip) · [SHA-256 checksum](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.2/Cadence-Mac-0.7.2-18.zip.sha256). Supports Apple Silicon and Intel on macOS 14+. Unzip, drag Cadence.app into Applications, and open it. Enter your own Server URL/account or choose Explore demo. The archive includes the MIT license and asset notices.
+## Get Cadence
 
-When moving from a development-signed Mac build, macOS may ask for Keychain access to its saved login. Review that system prompt yourself; do not delete your credentials or disable security protections.
+| Platform | Available now | Requirements |
+|---|---|---|
+| Mac | [Download 0.7.2 (18)](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.2/Cadence-Mac-0.7.2-18.zip) · [SHA-256 checksum](https://github.com/bahachammakhi/cadence-music/releases/download/v0.7.2/Cadence-Mac-0.7.2-18.zip.sha256) | macOS 14+, Apple Silicon or Intel |
+| iPhone + Apple Watch | [Build from source](docs/BUILDING.md), or use an existing private beta invitation | iOS 18+ and watchOS 10+ |
+| Latest source | **0.7.5 (21)** on `main` · [Changelog](CHANGELOG.md) | Mac with full Xcode and XcodeGen |
 
-Server URL starts blank on iPhone and Mac. iPhone/Watch 0.7.2 (18) has been submitted for external TestFlight review and is waiting for Apple approval. No public join link is available yet; use source builds or an existing private beta invitation. Physical Watch acceptance remains pending as described below. [Review-status record](docs/releases/0.7.2-testflight.json).
+The Mac download is Developer ID signed and Apple-notarized. Unzip, drag **Cadence.app** into **Applications**, and open it. Choose **Explore demo** or enter your own Server URL/account. The archive includes the MIT license and asset notices.
+
+**The latest source is newer than the public Mac download.** Source 0.7.5 adds the recent Watch navigation, Crown volume, accessibility and wake/playback recovery improvements. Build from `main` to try them; the 0.7.2 Mac ZIP does not include these later source changes.
+
+No public TestFlight join link is published here. The last [public review-status record](docs/releases/0.7.2-testflight.json), dated **8 November 2026**, records 0.7.2 (18) waiting for external review; it does not establish the status of newer private builds. Physical Watch acceptance remains pending. See [verification and known gaps](docs/QA.md).
+
+Server URL starts blank on iPhone and Mac. When moving from a development-signed Mac build, macOS may ask for Keychain access to its saved login. Review that system prompt yourself; do not delete your credentials or disable security protections.
 
 [Report a bug](https://github.com/bahachammakhi/cadence-music/issues/new/choose) · [Report a vulnerability privately](https://github.com/bahachammakhi/cadence-music/security/advisories/new)
 
-## Try it
+## Try the demo
 
-Build and run the **CadenceMac** scheme, then select **Explore demo**. No account, server, signing credentials or third-party music is needed for the demo's three original instrumental clips.
+Build and run the **CadenceMac** scheme, then select **Explore demo**. Browse the sample library, play a clip and try the queue before connecting a server. No account, server, signing credentials or third-party music is needed for the demo's three original instrumental clips.
 
 ```sh
 git clone https://github.com/bahachammakhi/cadence-music.git
@@ -40,7 +54,7 @@ xcodebuild -project Cadence.xcodeproj -scheme CadenceMac \
 open .build/Mac/Build/Products/Debug/Cadence.app
 ```
 
-A Mac with full Xcode selected is required; Command Line Tools alone are insufficient. This unsigned build is for local development. See [building](docs/BUILDING.md) for iPhone/Watch, simulator tests and signing a fork.
+A Mac with full Xcode selected is required (last verified with **Xcode 27.2**); Command Line Tools alone are insufficient. This unsigned build is for local development. See [building](docs/BUILDING.md) for iPhone/Watch, simulator tests and signing a fork.
 
 For your own library, enter your **HTTPS Aurral URL, username and password** at sign-in. No server address or shared credentials are supplied. If the server is private to Tailscale, connect that device to your tailnet first. [Setup and first listen](docs/SETUP.md).
 
@@ -57,6 +71,12 @@ For your own library, enter your **HTTPS Aurral URL, username and password** at 
 - Up to 10 offline Watch playlists, 100 tracks each, with verified transfer receipts and shared-file reuse.
 - Watch device chooser, compact playback controls, local queue/seek screens, offline readiness and paused-session resume.
 - Crown volume, a minimal Always On layout, native iPhone audio-launch routing and accessible control actions.
+
+## Latest Watch improvements
+
+Source 0.7.3–0.7.5 adds a device chooser, queue editing and seeking, offline readiness, Crown volume and a minimal Always On player. The latest fixes restore controls on wrist wake, retain the player through dimming and prevent automatic iPhone audio activity from interrupting active Watch playback. Explicit device selection still switches playback.
+
+The 0.7.5 suite passed 17 UI cases on each of the 40 mm and 46 mm Watch simulators. The follow-up compiler fix passed the five affected cases again. Real Watch background playback, Bluetooth, phone-off runs and battery behavior still need hardware acceptance. [Watch controls and accessibility](docs/WATCH-ACCESSIBILITY.md) · [Detailed test evidence](docs/QA.md).
 
 ## Compatibility and limits
 
