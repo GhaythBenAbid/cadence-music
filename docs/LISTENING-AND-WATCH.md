@@ -46,7 +46,7 @@ The player keeps the main transport buttons near the track title. Tap the progre
 
 Remote playback shows the selected device and its playing, paused or unavailable state. Commands are disabled without a usable connection; the unavailable view offers **Open saved Watch music**. Polling is limited to the active Watch UI. iPhone and Mac remote controls keep their existing companion protocol and foreground/network requirements; the local Watch queue screen does not edit the remote queue.
 
-[Library preview](screenshots/09-watch-library.png) · [Player preview](screenshots/08-watch-player.png) · [Queue preview](screenshots/10-watch-queue.png) · [Always On preview](screenshots/11-watch-ambient.png). These screenshots use original demo audio on the simulator.
+[Library preview](screenshots/mockups/09-watch-library-watch.png) · [Player preview](screenshots/mockups/08-watch-player-watch.png) · [Queue preview](screenshots/mockups/10-watch-queue-watch.png) · [Always On preview](screenshots/mockups/11-watch-ambient-watch.png). These screenshots use original demo audio on the simulator.
 
 These changes improve software behavior and simulator usability. Physical Bluetooth, wrist-down/background playback and phone-off acceptance remain pending.
 

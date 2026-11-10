@@ -12,14 +12,14 @@ Cadence is a native SwiftUI client for a music server you control. It focuses on
 
 The source is MIT licensed. There is no subscription or paid API built into Cadence. **You bring your own server and music sources.** A catalog search result is metadata, not a guarantee that full audio is available. Cadence does not provide a free Spotify catalog, hosted accounts or a music service.
 
-<img src="docs/screenshots/07-mac.png" width="900" alt="Cadence Mac demo library with original Easy Miles artwork" />
+<img src="docs/screenshots/mockups/07-mac-macbook.png" width="900" alt="Cadence Mac demo library with original Easy Miles artwork, shown on a MacBook" />
 
 <p>
-  <img src="docs/screenshots/01-library.png" width="235" alt="Cadence iPhone demo library" />
-  <img src="docs/screenshots/08-watch-player.png" width="210" alt="Cadence 0.7.4 Watch simulator showing offline playback controls" />
+  <img src="docs/screenshots/mockups/01-library-iphone.png" width="300" alt="Cadence iPhone demo library, shown on an iPhone" />
+  <img src="docs/screenshots/mockups/08-watch-player-watch.png" width="240" alt="Cadence 0.7.4 Watch simulator showing offline playback controls, shown on an Apple Watch" />
 </p>
 
-*Mac/phone images show earlier demos; the Watch image shows the 0.7.4 simulator player with original demo audio. Simulator imagery does not establish physical-device acceptance.*
+*Screenshots are shown in generic device frames. Mac/phone images show earlier demos; the Watch image shows the 0.7.4 simulator player with original demo audio. Simulator imagery does not establish physical-device acceptance.*
 
 ## Get Cadence
 

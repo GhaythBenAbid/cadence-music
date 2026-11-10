@@ -72,7 +72,7 @@ The GitHub workflow runs package/script tests, project generation, an unsigned M
 
 ## Changing resources
 
-`swift Scripts/generate-icon.swift` regenerates original brand assets. `python3 Scripts/generate-demo.py` regenerates original short demo WAVs. See [brand notes](../Resources/Brand/README.md). Do not replace the demo with copyrighted recordings or publish live account screenshots.
+`swift Scripts/generate-icon.swift` regenerates original brand assets. `python3 Scripts/generate-demo.py` regenerates original short demo WAVs. `python3 Scripts/generate-device-mockups.py` (ImageMagick 7) redraws the README device-frame images from `docs/screenshots`. See [brand notes](../Resources/Brand/README.md). Do not replace the demo with copyrighted recordings or publish live account screenshots.
 
 ## Watch UI checks
 

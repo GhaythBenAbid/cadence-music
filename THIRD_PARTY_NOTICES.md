@@ -4,7 +4,7 @@
 
 Cadence source and documentation are licensed under [MIT](LICENSE). The original Cadence mark, generated icon/artwork and generated demo audio included here are covered by that license as well. The project does not grant an exclusive trademark right or imply endorsement of a fork.
 
-`Scripts/generate-icon.swift` creates the original Core Graphics brand geometry; `Scripts/generate-demo.py` synthesizes three short instrumental WAVs. The retained README screenshots show original demo artwork/music and app UI, not commercial album covers. These are sample materials, not a mainstream music catalog.
+`Scripts/generate-icon.swift` creates the original Core Graphics brand geometry; `Scripts/generate-demo.py` synthesizes three short instrumental WAVs. `Scripts/generate-device-mockups.py` draws original, generic device frames around those screenshots; it does not use Apple marketing device art. The retained README screenshots show original demo artwork/music and app UI, not commercial album covers. These are sample materials, not a mainstream music catalog.
 
 ## Platform resources
 
