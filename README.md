@@ -78,6 +78,20 @@ Source 0.7.3–0.7.5 adds a device chooser, queue editing and seeking, offline r
 
 The 0.7.5 suite passed 17 UI cases on each of the 40 mm and 46 mm Watch simulators. The follow-up compiler fix passed the five affected cases again. Real Watch background playback, Bluetooth, phone-off runs and battery behavior still need hardware acceptance. [Watch controls and accessibility](docs/WATCH-ACCESSIBILITY.md) · [Detailed test evidence](docs/QA.md).
 
+## Supported servers and services
+
+**Cadence is an Aurral client with partial Subsonic compatibility.** Aurral is the tested server path; connecting another Subsonic-compatible server does not provide Aurral's native features.
+
+| Server or service | What works |
+|---|---|
+| **Aurral** | Tested library playback, Discover, playlist imports and audio preparation; availability depends on server permissions and configured sources |
+| **Other Subsonic-compatible servers** | Basic library browsing and playback may work; compatibility is unverified and not guaranteed. Aurral-specific Discover, imports and preparation require Aurral |
+| **Spotify** | Playlist metadata/import through Aurral; no direct Spotify audio streaming |
+| **Apple Music / iTunes catalog** | Public metadata search; no Apple Music subscription playback or account integration |
+| **Demo mode** | Bundled original music and sample library; no server or account required |
+
+See [server compatibility and test coverage](docs/COMPATIBILITY.md) for the exact verified versions and [setup](docs/SETUP.md) for connection requirements.
+
 ## Compatibility and limits
 
 | Area | Current scope |
@@ -99,6 +113,7 @@ Free, instant, reliable access to every mainstream recording is not something th
 ## Documentation
 
 - [Setup, playback and Spotify imports](docs/SETUP.md)
+- [Supported servers, services and compatibility evidence](docs/COMPATIBILITY.md)
 - [Build and test from source](docs/BUILDING.md)
 - [Product scope and roadmap](docs/PRODUCT.md)
 - [Listening, preparation and Watch playlists](docs/LISTENING-AND-WATCH.md)

@@ -2,7 +2,11 @@
 
 ## Bring your own server
 
-Cadence is a client, not an Aurral installer or a music provider. Obtain an Aurral account on a server you control or are authorized to use. Cadence 0.7.2 supports native API v1 (tested with Aurral 2.12.0) and the consumed API v2 routes (verified against upstream source `743b57d`). Library playback uses Subsonic endpoints; Discover, importing and preparation also need Aurral's native endpoints.
+Cadence is a client, not an Aurral installer or a music provider. Obtain an Aurral account on a server you control or are authorized to use. Starting with Cadence 0.7.2, the client supports native API v1 (tested with Aurral 2.12.0) and the consumed API v2 routes (verified against upstream source `743b57d`). Library playback uses Subsonic endpoints; Discover, importing and preparation also need Aurral's native endpoints.
+
+**Using another server?** Basic browsing and playback may work with a Subsonic-compatible server, but other implementations are unverified and full compatibility is not guaranteed. Aurral-specific Discover, Spotify imports and audio preparation require Aurral's native API. Spotify is an import source through Aurral, and Apple Music/iTunes provides public search metadata; neither is a direct subscription-playback connection. See the [server and service compatibility guide](COMPATIBILITY.md).
+
+To try Cadence without any server or service account, choose **Explore demo** on iPhone or Mac. It uses the bundled original audio and sample library.
 
 On iPhone and Mac, the login form has an always-visible **Server URL** field above username/password. It starts blank; `https://music.example.com` is a placeholder, not a configured service. Existing signed-in installations keep their own Keychain credentials. To switch servers, sign out (which removes local downloads), then enter the new URL and account. The Watch is an iPhone companion: it receives music/control state from the paired phone and has no server login or stored server credentials.
 

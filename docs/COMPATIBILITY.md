@@ -2,6 +2,20 @@
 
 Cadence uses two separate contracts: Subsonic for available library audio, and Aurral's native JSON API for Discover, playlist imports and preparation. Support for a native version does not certify every external acquisition or metadata provider.
 
+## Choosing a server or service
+
+**Aurral is the tested server path.** Cadence has partial Subsonic compatibility, not a verified general-purpose server integration.
+
+| Connection | Supported scope | Limits |
+|---|---|---|
+| Aurral | Library browsing/playback plus native Discover, playlist imports and preparation | Verified versions are listed below; permissions and source configuration still apply |
+| Other Subsonic-compatible servers | Basic library browsing and playback may work through the existing Subsonic routes | No other server is certified here. Aurral's native Discover, import and preparation routes are required for those features |
+| Spotify | Playlist metadata/import through Aurral | No direct Spotify audio streaming; any required Spotify connection is configured on the server |
+| Apple Music / iTunes catalog | Public metadata search | No subscription playback, Apple Music account sign-in or personal-library integration |
+| Demo mode | Original bundled audio and sample library | No server, external service account or real music library needed |
+
+A successful sign-in to another Subsonic server does not establish full feature compatibility. Missing native routes can leave Discover, importing or preparation unavailable. No direct integrations with other server protocols are claimed. Use [setup](SETUP.md) for the HTTPS connection requirements, and report the server/version and failing action when testing another implementation.
+
 ## Covered versions
 
 | Provider | Evidence |
